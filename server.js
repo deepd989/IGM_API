@@ -23,12 +23,32 @@ if (!fs.existsSync(IMAGE_DIR)) {
     fs.mkdirSync(IMAGE_DIR);
 }
 
+const DP_DIR = path.join(__dirname, 'userDp');
+if (!fs.existsSync(DP_DIR)) {
+    fs.mkdirSync(DP_DIR);
+}
+
 const formatFileForGemini = (file) => ({
     inlineData: {
         data: file.buffer.toString('base64'),
         mimeType: file.mimetype
     }
 });
+
+const getStoredUserFace = (userId) => {
+    const fileName = `dp_${userId}.png`;
+    const filePath = path.join(DP_DIR, fileName);
+    if (!fs.existsSync(filePath)) return null;
+
+    const buffer = fs.readFileSync(filePath);
+    return {
+        inlineData: {
+            data: buffer.toString('base64'),
+            mimeType: 'image/png'
+        }
+    };
+};
+
 
 const buildPromptText = (outfitType, outfitColor, files) => {
     let outfitStr = outfitType 
@@ -106,80 +126,43 @@ const saveImageToDisk = (buffer, filename) => {
     return filePath;
 };
 
-const validateRequest = (req) => {
+const validateUserIdProductId = (req) => {
     if (!req.body.userId || !req.body.productId) {
         return { valid: false, message: "userId and productId are required." };
     }
-
-    // Check if userFace exists in either .file (single) or .files (fields)
-    const userFace = req.file || (req.files && req.files['userFace'] ? req.files['userFace'][0] : null);
-    
-    if (!userFace) {
-        return { valid: false, message: "userFace image is required." };
-    }
-
     return { valid: true };
 };
 
 // --- 3. Controller / Route ---
 
-app.post('/generateImage', upload.fields([
-    { name: 'userFace', maxCount: 1 },
-    { name: 'earring', maxCount: 1 }, 
-    { name: 'necklace', maxCount: 1 },
-    { name: 'ring', maxCount: 1 },
-    { name: 'pendant', maxCount: 1 },
-    { name: 'bracelet', maxCount: 1 },
-    { name: 'bangle', maxCount: 1 }
-]), async (req, res) => {
+app.post('/uploadDp', upload.single('userFace'), (req, res) => {
     try {
-        const userId = req.body.userId;
-        const productId = req.body.productId;
-        const outfitType = req.body.outfitType || 'suit';
-        const outfitColor = req.body.outfitColor || 'black';
+        const { userId } = req.body;
+        const file = req.file;
 
-        // Validation
-        const validation = validateRequest(req);
-        if (!validation.valid) {
-            return res.status(400).json({ error: validation.message });
+        if (!userId || !file) {
+            return res.status(400).json({ error: "userId and userFace image are required." });
         }
-        
 
+        const fileName = `dp_${userId}.png`;
+        const filePath = path.join(DP_DIR, fileName);
 
+        fs.writeFileSync(filePath, file.buffer);
 
-        // 1. Build Text Instruction
-        const promptText = buildPromptText(outfitType, outfitColor, files);
-
-        // 2. Prepare Multimodal Parts (Text + Images)
-        const promptParts = [{ text: promptText }];
-        
-        // Add all uploaded images to the parts array
-        Object.keys(files).forEach(key => {
-            promptParts.push(formatFileForGemini(files[key][0]));
+        res.status(200).json({ 
+            message: "Profile picture uploaded successfully.",
+            fileName: fileName 
         });
-
-        // 3. Request Generation
-        const imagePart = await callGeminiImageGenerator(promptParts);
-
-        if (!imagePart) {
-            throw new Error("Model failed to generate an image.");
-        }
-
-        // 4. Send Response
-        const imgBuffer = Buffer.from(imagePart.inlineData.data, 'base64');
-        const fileName = `${productId}_${userId}`;
-        saveImageToDisk(imgBuffer, fileName);
-        res.set('Content-Type', imagePart.inlineData.mimeType);
-        res.send(imgBuffer);
-
     } catch (error) {
-        console.error("Generation Error:", error);
+        console.error("DP Upload Error:", error);
         res.status(500).json({ error: error.message });
     }
 });
 
-app.post('/generateImageByUrl', upload.single('userFace'), async (req, res) => {
+
+app.post('/generateImageByUrl',upload.none(), async (req, res) => {
     try {
+        console.log("Received /generateImageByUrl request with body:", req.body);
         const userId = req.body.userId;
         const productId = req.body.productId;
         const outfitType = req.body.outfitType || 'suit';
@@ -187,9 +170,14 @@ app.post('/generateImageByUrl', upload.single('userFace'), async (req, res) => {
         const { jewelleryUrls } = req.body; 
 
         const urls = JSON.parse(jewelleryUrls || "{}");
-        const validation = validateRequest(req);
+        const validation = validateUserIdProductId(req);
         if (!validation.valid) {
             return res.status(400).json({ error: validation.message });
+        }
+
+        const userFace = getStoredUserFace(userId);
+        if (!userFace) {
+            return res.status(404).json({ error: "User profile picture not found. Please upload DP first." });
         }
 
         // 1. Build Text Instruction (passing keys from URLs object)
@@ -197,9 +185,11 @@ app.post('/generateImageByUrl', upload.single('userFace'), async (req, res) => {
 
         // 2. Prepare Multimodal Parts
         const promptParts = [{ text: promptText }];
+
+        promptParts.push(userFace);
         
         // Add user face (from Multer)
-        promptParts.push(formatFileForGemini(req.file));
+
 
         // Add jewelry images (from URLs)
         const urlKeys = Object.keys(urls);
@@ -248,6 +238,8 @@ app.post('/generateImageByUrl', upload.single('userFace'), async (req, res) => {
         } catch (error) {
             res.status(500).json({ error: "Error reading image from disk." });
         }
+
+    
 });
 
 app.listen(port, () => {
