@@ -18,15 +18,12 @@ const model = genAI.getGenerativeModel({
 const upload = multer({ storage: multer.memoryStorage() });
 
 // Create a directory for images if it doesn't exist
-const IMAGE_DIR = path.join(__dirname, 'generated_images');
+const IMAGE_DIR = path.join(__dirname, 'images');
 if (!fs.existsSync(IMAGE_DIR)) {
     fs.mkdirSync(IMAGE_DIR);
 }
 
-const DP_DIR = path.join(__dirname, 'userDp');
-if (!fs.existsSync(DP_DIR)) {
-    fs.mkdirSync(DP_DIR);
-}
+
 
 const formatFileForGemini = (file) => ({
     inlineData: {
@@ -37,7 +34,7 @@ const formatFileForGemini = (file) => ({
 
 const getStoredUserFace = (userId) => {
     const fileName = `dp_${userId}.png`;
-    const filePath = path.join(DP_DIR, fileName);
+    const filePath = path.join(IMAGE_DIR, fileName);
     if (!fs.existsSync(filePath)) return null;
 
     const buffer = fs.readFileSync(filePath);
@@ -145,7 +142,7 @@ app.post('/uploadDp', upload.single('userFace'), (req, res) => {
         }
 
         const fileName = `dp_${userId}.png`;
-        const filePath = path.join(DP_DIR, fileName);
+        const filePath = path.join(IMAGE_DIR, fileName);
 
         fs.writeFileSync(filePath, file.buffer);
 
@@ -162,7 +159,7 @@ app.post('/uploadDp', upload.single('userFace'), (req, res) => {
 
 app.post('/generateImageByUrl',upload.none(), async (req, res) => {
     try {
-        console.log("Received /generateImageByUrl request with body:", req.body);
+        console.log("Received generateImageByUrl request with body:", req.body);
         const userId = req.body.userId;
         const productId = req.body.productId;
         const outfitType = req.body.outfitType || 'suit';
@@ -218,9 +215,11 @@ app.post('/generateImageByUrl',upload.none(), async (req, res) => {
     }});
 
     app.get('/getImage/:id', (req, res) => {
+     
         const fileName = req.params.id; // e.g., "productId_userId"
+        console.log("Fetching image for ID:", fileName);
         const filePath = path.join(IMAGE_DIR, `${fileName}.png`);
-    
+        console.log("Resolved file path:", filePath);
         // Check if the file exists
         if (!fs.existsSync(filePath)) {
             return res.status(404).json({ error: "Image not found." });
