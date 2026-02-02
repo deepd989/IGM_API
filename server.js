@@ -70,11 +70,12 @@ const buildPromptText = (outfitType, outfitColor, files) => {
         if (files[key]) text += instructions[key];
     });
 
-    text += " Ensure the person's facial features remain consistent with the first image. Lighting should be studio-quality.";
+    text += " Ensure the person's facial features remain consistent with the first image. Lighting should be studio-quality. Dont show extra jewllery other than what is provided.";
     return text;
 };
 
 const callGeminiImageGenerator = async (promptParts) => {
+    console.log("Calling Gemini model with prompt parts:", promptParts);
     const result = await model.generateContent({
         contents: [{ role: 'user', parts: promptParts }],
         generationConfig: { responseModalities: ["TEXT", "IMAGE"] },
@@ -172,6 +173,15 @@ app.post('/generateImageByUrl',upload.none(), async (req, res) => {
             return res.status(400).json({ error: validation.message });
         }
 
+        const fileName = `${productId}_${userId}`;
+        const filePath = path.join(IMAGE_DIR, `${fileName}.png`);
+        if (fs.existsSync(filePath)) {
+            console.log("Image found in cache, returning existing file.");
+            const cachedImg = fs.readFileSync(filePath);
+            res.set('Content-Type', 'image/png');
+            return res.send(cachedImg);
+        }
+
         const userFace = getStoredUserFace(userId);
         if (!userFace) {
             return res.status(404).json({ error: "User profile picture not found. Please upload DP first." });
@@ -185,9 +195,6 @@ app.post('/generateImageByUrl',upload.none(), async (req, res) => {
 
         promptParts.push(userFace);
         
-        // Add user face (from Multer)
-
-
         // Add jewelry images (from URLs)
         const urlKeys = Object.keys(urls);
         const imageFetchPromises = urlKeys.map(key => fetchImageFromUrl(urls[key]));
@@ -204,7 +211,6 @@ app.post('/generateImageByUrl',upload.none(), async (req, res) => {
 
         // 4. Send Response
         const imgBuffer = Buffer.from(imagePart.inlineData.data, 'base64');
-        const fileName = `${productId}_${userId}`;
         saveImageToDisk(imgBuffer, fileName);
         res.set('Content-Type', imagePart.inlineData.mimeType);
         res.send(imgBuffer);
