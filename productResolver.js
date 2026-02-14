@@ -81,6 +81,11 @@ const resolverMap = {
  */
 async function processProduct(product) {
     // 3. Product Cache Check (using entity_id or id)
+    const media=product.media_gallery_entries || [];
+    const mediaFiles=media.map((object)=>{
+        const url=object.file ? `https://www.experapps.xyz/media/catalog/product${object.file}` : null;
+        return {file:url}
+    })
     const pId = product.entity_id || product.id;
     if (cache.products[pId]) return cache.products[pId];
 
@@ -91,6 +96,7 @@ async function processProduct(product) {
             const key = attr.attribute_code;
             const val = attr.value;
             const functionName = resolverMap[key] || resolverMap["default"];
+
             
             let resolvedValue;
             if (Array.isArray(val)) {
@@ -103,7 +109,7 @@ async function processProduct(product) {
         })
     );
 
-    const processedProduct = { ...product, custom_attributes: updatedAttributes };
+    const processedProduct = { ...product,media_gallery_entries:mediaFiles, custom_attributes: updatedAttributes };
     
     // Save to cache
     if (pId) cache.products[pId] = processedProduct;

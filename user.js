@@ -83,9 +83,6 @@ router.post('/addGift', async (req, res) => {
           error: `Insufficient funds. Your balance is ${sender.walletBalance}, but the gift costs ${amount}.` 
         });
       }
-  
-      // 3. Deduct from Sender's Wallet
-      // We use $inc with a negative value to subtract
       await userCollection.updateOne(
         { userid: senderid },
         { $inc: { walletBalance: -amount } }
