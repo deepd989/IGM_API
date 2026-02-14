@@ -52,27 +52,35 @@ router.post('/addGift', async (req, res) => {
     try {
       const userCollection = await getUserCollection();
       const { userid, gift } = req.body;
+      console.log('Received addGift request:', req.body);
   
       if (typeof gift !== 'object' || gift === null) {
         return res.status(400).json({ error: 'gift must be a non-null object' });
       }
   
-      const { title, amount, giftMessage, senderid } = gift;
+      const { title, amount, giftMessage, receiverid,date } = gift;
   
       if (
         typeof userid !== 'string' ||
         typeof title !== 'string' ||
         typeof amount !== 'number' ||
         typeof giftMessage !== 'string' ||
-        typeof senderid !== 'string'
+        typeof receiverid !== 'string' || 
+        typeof date !== 'string'
       ) {
         return res.status(400).json({ 
-          error: 'gift must contain title(string), amount(number), giftMessage(string), and senderid(string)' 
+          error: 'gift must contain title(string), amount(number), giftMessage(string), and receiver(string)' 
+        });
+      }
+
+      if(userid === receiverid){
+        return res.status(400).json({ 
+          error: 'Sender and receiver cannot be the same user.' 
         });
       }
   
       // 2. Verify Sender and Check Wallet Balance
-      const sender = await userCollection.findOne({ userid: senderid });
+      const sender = await userCollection.findOne({ userid });
       
       if (!sender) {
         return res.status(404).json({ error: 'Sender not found' });
@@ -83,29 +91,41 @@ router.post('/addGift', async (req, res) => {
           error: `Insufficient funds. Your balance is ${sender.walletBalance}, but the gift costs ${amount}.` 
         });
       }
-      await userCollection.updateOne(
-        { userid: senderid },
-        { $inc: { walletBalance: -amount } }
-      );
+     
   
       // 4. Add Gift to Recipient
       const giftWithId = { 
           ...gift, 
           id: uuidv4(), 
-          date: new Date().toISOString() 
+          type: "IGM Gift Card",
+          status:"unclaimed",
       };
-  
+
       const result = await userCollection.findOneAndUpdate(
-        { userid },
-        { $push: { gifts: giftWithId } },
-        { returnDocument: 'after' }
+        { userid: receiverid },
+        { 
+          // Fields to set ONLY if the document is being created for the first time
+          $setOnInsert: { 
+            userid: receiverid, 
+            walletBalance: 0 
+          },
+          // Action to perform regardless of whether it's new or existing
+          $push: { gifts: giftWithId } 
+        },
+        { 
+          upsert: true, 
+          returnDocument: 'after' 
+        }
       );
+      
   
       if (!result) {
-        // Note: If this fails, the sender's money is already gone. 
-        // In a production app, use a MongoDB Transaction to prevent this.
         return res.status(404).json({ error: 'Recipient not found' });
       }
+      await userCollection.updateOne(
+        { userid },
+        { $inc: { walletBalance: -amount } }
+      );
   
       const { _id, ...data } = result;
       return res.status(200).json(data);
@@ -116,20 +136,7 @@ router.post('/addGift', async (req, res) => {
     }
   });
 
-router.get('/getAllGiftsByUserId/:userid', async (req, res) => {
-  try {
-    const userCollection = await getUserCollection();
-    const { userid } = req.params;
-    const user = await userCollection.findOne({ userid });
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-    return res.status(200).json(user.gifts || []);
-  } catch (error) {
-    console.error('GET /getAllGiftsByUserId error:', error);
-    return res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
+
 
 router.post('/redeemGiftUserId', async (req, res) => {
   try {
