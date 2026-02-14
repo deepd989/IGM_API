@@ -53,7 +53,6 @@ router.post('/addGift', async (req, res) => {
       const userCollection = await getUserCollection();
       const { userid, gift } = req.body;
   
-      // 1. Basic Validation
       if (typeof gift !== 'object' || gift === null) {
         return res.status(400).json({ error: 'gift must be a non-null object' });
       }
@@ -79,9 +78,9 @@ router.post('/addGift', async (req, res) => {
         return res.status(404).json({ error: 'Sender not found' });
       }
   
-      if (sender.walletAmount < amount) {
+      if (!sender.walletBalance || sender.walletBalance < amount) {
         return res.status(400).json({ 
-          error: `Insufficient funds. Your balance is ${sender.walletAmount}, but the gift costs ${amount}.` 
+          error: `Insufficient funds. Your balance is ${sender.walletBalance}, but the gift costs ${amount}.` 
         });
       }
   
@@ -89,7 +88,7 @@ router.post('/addGift', async (req, res) => {
       // We use $inc with a negative value to subtract
       await userCollection.updateOne(
         { userid: senderid },
-        { $inc: { walletAmount: -amount } }
+        { $inc: { walletBalance: -amount } }
       );
   
       // 4. Add Gift to Recipient
@@ -138,9 +137,9 @@ router.get('/getAllGiftsByUserId/:userid', async (req, res) => {
 router.post('/redeemGiftUserId', async (req, res) => {
   try {
     const userCollection = await getUserCollection();
-    const { userid, giftId } = req.body;
+    const { userid, giftid } = req.body;
 
-    if (typeof userid !== 'string' || typeof giftId !== 'string') {
+    if (typeof userid !== 'string' || typeof giftid !== 'string') {
       return res.status(400).json({ error: 'userid(string) and giftId(string) are required' });
     }
 
@@ -149,7 +148,7 @@ router.post('/redeemGiftUserId', async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    const gift = (user.gifts || []).find(g => g.id === giftId);
+    const gift = (user.gifts || []).find(g => g.id === giftid);
     if (!gift) {
       return res.status(404).json({ error: 'Gift not found' });
     }
@@ -158,7 +157,7 @@ router.post('/redeemGiftUserId', async (req, res) => {
       { userid },
       { 
         $inc: { walletBalance: gift.amount },
-        $pull: { gifts: { id: giftId } }
+        $pull: { gifts: { id: giftid } }
       },
       { returnDocument: 'after' }
     );
