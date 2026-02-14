@@ -1,6 +1,12 @@
 const { MongoClient } = require("mongodb");
 
-const uri = process.env.MONGODB_URI || "mongodb://localhost:27017";
+const uri = process.env.MONGO_DB_URI;
+const dbName = process.env.MONGO_DB_NAME 
+console.log('MongoDB URI:', uri); // Debugging line
+if (!uri || !dbName) {
+  throw new Error("Please define the MONGO_DB_URI environment variable");
+}
+
 const options = {
   // Adjust as needed
   maxPoolSize: 10,
@@ -50,9 +56,16 @@ async function closeDb() {
   }
 }
 
+async function getUserCollection() {
+    const dbClient = await getDbClient();
+const database = dbClient.db(dbName);
+const userCollection = database.collection('users');
+return userCollection;}
+
 
 
 
 module.exports = {
-getDbClient
+getDbClient,
+getUserCollection ,
 };
