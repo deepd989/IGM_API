@@ -7,6 +7,7 @@ const reviewsRoutes = require('./reviewsResolver');
 const collectionsRoutes = require('./collections');
 const {getDbClient}=require('./dbConnection');
 const { get } = require('http');
+const textSearchRoutes = require('./textSearch');
 
 const app = express();
 const port = 3000;
@@ -32,6 +33,8 @@ app.use('/', sellerRoutes);
 app.use('/', reviewsRoutes);
 
 app.use('/', collectionsRoutes);
+
+app.use('/', textSearchRoutes);
 
 app.get('/getAllProducts', async (req, res) => {
     try {
