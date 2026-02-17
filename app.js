@@ -27,7 +27,7 @@ getDbClient().then(client => {
 });
 
 // Health check (kept in main app)
-app.get('/health', (req, res) => res.send('Image Generation Service is running.'));
+app.get('/health', (req, res) => res.send('Image Generation Service is running. v2'));
 
 app.use(express.json());
 // Mount all image-related routes

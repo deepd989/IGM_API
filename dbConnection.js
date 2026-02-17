@@ -2,7 +2,6 @@ const { MongoClient } = require("mongodb");
 
 const uri = process.env.MONGO_DB_URI;
 const dbName = process.env.MONGO_DB_NAME 
-console.log('MongoDB URI:', uri); // Debugging line
 if (!uri || !dbName) {
   throw new Error("Please define the MONGO_DB_URI environment variable");
 }
