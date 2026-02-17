@@ -4,7 +4,6 @@ const path = require('path');
 const fs = require('fs');
 const axios = require('axios');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-require('dotenv').config();
 
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -28,7 +27,7 @@ const getStoredUserFace = (userId) => {
 };
 
 const buildPromptText = (outfitType, outfitColor, files) => {
-    let outfitStr = outfitType 
+    let outfitStr = outfitType
         ? `The person in the first image (userFace) should be wearing a ${outfitColor ? outfitColor + ' ' : ''}${outfitType} outfit.`
         : `Choose an elegant outfit and color that perfectly matches and complements the jewelry provided in the images.`;
 
@@ -94,10 +93,10 @@ router.post('/generateImageByUrl', upload.none(), async (req, res) => {
 
         const promptText = buildPromptText(outfitType, outfitColor, urls);
         const remoteImages = await Promise.all(Object.keys(urls).map(key => fetchImageFromUrl(urls[key])));
-        
+
         const imagePart = await callGeminiImageGenerator([{ text: promptText }, userFace, ...remoteImages]);
         const imgBuffer = Buffer.from(imagePart.inlineData.data, 'base64');
-        
+
         fs.writeFileSync(filePath, imgBuffer);
         res.set('Content-Type', imagePart.inlineData.mimeType);
         res.send(imgBuffer);

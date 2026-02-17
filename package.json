@@ -2,7 +2,7 @@
   "name": "imagegenscript",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
@@ -13,6 +13,7 @@
   "type": "commonjs",
   "dependencies": {
     "@google/genai": "^1.38.0",
+    "cors": "^2.8.5",
     "@google/generative-ai": "^0.24.1",
     "axios": "^1.13.4",
     "cors": "^2.8.6",

@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const imageRoutes = require('./imageRoutes');
-const {getAllResolvedProducts} = require('./productResolver')
+const { getAllResolvedProducts } = require('./productResolver')
 const userRoutes = require('./user');
 const sellerRoutes = require('./sellerResolver');
 const reviewsRoutes = require('./reviewsResolver');
@@ -10,17 +12,12 @@ const { get } = require('http');
 const textSearchRoutes = require('./textSearch');
 
 const app = express();
-const port = 3000;
-const cors = require('cors');
+const port = process.env.PORT || 3000;
 
-const corsOptions = {
-    origin: '*', // Allow only your client's address
-    optionsSuccessStatus: 200 
-  };
-  
-  // Apply the middleware
-  app.use(cors(corsOptions));
-
+// Middleware
+app.use(cors({ origin: '*' }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 getDbClient().then(client => {
     console.log('Connected to MongoDB');
@@ -56,6 +53,6 @@ app.get('/getAllProducts', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Service running at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Service running at http://0.0.0.0:${port}`);
 });
