@@ -1,13 +1,20 @@
+require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const imageRoutes = require('./imageRoutes');
-const {getAllResolvedProducts} = require('./productResolver')
+const { getAllResolvedProducts } = require('./productResolver')
 const userRoutes = require('./user');
 const sellerRoutes = require('./sellerResolver');
 const reviewsRoutes = require('./reviewsResolver');
 const collectionsRoutes = require('./collections');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+// Middleware
+app.use(cors({ origin: '*' }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Health check (kept in main app)
 app.get('/health', (req, res) => res.send('Image Generation Service is running.'));
@@ -33,6 +40,6 @@ app.get('/getAllProducts', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Service running at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Service running at http://0.0.0.0:${port}`);
 });
