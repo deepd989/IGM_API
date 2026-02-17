@@ -76,11 +76,11 @@ router.post('/uploadDp', upload.single('userFace'), (req, res) => {
 
 router.post('/generateImageByUrl', upload.none(), async (req, res) => {
     try {
-        const { userId, productId, outfitType = 'suit', outfitColor = 'black', jewelleryUrls } = req.body;
+        const { userId, productId, outfitType = 'any outfit that goes with the jewellery', outfitColor = 'any color', jewelleryUrls } = req.body;
         const urls = JSON.parse(jewelleryUrls || "{}");
         if (!userId || !productId) return res.status(400).json({ error: "userId and productId are required." });
 
-        const fileName = `${productId}_${userId}_${outfitType}_${outfitColor}`;
+        const fileName = `${productId}_${userId}`;
         const filePath = path.join(IMAGE_DIR, `${fileName}.png`);
 
         if (fs.existsSync(filePath)) {
@@ -89,6 +89,7 @@ router.post('/generateImageByUrl', upload.none(), async (req, res) => {
         }
 
         const userFace = getStoredUserFace(userId);
+        console.log("User face retrieved:", !!userFace);
         if (!userFace) return res.status(404).json({ error: "User profile picture not found." });
 
         const promptText = buildPromptText(outfitType, outfitColor, urls);
