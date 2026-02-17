@@ -1,0 +1,349 @@
+{
+  "4": {
+    "sellerBannerImgUrl": "https://dummyimage.com",
+    "sellerName": "Roma Designs",
+    "collections": [
+      {
+        "collectionName": "Anniversary",
+        "productSkus": [
+          "JRI00001-WGND300-CRD",
+          "JER00002-YGND500-CRD",
+          "JNE00001-YGND500-CRD"
+        ]
+      },
+      {
+        "collectionName": "Designer",
+        "productSkus": [
+          "DRG-107 -01"
+        ]
+      },
+      {
+        "collectionName": "Engagement",
+        "productSkus": [
+          "DRG-110 - 01"
+        ]
+      },
+      {
+        "collectionName": "Daily Wear",
+        "productSkus": [
+          "DRG-113 -01"
+        ]
+      },
+      {
+        "collectionName": "Office Wear",
+        "productSkus": [
+          "JER00008-1YND600-CRD"
+        ]
+      },
+      {
+        "collectionName": "Wedding",
+        "productSkus": [
+          "JER00010-1WND600-CRD"
+        ]
+      },
+      {
+        "collectionName": "Cocktail",
+        "productSkus": [
+          "JNE00004-YGND600-CRD",
+          "DBR-1212 -01",
+          "DBR-1312 -01",
+          "DBR-1412 -01"
+        ]
+      },
+      {
+        "collectionName": "Everyday Wear",
+        "productSkus": [
+          "DER-111-01",
+          "DER-115-01",
+          "DER-109-01"
+        ]
+      }
+    ]
+  },
+  "10": {
+    "sellerBannerImgUrl": "https://dummyimage.com",
+    "sellerName": "Belrosa Atelier",
+    "collections": [
+      {
+        "collectionName": "Wedding",
+        "productSkus": [
+          "URI00001-WG00000-CBA",
+          "TRG04 -01"
+        ]
+      },
+      {
+        "collectionName": "Engagement",
+        "productSkus": [
+          "URI00002-YG00000-CBA"
+        ]
+      },
+      {
+        "collectionName": "Designer",
+        "productSkus": [
+          "URI00003-RG00000-CBA"
+        ]
+      },
+      {
+        "collectionName": "Cocktail",
+        "productSkus": [
+          "UER00004-1R00000-CBA",
+          "UNE00007-RG00000-CBA",
+          "UNE00010-YG00000-CBA",
+          "GBR-1 -01"
+        ]
+      },
+      {
+        "collectionName": "Anniversary",
+        "productSkus": [
+          "UNE00011-YG00000-CBA"
+        ]
+      },
+      {
+        "collectionName": "Everyday Wear",
+        "productSkus": [
+          "UNE00012-RG00000-CBA"
+        ]
+      }
+    ]
+  },
+  "11": {
+    "sellerBannerImgUrl": "https://dummyimage.com",
+    "sellerName": "AstraBelle",
+    "collections": [
+      {
+        "collectionName": "Statement Ring",
+        "productSkus": [
+          "DRG-RNG01 - 01"
+        ]
+      },
+      {
+        "collectionName": "Open Ring",
+        "productSkus": [
+          "DRG-RNG02  - 01"
+        ]
+      },
+      {
+        "collectionName": "Cocktail",
+        "productSkus": [
+          "JBA00006-WGND3BS-CAB-2.6",
+          "JBA00007-YGND500-CAB-2.6"
+        ]
+      },
+      {
+        "collectionName": "Everyday Wear",
+        "productSkus": [
+          "JBA00008-RGND600-CAB-2.6",
+          "JBA00009-YGND500-CAB-2.6",
+          "JBA00010-WGND500-CAB-2.6",
+          "DMG -1-01",
+          "DER-ER03-01",
+          "DER-ER04-01"
+        ]
+      },
+      {
+        "collectionName": "Everyday Collection",
+        "productSkus": [
+          "DMG -3-01",
+          "DMG -2-01"
+        ]
+      }
+    ]
+  },
+  "12": {
+    "sellerBannerImgUrl": "https://dummyimage.com",
+    "sellerName": "Kaamya Jewels",
+    "collections": [
+      {
+        "collectionName": "Cocktail",
+        "productSkus": [
+          "KMA-RG-02 - 01",
+          "KMA-RG-03 - 01",
+          "KMA-RG-04 - 01",
+          "KMA-RG-05 - 01",
+          "KMA-RG-06 - 01",
+          "KMA-RG-07 - 01",
+          "KMA-RG-01 - 01"
+        ]
+      },
+      {
+        "collectionName": "Wedding",
+        "productSkus": [
+          "JER00001-RGND300-CKJ",
+          "JER00011-YGND300-CKJ",
+          "JER00012-WGND300-CKJ"
+        ]
+      },
+      {
+        "collectionName": "Everyday Wear",
+        "productSkus": [
+          "JNE00007-WGND300-CKJ"
+        ]
+      }
+    ]
+  },
+  "13": {
+    "sellerBannerImgUrl": "https://dummyimage.com",
+    "sellerName": "Zaiwarya",
+    "collections": [
+      {
+        "collectionName": "Engagement",
+        "productSkus": [
+          "UER00001-2Y00000-CZA"
+        ]
+      },
+      {
+        "collectionName": "Office Wear",
+        "productSkus": [
+          "UER00002-2Y00000-CZA",
+          "UER00005-1Y00000-CZA"
+        ]
+      },
+      {
+        "collectionName": "Cocktail",
+        "productSkus": [
+          "UER00006-1Y00000-CZA",
+          "UNE00004-2Y00000-CZA",
+          "UNE00009-2Y00000-CZA",
+          "JBA00003-2YND500-CZA-NA",
+          "JBA00004-2YND500-CZA-2.6"
+        ]
+      },
+      {
+        "collectionName": "Everyday Wear",
+        "productSkus": [
+          "UNE00014-YG00000-CZA"
+        ]
+      }
+    ]
+  },
+  "14": {
+    "sellerBannerImgUrl": "https://dummyimage.com",
+    "sellerName": "Virasat Jewels",
+    "collections": [
+      {
+        "collectionName": "Cocktail",
+        "productSkus": [
+          "UBA00001-2Y000PE-CVI-2.5",
+          "UBA00002-2Y00000-CVI-2.6",
+          "JBA00002-2YND500-CVI-2.4",
+          "UBA00003-2Y00000-CVI-2.5",
+          "JBA00001-2YND5EM-CVI-2.6",
+          "UBA00004-2Y00000-CVI-2.4"
+        ]
+      },
+      {
+        "collectionName": "Everyday Wear",
+        "productSkus": [
+          "UER00003-2Y00000-CVI",
+          "UER00012-2Y00000-CVI",
+          "UNE00005-2Y00000-CVI"
+        ]
+      }
+    ]
+  },
+  "15": {
+    "sellerBannerImgUrl": "https://dummyimage.com",
+    "sellerName": "Nakshatra Mandir",
+    "collections": [
+      {
+        "collectionName": "Anniversary",
+        "productSkus": [
+          "UNE00001-2Y00000-CNM"
+        ]
+      },
+      {
+        "collectionName": "Everyday Wear",
+        "productSkus": [
+          "UER00007-2Y00000-CNM",
+          "UER00008-2Y00000-CNM",
+          "UER00009-2Y00000-CNM",
+          "UER00010-2Y00000-CNM",
+          "UER00011-2Y00000-CNM",
+          "UNE00006-2Y00000-CNM",
+          "UNE00013-2Y00000-CNM",
+          "UNE00014-2Y00000-CNM",
+          "UNE00015-2Y00000-CNM",
+          "UNE00016-2Y00000-CNM",
+          "UNE00018-2Y00000-CNM"
+        ]
+      }
+    ]
+  },
+  "16": {
+    "sellerBannerImgUrl": "https://dummyimage.com",
+    "sellerName": "Ethnika House",
+    "collections": [
+      {
+        "collectionName": "Cocktail",
+        "productSkus": [
+          "ABA00001-SS00000-CEH-2.6",
+          "ABA00002-SS00000-CEH-2.6"
+        ]
+      },
+      {
+        "collectionName": "Everyday Wear",
+        "productSkus": [
+          "AER00001-SS00000-CEH",
+          "AER00002-SS00000-CEH",
+          "AER00003-SS00000-CEH",
+          "ANE00001-SS00000-CEH-1",
+          "UNE00017-1Y00000-CEH"
+        ]
+      },
+      {
+        "collectionName": "Anniversary",
+        "productSkus": [
+          "ANE00001-SS00000-CEH"
+        ]
+      }
+    ]
+  },
+  "17": {
+    "sellerBannerImgUrl": "https://dummyimage.com",
+    "sellerName": "Boho Banjara",
+    "collections": [
+      {
+        "collectionName": "Everyday Wear",
+        "productSkus": [
+          "AER00004-SS00000-CBB",
+          "AER00005-SS00000-CBB",
+          "AER00006-SS00000-CBB",
+          "AER00007-SS00000-CBB",
+          "ANE00002-SS00000-CBB",
+          "ANE00003-SS00000-CBB",
+          "ANE00004-SS00000-CBB",
+          "ANE00006-SS00000-CBB"
+        ]
+      },
+      {
+        "collectionName": "Cocktail",
+        "productSkus": [
+          "ANE00004-SS00000-CBB-1",
+          "ANE00005-SS00000-CBB",
+          "ANE00004-SS00000-CBB-2"
+        ]
+      }
+    ]
+  },
+  "18": {
+    "sellerBannerImgUrl": "https://dummyimage.com",
+    "sellerName": "Rang Auraa",
+    "collections": [
+      {
+        "collectionName": "Cocktail",
+        "productSkus": [
+          "UNE00001-2Y00000-CRA",
+          "UNE00002-2Y00000-CRA",
+          "UNE00003-2Y00000-CRA",
+          "JBA00005-YGND3PE-CRA-2.6"
+        ]
+      },
+      {
+        "collectionName": "Anniversary",
+        "productSkus": [
+          "UNE00008-2Y00000-CRA"
+        ]
+      }
+    ]
+  }
+}

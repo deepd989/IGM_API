@@ -146,6 +146,7 @@ async function getAllResolvedProducts() {
                 allProcessedProducts.push({updated, sellerId: sId});
             }
         }
+        console.log(`✅ Pipeline Complete. Processed ${allProcessedProducts.length} products.`);
         return allProcessedProducts;
 
     } catch (e) {

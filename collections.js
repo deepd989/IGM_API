@@ -1,64 +1,102 @@
-const { HEADERS, BASE_URL } = require('./config'); // Clean destructuring
 const express = require('express');
 const router = express.Router();
-const {getAllResolvedProducts} = require('./productResolver')
+const fs = require('fs').promises;
+const path = require('path');
+const { getAllResolvedProducts } = require('./productResolver');
 
-
-const useCollectionCache = false;
+// Path to your local JSON storage
+const OUTPUT_FILE = path.join(__dirname, 'collectionOutputData.json');
 
 router.get('/getCollections', async (req, res) => {
     try {
-        let products
-        if (!useCollectionCache) {
-            let data = await getAllResolvedProducts();
-            products = data.map(item => {return {...item.updated, sellerId: item.sellerId}});
+        // 1. Take flag from env variable (defaulting to false)
+        const useLiveCollectionData = process.env.USE_LIVE_COLLECTION_DATA === 'true';
+
+        let responseData;
+
+        if (useLiveCollectionData) {
+            // 2. Fetch fresh data from the resolver
+            const data = await getAllResolvedProducts();
+            
+            // Map items to include the sellerId alongside the product attributes
+            const products = data.map(item => ({ 
+                ...item.updated, 
+                sellerId: item.sellerId 
+            }));
+
+            const collectionsBySeller = {};
+
+            products.forEach(product => {
+                const attributes = product.custom_attributes || [];
+                
+                // Extract collection ID and Seller Name from attributes
+                const rawCollectionId = attributes.find(attr => attr.attribute_code === 'collection_id')?.value || "";
+                const sellerId = product.sellerId;
+                
+                // Note: Ensure 'seller_id' is the correct attribute_code for the Name string
+                const sellerName = attributes.find(attr => attr.attribute_code === 'seller_id')?.value || "dummy_seller_name";
+
+                if (!sellerId) return;
+
+                // Get the first word from comma-separated string
+                const firstCollection = rawCollectionId.split(',')[0].trim();
+                if (!firstCollection) return;
+
+                // 3. Initialize seller as an OBJECT (to allow sellerName to be serialized)
+                if (!collectionsBySeller[sellerId]) {
+                    collectionsBySeller[sellerId] = {
+                        sellerBannerImgUrl:"https://dummyimage.com", // Placeholder banner image URL
+                        sellerName: sellerName,
+                        collections: [] // Array to hold the unique collection entries
+                    };
+                }
+
+                // 4. Find or create the specific collection entry within this seller
+                let collectionEntry = collectionsBySeller[sellerId].collections.find(
+                    c => c.collectionName === firstCollection
+                );
+
+                if (!collectionEntry) {
+                    collectionEntry = {
+                        collectionName: firstCollection,
+                        productSkus: []
+                    };
+                    collectionsBySeller[sellerId].collections.push(collectionEntry);
+                }
+
+                // 5. Push SKU if it exists
+                if (product.sku) {
+                    collectionEntry.productSkus.push(product.sku);
+                }
+            });
+
+            // 6. Write the structured object to the JSON file
+            await fs.writeFile(OUTPUT_FILE, JSON.stringify(collectionsBySeller, null, 2));
+            
+            responseData = collectionsBySeller;
+
         } else {
-            products = []; 
+            // 7. If not live, read the existing JSON file
+            try {
+                const fileContent = await fs.readFile(OUTPUT_FILE, 'utf8');
+                responseData = JSON.parse(fileContent);
+            } catch (fileError) {
+                return res.status(404).json({ 
+                    error: 'Local data file not found and USE_LIVE_COLLECTION_DATA is false.' 
+                });
+            }
         }
 
-        const collectionsBySeller = {};
-
-        products.forEach(product => {
-            const attributes = product.custom_attributes || [];
-
-            // 1. Extract values from custom_attributes array
-            const rawCollectionId = attributes.find(attr => attr.attribute_code === 'collection_id')?.value || "";
-            const sellerId = product.sellerId; // Assuming sellerId is directly available on the product object
-
-            if (!sellerId) return; // Skip if no seller associated
-
-            // 2. Get the first word from the comma-separated collection string
-            const firstCollection = rawCollectionId.split(',')[0].trim();
-            if (!firstCollection) return; // Skip if collection is empty
-
-            // 3. Initialize seller entry if it doesn't exist
-            if (!collectionsBySeller[sellerId]) {
-                collectionsBySeller[sellerId] = [];
-            }
-
-            // 4. Find or create the collection entry for this seller
-            let collectionEntry = collectionsBySeller[sellerId].find(c => c.collectionName === firstCollection);
-
-            if (!collectionEntry) {
-                collectionEntry = {
-                    collectionName: firstCollection,
-                    productSkus: []
-                };
-                collectionsBySeller[sellerId].push(collectionEntry);
-            }
-
-            // 5. Add product SKU to the list
-            if (product.sku) {
-                collectionEntry.productSkus.push(product.sku);
-            }
-        });
-
-        res.json(collectionsBySeller);
+        // 8. Final Response
+        res.json(responseData);
 
     } catch (error) {
-        res.status(500).json({ error: 'Failed to process collections', details: error.message });
+        console.error("Error processing collections:", error);
+        res.status(500).json({ 
+            error: 'Failed to process collections', 
+            details: error.message 
+        });
     }
 });
-
 
 module.exports = router;

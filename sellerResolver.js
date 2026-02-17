@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/getSellers', async (req, res) => {
+    console.log("getting sellers")
     const url = `${BASE_URL}/V1/mpapi/sellers?searchCriteria=%22%22`;
 
     try {
