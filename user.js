@@ -38,9 +38,8 @@ router.get('/users/:userid', async (req, res) => {
     const { userid } = req.params;
     const user = await userCollection.findOne({ userid });
     if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+      await userCollection.insertOne({ userid, walletBalance:0, gifts: [] });
     }
-
     return res.status(200).json(user);
   } catch (error) {
     console.error('GET /users/:userid error:', error);

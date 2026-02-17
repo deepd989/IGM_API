@@ -84,7 +84,7 @@ async function processProduct(product) {
     const media=product.media_gallery_entries || [];
     const mediaFiles=media.map((object)=>{
         const url=object.file ? `https://www.experapps.xyz/media/catalog/product${object.file}` : null;
-        return {file:url}
+        return {file:url,label:object.label};
     })
     const pId = product.entity_id || product.id;
     if (cache.products[pId]) return cache.products[pId];
