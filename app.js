@@ -11,6 +11,16 @@ const textSearchRoutes = require('./textSearch');
 
 const app = express();
 const port = 3000;
+const cors = require('cors');
+
+const corsOptions = {
+    origin: '*', // Allow only your client's address
+    optionsSuccessStatus: 200 
+  };
+  
+  // Apply the middleware
+  app.use(cors(corsOptions));
+
 
 getDbClient().then(client => {
     console.log('Connected to MongoDB');
