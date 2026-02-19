@@ -1,17 +1,37 @@
-const HEADERS =require('./config').HEADERS;
-const BASE_URL =require('./config').BASE_URL;
+const fs = require('fs');
+const path = require('path');
+const { HEADERS, BASE_URL } = require('./config');
 
+const CACHE_FILE = path.join(__dirname, 'products.json');
+const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 Hours
+
+const cache = {
+    attributes: {},
+    categories: null,
+    sellers: null,
+    products: {}
+};
 
 /**
- * CACHE STORE
- * In a production environment, you might replace these with Redis.
+ * FILE I/O HELPERS
  */
-const cache = {
-    attributes: {},      // { attribute_code: { value: label } }
-    categories: null,    // Full category tree
-    sellers: null,       // List of all sellers
-    products: {}         // { productId: resolvedProductObject }
-};
+function readLocalCache() {
+    if (!fs.existsSync(CACHE_FILE)) return null;
+    try {
+        const rawData = fs.readFileSync(CACHE_FILE, 'utf8');
+        return JSON.parse(rawData);
+    } catch (e) {
+        return null;
+    }
+}
+
+function writeLocalCache(data) {
+    const payload = {
+        fetchedAt: Date.now(),
+        data: data
+    };
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(payload, null, 2));
+}
 
 /**
  * THE RESOLVERS OBJECT
@@ -19,8 +39,6 @@ const cache = {
 const resolvers = {
     async categoriesParser(key, idValue) {
         if (!idValue) return null;
-        
-        // 1. Cache Check
         if (!cache.categories) {
             try {
                 const response = await fetch(`${BASE_URL}/default/V1/categories`, { headers: HEADERS });
@@ -45,8 +63,6 @@ const resolvers = {
 
     async fetchLabelResolver(key, value) {
         if (!value) return value;
-        
-        // 2. Cache Check (Nested by attribute key)
         if (!cache.attributes[key]) {
             try {
                 const response = await fetch(`${BASE_URL}/V1/products/attributes/${key}/options`, { headers: HEADERS });
@@ -71,25 +87,22 @@ const resolverMap = {
     "metal_type": "fetchLabelResolver",
     "ring_size_us": "fetchLabelResolver",
     "stone_type": "fetchLabelResolver",
-    "short_description": "fetchLabelResolver",
-    "long_description": "fetchLabelResolver",
+    "short_description": "cleanHTML",
+    "long_description": "cleanHTML",
     "default": "fetchLabelResolver"
 };
 
-/**
- * CORE LOGIC
- */
 async function processProduct(product) {
-    // 3. Product Cache Check (using entity_id or id)
-    const media=product.media_gallery_entries || [];
-    const mediaFiles=media.map((object)=>{
-        const url=object.file ? `https://www.experapps.xyz/media/catalog/product${object.file}` : null;
-        return {file:url,label:object.label};
-    })
+    const media = product.media_gallery_entries || [];
+    const mediaFiles = media.map((object) => {
+        const url = object.file ? `https://www.experapps.xyz/media/catalog/product${object.file}` : null;
+        return { file: url, label: object.label };
+    });
+    
     const pId = product.entity_id || product.id;
     if (cache.products[pId]) return cache.products[pId];
 
-    if (!product.custom_attributes) return product;
+    if (!product.custom_attributes) return { ...product, media_gallery_entries: mediaFiles };
 
     const updatedAttributes = await Promise.all(
         product.custom_attributes.map(async (attr) => {
@@ -97,7 +110,6 @@ async function processProduct(product) {
             const val = attr.value;
             const functionName = resolverMap[key] || resolverMap["default"];
 
-            
             let resolvedValue;
             if (Array.isArray(val)) {
                 resolvedValue = await Promise.all(val.map(item => resolvers[functionName](key, item)));
@@ -109,21 +121,29 @@ async function processProduct(product) {
         })
     );
 
-    const processedProduct = { ...product,media_gallery_entries:mediaFiles, custom_attributes: updatedAttributes };
-    
-    // Save to cache
+    const processedProduct = { ...product, media_gallery_entries: mediaFiles, custom_attributes: updatedAttributes };
     if (pId) cache.products[pId] = processedProduct;
-    
     return processedProduct;
 }
 
+/**
+ * MAIN ENTRY POINT
+ */
 async function getAllResolvedProducts() {
+    // 1. Check Local File Cache
+    const localCache = readLocalCache();
+    if (localCache && localCache.fetchedAt) {
+        const age = Date.now() - localCache.fetchedAt;
+        if (age < CACHE_DURATION_MS) {
+            console.log("📦 Returning data from local products.json (Cache hit)");
+            return localCache.data;
+        }
+    }
+
+    console.log("🌐 Cache expired or missing. Fetching from API...");
     const allProcessedProducts = [];
 
     try {
-        console.log("🚀 Starting Data Replacement Pipeline...");
-
-        // 4. Seller Cache Check
         if (!cache.sellers) {
             const sellersRes = await fetch(`${BASE_URL}/V1/mpapi/sellers?searchCriteria=""`, { headers: HEADERS });
             const sellersData = await sellersRes.json();
@@ -132,8 +152,6 @@ async function getAllResolvedProducts() {
 
         for (const item of cache.sellers) {
             const sId = item.seller_data.seller_id;
-            console.log(`Processing Seller: ${sId}`);
-
             const pRes = await fetch(`${BASE_URL}/V1/mpapi/admin/sellers/${sId}/product`, { headers: HEADERS });
             if (!pRes.ok) continue;
 
@@ -142,19 +160,21 @@ async function getAllResolvedProducts() {
 
             for (const prod of products) {
                 const updated = await processProduct(prod);
-
-                allProcessedProducts.push({updated, sellerId: sId});
+                allProcessedProducts.push({ updated, sellerId: sId });
             }
         }
+
+        // 2. Save to Local File Cache
+        writeLocalCache(allProcessedProducts);
+        
         console.log(`✅ Pipeline Complete. Processed ${allProcessedProducts.length} products.`);
         return allProcessedProducts;
 
     } catch (e) {
         console.error("❌ Pipeline Error:", e);
+        // Fallback: return old cache if API fails, even if expired
+        return localCache ? localCache.data : [];
     }
 }
 
-module.exports = {
-    getAllResolvedProducts,
-    cache // Exported so you can clear it if needed
-};
+module.exports = { getAllResolvedProducts, cache };
