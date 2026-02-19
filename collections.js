@@ -10,7 +10,7 @@ const OUTPUT_FILE = path.join(__dirname, 'collectionOutputData.json');
 router.get('/getCollections', async (req, res) => {
     try {
         // 1. Take flag from env variable (defaulting to false)
-        const useLiveCollectionData = process.env.USE_LIVE_COLLECTION_DATA === 'true';
+        const useLiveCollectionData = true
 
         let responseData;
 
@@ -58,6 +58,7 @@ router.get('/getCollections', async (req, res) => {
 
                 if (!collectionEntry) {
                     collectionEntry = {
+                        "collectionBannerImgUrl":"https://dummyimage.com",
                         collectionName: firstCollection,
                         productSkus: []
                     };
