@@ -5,66 +5,123 @@
     "collections": [
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Anniversary",
-        "productSkus": [
-          "JRI00001-WGND300-CRD",
-          "JER00002-YGND500-CRD",
-          "JNE00001-YGND500-CRD"
-        ]
+        "title": "Anniversary",
+        "productIds": [
+          "JRI00001-WGND300-CRD"
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Designer",
-        "productSkus": [
+        "title": "Designer",
+        "productIds": [
           "DRG-107 -01"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Engagement",
-        "productSkus": [
+        "title": "Engagement",
+        "productIds": [
           "DRG-110 - 01"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Daily Wear",
-        "productSkus": [
+        "title": "Daily Wear",
+        "productIds": [
           "DRG-113 -01"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Office Wear",
-        "productSkus": [
+        "title": "Anniversary",
+        "productIds": [
+          "JER00002-YGND500-CRD"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Office Wear",
+        "productIds": [
           "JER00008-1YND600-CRD"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Wedding",
-        "productSkus": [
+        "title": "Wedding",
+        "productIds": [
           "JER00010-1WND600-CRD"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Cocktail",
-        "productSkus": [
-          "DNK-104",
-          "DBR-1212 -01",
-          "DBR-1312 -01",
+        "title": "Anniversary",
+        "productIds": [
+          "JNE00001-YGND500-CRD"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "DNK-104"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "DBR-1212 -01"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "DBR-1312 -01"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
           "DBR-1412 -01"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Everyday Wear",
-        "productSkus": [
-          "DER-111",
-          "DER-115",
+        "title": "Everyday Wear",
+        "productIds": [
+          "DER-111"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "DER-115"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
           "DER-109-01"
-        ]
+        ],
+        "description": "dummy description"
       }
     ]
   },
@@ -74,49 +131,83 @@
     "collections": [
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Wedding",
-        "productSkus": [
-          "URI00001-WG00000-CBA",
-          "TRG04 -01"
-        ]
+        "title": "Wedding",
+        "productIds": [
+          "URI00001-WG00000-CBA"
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Engagement",
-        "productSkus": [
+        "title": "Engagement",
+        "productIds": [
           "URI00002-YG00000-CBA"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Designer",
-        "productSkus": [
+        "title": "Designer",
+        "productIds": [
           "URI00003-RG00000-CBA"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Cocktail",
-        "productSkus": [
-          "UER00004-1R00000-CBA",
-          "UNE00007-RG00000-CBA",
-          "UNE00010-YG00000-CBA",
-          "GBR-1 -01"
-        ]
+        "title": "Wedding",
+        "productIds": [
+          "TRG04 -01"
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Anniversary",
-        "productSkus": [
+        "title": "Cocktail",
+        "productIds": [
+          "UER00004-1R00000-CBA"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "UNE00007-RG00000-CBA"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "UNE00010-YG00000-CBA"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Anniversary",
+        "productIds": [
           "UNE00011-YG00000-CBA"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Everyday Wear",
-        "productSkus": [
+        "title": "Cocktail",
+        "productIds": [
+          "GBR-1 -01"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
           "UNE00012-RG00000-CBA"
-        ]
+        ],
+        "description": "dummy description"
       }
     ]
   },
@@ -126,52 +217,107 @@
     "collections": [
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Statement Ring",
-        "productSkus": [
+        "title": "Statement Ring",
+        "productIds": [
           "DRG-RNG01 - 01"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Open Ring",
-        "productSkus": [
+        "title": "Open Ring",
+        "productIds": [
           "DRG-RNG02  - 01"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Cocktail",
-        "productSkus": [
-          "JBA00006-WGND3BS-CAB-2.6",
+        "title": "Cocktail",
+        "productIds": [
+          "JBA00006-WGND3BS-CAB-2.6"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
           "JBA00007-YGND500-CAB-2.6"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Everyday Wear",
-        "productSkus": [
-          "DBG-BAN07",
-          "JBA00009-YGND500-CAB-2.6",
-          "JBA00010-WGND500-CAB-2.6",
-          "DMG -1-01",
-          "DER-ER03",
-          "DER-ER04"
-        ]
+        "title": "Everyday Wear",
+        "productIds": [
+          "DBG-BAN07"
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Everyday Collection",
-        "productSkus": [
-          "DMG -3-01",
+        "title": "Everyday Wear",
+        "productIds": [
+          "JBA00009-YGND500-CAB-2.6"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "JBA00010-WGND500-CAB-2.6"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Collection",
+        "productIds": [
+          "DMG -3-01"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "DMG -1-01"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Collection",
+        "productIds": [
           "DMG -2-01"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Anniversary",
-        "productSkus": [
+        "title": "Everyday Wear",
+        "productIds": [
+          "DER-ER03"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "DER-ER04"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Anniversary",
+        "productIds": [
           "DER-ER05"
-        ]
+        ],
+        "description": "dummy description"
       }
     ]
   },
@@ -181,40 +327,107 @@
     "collections": [
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Cocktail",
-        "productSkus": [
-          "KMA-RG-02 - 01",
-          "KMA-RG-03 - 01",
-          "KMA-RG-04 - 01",
-          "KMA-RG-05 - 01",
-          "KMA-RG-06 - 01",
-          "KMA-RG-07 - 01",
+        "title": "Cocktail",
+        "productIds": [
+          "KMA-RG-02 - 01"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "KMA-RG-03 - 01"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "KMA-RG-04 - 01"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "KMA-RG-05 - 01"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "KMA-RG-06 - 01"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "KMA-RG-07 - 01"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
           "KMA-RG-01 - 01"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Wedding",
-        "productSkus": [
-          "JER00001-RGND300-CKJ",
-          "JER00011-YGND300-CKJ",
+        "title": "Wedding",
+        "productIds": [
+          "JER00001-RGND300-CKJ"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Wedding",
+        "productIds": [
+          "JER00011-YGND300-CKJ"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Wedding",
+        "productIds": [
           "JER00012-WGND300-CKJ"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Everyday Wear",
-        "productSkus": [
+        "title": "Everyday Wear",
+        "productIds": [
           "JNE00007-WGND300-CKJ"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Anniversary",
-        "productSkus": [
-          "KMA-NK-02",
+        "title": "Anniversary",
+        "productIds": [
+          "KMA-NK-02"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Anniversary",
+        "productIds": [
           "KMA-NK-04"
-        ]
+        ],
+        "description": "dummy description"
       }
     ]
   },
@@ -224,46 +437,107 @@
     "collections": [
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Engagement",
-        "productSkus": [
+        "title": "Engagement",
+        "productIds": [
           "UER00001-2Y00000-CZA"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Office Wear",
-        "productSkus": [
-          "UER00002-2Y00000-CZA",
+        "title": "Office Wear",
+        "productIds": [
+          "UER00002-2Y00000-CZA"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Office Wear",
+        "productIds": [
           "UER00005-1Y00000-CZA"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Cocktail",
-        "productSkus": [
-          "UER00006-1Y00000-CZA",
-          "UNE00004-2Y00000-CZA",
-          "UNE00009-2Y00000-CZA",
-          "JBA00003-2YND500-CZA-NA",
+        "title": "Cocktail",
+        "productIds": [
+          "UER00006-1Y00000-CZA"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "UNE00004-2Y00000-CZA"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "UNE00009-2Y00000-CZA"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "JBA00003-2YND500-CZA-NA"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
           "JBA00004-2YND500-CZA-2.6"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Everyday Wear",
-        "productSkus": [
-          "GNK-026",
+        "title": "Everyday Wear",
+        "productIds": [
+          "GNK-026"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Anniversary",
+        "productIds": [
+          "GNK-89-12"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
           "GER-13-13"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Anniversary",
-        "productSkus": [
-          "GNK-89-12",
-          "GER-14-14",
+        "title": "Anniversary",
+        "productIds": [
+          "GER-14-14"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Anniversary",
+        "productIds": [
           "GNK-07-07"
-        ]
+        ],
+        "description": "dummy description"
       }
     ]
   },
@@ -273,24 +547,75 @@
     "collections": [
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Cocktail",
-        "productSkus": [
-          "UBA00001-2Y000PE-CVI-2.5",
-          "UBA00002-2Y00000-CVI-2.6",
-          "JBA00002-2YND500-CVI-2.4",
-          "UBA00003-2Y00000-CVI-2.5",
-          "GBN01",
-          "UBA00004-2Y00000-CVI-2.4"
-        ]
+        "title": "Cocktail",
+        "productIds": [
+          "UBA00001-2Y000PE-CVI-2.5"
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Everyday Wear",
-        "productSkus": [
-          "UER00003-2Y00000-CVI",
-          "GER-29",
+        "title": "Cocktail",
+        "productIds": [
+          "UBA00002-2Y00000-CVI-2.6"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "JBA00002-2YND500-CVI-2.4"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "UBA00003-2Y00000-CVI-2.5"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "GBN01"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "UBA00004-2Y00000-CVI-2.4"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "UER00003-2Y00000-CVI"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "GER-29"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
           "GNK-08"
-        ]
+        ],
+        "description": "dummy description"
       }
     ]
   },
@@ -300,28 +625,107 @@
     "collections": [
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Anniversary",
-        "productSkus": [
-          "UNE00001-2Y00000-CNM",
-          "Shri1"
-        ]
+        "title": "Anniversary",
+        "productIds": [
+          "UNE00001-2Y00000-CNM"
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Everyday Wear",
-        "productSkus": [
-          "GER-24",
-          "GER-25",
-          "GER-26",
-          "GER-27",
-          "GER-28",
-          "GNK-09",
-          "Kalika 1",
-          "Kana1",
-          "Parampara 1",
-          "Rajes1",
+        "title": "Everyday Wear",
+        "productIds": [
+          "GER-24"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "GER-25"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "GER-26"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "GER-27"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "GER-28"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "GNK-09"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "Kalika 1"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "Kana1"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "Parampara 1"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "Rajes1"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
           "Swarn 1"
-        ]
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Anniversary",
+        "productIds": [
+          "Shri1"
+        ],
+        "description": "dummy description"
       }
     ]
   },
@@ -331,29 +735,67 @@
     "collections": [
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Cocktail",
-        "productSkus": [
-          "ABA00001-SS00000-CEH-2.6",
+        "title": "Cocktail",
+        "productIds": [
+          "ABA00001-SS00000-CEH-2.6"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
           "ABA00002-SS00000-CEH-2.6"
-        ]
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Everyday Wear",
-        "productSkus": [
-          "SER15",
-          "SER16",
-          "AER00003-SS00000-CEH",
-          "Moonlit1",
-          "UNE00017-1Y00000-CEH"
-        ]
+        "title": "Everyday Wear",
+        "productIds": [
+          "SER15"
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Anniversary",
-        "productSkus": [
+        "title": "Everyday Wear",
+        "productIds": [
+          "SER16"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "AER00003-SS00000-CEH"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Anniversary",
+        "productIds": [
           "Aarohi1"
-        ]
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "Moonlit1"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "UNE00017-1Y00000-CEH"
+        ],
+        "description": "dummy description"
       }
     ]
   },
@@ -363,24 +805,75 @@
     "collections": [
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Everyday Wear",
-        "productSkus": [
-          "TER18",
-          "TER19",
-          "TER20",
-          "TER21",
-          "TNK16",
-          "TNK17",
-          "TNK18",
-          "TNK20"
-        ]
+        "title": "Everyday Wear",
+        "productIds": [
+          "TER18"
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Cocktail",
-        "productSkus": [
+        "title": "Everyday Wear",
+        "productIds": [
+          "TER19"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "TER20"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "TER21"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "TNK16"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "TNK17"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "TNK18"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
           "TNK19"
-        ]
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Everyday Wear",
+        "productIds": [
+          "TNK20"
+        ],
+        "description": "dummy description"
       }
     ]
   },
@@ -390,21 +883,51 @@
     "collections": [
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Cocktail",
-        "productSkus": [
-          "UNE00001-2Y00000-CRA",
-          "UNE00002-2Y00000-CRA",
-          "UNE00003-2Y00000-CRA",
-          "JBA00005-YGND3PE-CRA-2.6"
-        ]
+        "title": "Cocktail",
+        "productIds": [
+          "UNE00001-2Y00000-CRA"
+        ],
+        "description": "dummy description"
       },
       {
         "collectionBannerImgUrl": "https://dummyimage.com",
-        "collectionName": "Anniversary",
-        "productSkus": [
-          "UNE00008-2Y00000-CRA",
+        "title": "Cocktail",
+        "productIds": [
+          "UNE00002-2Y00000-CRA"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "UNE00003-2Y00000-CRA"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Anniversary",
+        "productIds": [
+          "UNE00008-2Y00000-CRA"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Cocktail",
+        "productIds": [
+          "JBA00005-YGND3PE-CRA-2.6"
+        ],
+        "description": "dummy description"
+      },
+      {
+        "collectionBannerImgUrl": "https://dummyimage.com",
+        "title": "Anniversary",
+        "productIds": [
           "GNK - Nk- 29"
-        ]
+        ],
+        "description": "dummy description"
       }
     ]
   }

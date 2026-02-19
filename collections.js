@@ -10,7 +10,7 @@ const OUTPUT_FILE = path.join(__dirname, 'collectionOutputData.json');
 router.get('/getCollections', async (req, res) => {
     try {
         // 1. Take flag from env variable (defaulting to false)
-        const useLiveCollectionData = true
+        const useLiveCollectionData = process.env.USE_LIVE_COLLECTION_DATA === 'true';
 
         let responseData;
 
@@ -58,16 +58,17 @@ router.get('/getCollections', async (req, res) => {
 
                 if (!collectionEntry) {
                     collectionEntry = {
-                        "collectionBannerImgUrl":"https://dummyimage.com",
-                        collectionName: firstCollection,
-                        productSkus: []
+                        collectionBannerImgUrl:"https://dummyimage.com",
+                        title: firstCollection,
+                        productIds: [],
+                        description:"dummy description"
                     };
                     collectionsBySeller[sellerId].collections.push(collectionEntry);
                 }
 
                 // 5. Push SKU if it exists
                 if (product.sku) {
-                    collectionEntry.productSkus.push(product.sku);
+                    collectionEntry.productIds.push(product.sku);
                 }
             });
 
