@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { HEADERS, BASE_URL } = require('./config');
+const { getVideoUrlByName } = require('./ImmersiveVideoFetcher');
 
 const CACHE_FILE = path.join(__dirname, 'products.json');
 const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 Hours
@@ -121,7 +122,14 @@ async function processProduct(product) {
         })
     );
 
-    const processedProduct = { ...product, media_gallery_entries: mediaFiles, custom_attributes: updatedAttributes };
+    let immersiveVideoUrl=null
+    const vendor_sku=product.custom_attributes.find((attr) => attr.attribute_code === "vendor_sku")?.value;
+    if(vendor_sku){
+        immersiveVideoUrl = getVideoUrlByName(`${vendor_sku}.mp4`);
+
+    }
+
+    const processedProduct = { ...product, media_gallery_entries: mediaFiles, custom_attributes: updatedAttributes, immersiveVideoUrl };
     if (pId) cache.products[pId] = processedProduct;
     return processedProduct;
 }
@@ -130,7 +138,6 @@ async function processProduct(product) {
  * MAIN ENTRY POINT
  */
 async function getAllResolvedProducts() {
-    // 1. Check Local File Cache
     const localCache = readLocalCache();
     if (localCache && localCache.fetchedAt) {
         const age = Date.now() - localCache.fetchedAt;
