@@ -7,6 +7,17 @@ const { getAllResolvedProducts } = require('./productResolver');
 // Path to your local JSON storage
 const OUTPUT_FILE = path.join(__dirname, 'collectionOutputData.json');
 
+const imageUrls = [
+    "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+    "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+    "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+    "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+    "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%205.webp?alt=media&token=95c50eed-2913-4f56-9250-b33c51adb520",
+    "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%206.webp?alt=media&token=16c29c4d-969c-4dd5-bb8d-1b5f3ada66e7",
+    "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+    "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+    "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c"
+  ];
 router.get('/getCollections', async (req, res) => {
     try {
         // 1. Take flag from env variable (defaulting to false)

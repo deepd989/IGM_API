@@ -53,6 +53,24 @@ app.get('/getAllProducts', async (req, res) => {
     }
 });
 
+app.get('/getProduct/:sku', async (req, res) => {
+    try {
+        console.log("Received request for product with SKU:", req.params.sku);
+        const { sku } = req.params;
+
+        const product = await getProductBySku(sku);
+
+        if (!product) {
+            return res.status(404).json({ message: `Product with SKU ${sku} not found` });
+        }
+
+        res.status(200).json(product);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
 app.listen(port, '0.0.0.0', () => {
     console.log(`Service running at http://0.0.0.0:${port}`);
 });
