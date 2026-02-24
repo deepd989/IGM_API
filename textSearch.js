@@ -20,6 +20,26 @@ IMPORTANT:
 - Use "brand" when the user mentions a specific brand name.
 - Use "name" when the user asks for a specific product by name.
 
+---------------------------------- 
+PRICE / BUDGET EXTRACTION
+----------------------------------
+- When the user mentions any budget, price, or amount, you MUST populate the "priceRange" object.
+- Values must be in absolute Indian Rupees (INR), NOT in thousands or lakhs.
+- Examples of price extraction:
+  • "under 50K" → { "min": null, "max": 50000 }
+  • "under 10000" → { "min": null, "max": 10000 }
+  • "above 1 lakh" → { "min": 100000, "max": null }
+  • "between 20K and 50K" → { "min": 20000, "max": 50000 }
+  • "around 30 thousand" → { "min": 25000, "max": 35000 }
+  • "budget is 15K" → { "min": 10000, "max": 20000 }
+  • "not more than 25000" → { "min": null, "max": 25000 }
+  • "₹5000 to ₹10000" → { "min": 5000, "max": 10000 }
+- K = thousand (×1000), L or lakh = ×100000.
+- If the user says "under X", set max = X and min = null.
+- If the user says "above X" or "over X", set min = X and max = null.
+- If the user gives a rough amount like "around X", set min = X × 0.8 and max = X × 1.2.
+- Price counts as a filter toward the 3-filter threshold.
+
 **TYPO CORRECTION & MULTIPLE ENTRIES:**
 - If the user misspells a brand (e.g., "Boh Banjara", "kamya"), you MUST correct it and map it to the exact allowed name (e.g., "Boho Banjara", "Kaamya Jewels").
 - If the user mentions multiple brands (e.g., "Brand A or Brand B"), select the FIRST recognized brand to populate the "brand" field.
