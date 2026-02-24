@@ -10,6 +10,7 @@ const collectionsRoutes = require('./collections');
 const {getDbClient}=require('./dbConnection');
 const { get } = require('http');
 const textSearchRoutes = require('./textSearch');
+const multiBrandCollectionsRoutes = require('./multibrandCollection');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -33,6 +34,8 @@ app.use(express.json());
 // Mount all image-related routes
 app.use('/', imageRoutes);
 
+app.use('/', multiBrandCollectionsRoutes);
+
 app.use('/', userRoutes);
 
 app.use('/', sellerRoutes);
@@ -53,23 +56,23 @@ app.get('/getAllProducts', async (req, res) => {
     }
 });
 
-app.get('/getProduct/:sku', async (req, res) => {
-    try {
-        console.log("Received request for product with SKU:", req.params.sku);
-        const { sku } = req.params;
+// app.get('/getProduct/:sku', async (req, res) => {
+//     try {
+//         console.log("Received request for product with SKU:", req.params.sku);
+//         const { sku } = req.params;
 
-        const product = await getProductBySku(sku);
+//         const product = await getProductBySku(sku);
 
-        if (!product) {
-            return res.status(404).json({ message: `Product with SKU ${sku} not found` });
-        }
+//         if (!product) {
+//             return res.status(404).json({ message: `Product with SKU ${sku} not found` });
+//         }
 
-        res.status(200).json(product);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: error.message });
-    }
-});
+//         res.status(200).json(product);
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ error: error.message });
+//     }
+// });
 
 app.listen(port, '0.0.0.0', () => {
     console.log(`Service running at http://0.0.0.0:${port}`);

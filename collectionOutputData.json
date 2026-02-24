@@ -1,28 +1,28 @@
 {
   "4": {
-    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
     "sellerName": "Roma Designs",
     "collections": [
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Anniversary",
         "productIds": ["JRI00001-WGND300-CRD"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
         "title": "Designer",
         "productIds": ["DRG-107 -01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
         "title": "Engagement",
         "productIds": ["DRG-110 - 01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
         "title": "Daily Wear",
         "productIds": ["DRG-113 -01"],
         "description": "dummy description"
@@ -40,43 +40,43 @@
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FZayra%20(1).webp?alt=media&token=a3919c4e-15b5-4486-aed2-ef7d72c418e4",
         "title": "Wedding",
         "productIds": ["JER00010-1WND600-CRD"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
         "title": "Anniversary",
         "productIds": ["JNE00001-YGND500-CRD"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
         "title": "Cocktail",
         "productIds": ["DNK-104"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Cocktail",
         "productIds": ["DBR-1212 -01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
         "title": "Cocktail",
         "productIds": ["DBR-1312 -01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
         "title": "Cocktail",
         "productIds": ["DBR-1412 -01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
         "title": "Everyday Wear",
         "productIds": ["DER-111"],
         "description": "dummy description"
@@ -96,47 +96,47 @@
     ]
   },
   "10": {
-    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
     "sellerName": "Belrosa Atelier",
     "collections": [
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FZayra%20(1).webp?alt=media&token=a3919c4e-15b5-4486-aed2-ef7d72c418e4",
         "title": "Wedding",
         "productIds": ["URI00001-WG00000-CBA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
         "title": "Engagement",
         "productIds": ["URI00002-YG00000-CBA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
         "title": "Designer",
         "productIds": ["URI00003-RG00000-CBA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Wedding",
         "productIds": ["TRG04 -01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
         "title": "Cocktail",
         "productIds": ["UER00004-1R00000-CBA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
         "title": "Cocktail",
         "productIds": ["UNE00007-RG00000-CBA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
         "title": "Cocktail",
         "productIds": ["UNE00010-YG00000-CBA"],
         "description": "dummy description"
@@ -154,7 +154,7 @@
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FZayra%20(1).webp?alt=media&token=a3919c4e-15b5-4486-aed2-ef7d72c418e4",
         "title": "Everyday Wear",
         "productIds": ["UNE00012-RG00000-CBA"],
         "description": "dummy description"
@@ -162,41 +162,41 @@
     ]
   },
   "11": {
-    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
     "sellerName": "AstraBelle",
     "collections": [
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
         "title": "Statement Ring",
         "productIds": ["DRG-RNG01 - 01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
         "title": "Open Ring",
         "productIds": ["DRG-RNG02  - 01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Cocktail",
         "productIds": ["JBA00006-WGND3BS-CAB-2.6"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
         "title": "Cocktail",
         "productIds": ["JBA00007-YGND500-CAB-2.6"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
         "title": "Everyday Wear",
         "productIds": ["DBG-BAN07"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
         "title": "Everyday Wear",
         "productIds": ["JBA00009-YGND500-CAB-2.6"],
         "description": "dummy description"
@@ -214,31 +214,31 @@
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FZayra%20(1).webp?alt=media&token=a3919c4e-15b5-4486-aed2-ef7d72c418e4",
         "title": "Everyday Wear",
         "productIds": ["DMG -1-01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
         "title": "Everyday Collection",
         "productIds": ["DMG -2-01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
         "title": "Everyday Wear",
         "productIds": ["DER-ER03"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Everyday Wear",
         "productIds": ["DER-ER04"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
         "title": "Anniversary",
         "productIds": ["DER-ER05"],
         "description": "dummy description"
@@ -246,17 +246,17 @@
     ]
   },
   "12": {
-    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
     "sellerName": "Kaamya Jewels",
     "collections": [
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
         "title": "Cocktail",
         "productIds": ["KMA-RG-02 - 01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
         "title": "Cocktail",
         "productIds": ["KMA-RG-03 - 01"],
         "description": "dummy description"
@@ -274,43 +274,43 @@
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FZayra%20(1).webp?alt=media&token=a3919c4e-15b5-4486-aed2-ef7d72c418e4",
         "title": "Cocktail",
         "productIds": ["KMA-RG-06 - 01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
         "title": "Cocktail",
         "productIds": ["KMA-RG-07 - 01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
         "title": "Cocktail",
         "productIds": ["KMA-RG-01 - 01"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Wedding",
         "productIds": ["JER00001-RGND300-CKJ"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
         "title": "Wedding",
         "productIds": ["JER00011-YGND300-CKJ"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
         "title": "Wedding",
         "productIds": ["JER00012-WGND300-CKJ"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
         "title": "Everyday Wear",
         "productIds": ["JNE00007-WGND300-CKJ"],
         "description": "dummy description"
@@ -334,43 +334,43 @@
     "sellerName": "Zaiwarya",
     "collections": [
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FZayra%20(1).webp?alt=media&token=a3919c4e-15b5-4486-aed2-ef7d72c418e4",
         "title": "Engagement",
         "productIds": ["UER00001-2Y00000-CZA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
         "title": "Office Wear",
         "productIds": ["UER00002-2Y00000-CZA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
         "title": "Office Wear",
         "productIds": ["UER00005-1Y00000-CZA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Cocktail",
         "productIds": ["UER00006-1Y00000-CZA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
         "title": "Cocktail",
         "productIds": ["UNE00004-2Y00000-CZA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
         "title": "Cocktail",
         "productIds": ["UNE00009-2Y00000-CZA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
         "title": "Cocktail",
         "productIds": ["JBA00003-2YND500-CZA-NA"],
         "description": "dummy description"
@@ -388,25 +388,25 @@
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FZayra%20(1).webp?alt=media&token=a3919c4e-15b5-4486-aed2-ef7d72c418e4",
         "title": "Anniversary",
         "productIds": ["GNK-89-12"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
         "title": "Everyday Wear",
         "productIds": ["GER-13-13"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
         "title": "Anniversary",
         "productIds": ["GER-14-14"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Anniversary",
         "productIds": ["GNK-07-07"],
         "description": "dummy description"
@@ -418,19 +418,19 @@
     "sellerName": "Virasat Jewels",
     "collections": [
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
         "title": "Cocktail",
         "productIds": ["UBA00001-2Y000PE-CVI-2.5"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
         "title": "Cocktail",
         "productIds": ["UBA00002-2Y00000-CVI-2.6"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
         "title": "Cocktail",
         "productIds": ["JBA00002-2YND500-CVI-2.4"],
         "description": "dummy description"
@@ -448,25 +448,25 @@
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FZayra%20(1).webp?alt=media&token=a3919c4e-15b5-4486-aed2-ef7d72c418e4",
         "title": "Cocktail",
         "productIds": ["UBA00004-2Y00000-CVI-2.4"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
         "title": "Everyday Wear",
         "productIds": ["UER00003-2Y00000-CVI"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
         "title": "Everyday Wear",
         "productIds": ["GER-29"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Everyday Wear",
         "productIds": ["GNK-08"],
         "description": "dummy description"
@@ -474,23 +474,23 @@
     ]
   },
   "15": {
-    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FZayra%20(1).webp?alt=media&token=a3919c4e-15b5-4486-aed2-ef7d72c418e4",
     "sellerName": "Nakshatra Mandir",
     "collections": [
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
         "title": "Anniversary",
         "productIds": ["UNE00001-2Y00000-CNM"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
         "title": "Everyday Wear",
         "productIds": ["GER-24"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
         "title": "Everyday Wear",
         "productIds": ["GER-25"],
         "description": "dummy description"
@@ -508,43 +508,43 @@
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FZayra%20(1).webp?alt=media&token=a3919c4e-15b5-4486-aed2-ef7d72c418e4",
         "title": "Everyday Wear",
         "productIds": ["GER-28"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
         "title": "Everyday Wear",
         "productIds": ["GNK-09"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
         "title": "Everyday Wear",
         "productIds": ["Kalika 1"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Everyday Wear",
         "productIds": ["Kana1"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
         "title": "Everyday Wear",
         "productIds": ["Parampara 1"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
         "title": "Everyday Wear",
         "productIds": ["Rajes1"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
         "title": "Everyday Wear",
         "productIds": ["Swarn 1"],
         "description": "dummy description"
@@ -558,7 +558,7 @@
     ]
   },
   "16": {
-    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
     "sellerName": "Ethnika House",
     "collections": [
       {
@@ -568,43 +568,43 @@
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FZayra%20(1).webp?alt=media&token=a3919c4e-15b5-4486-aed2-ef7d72c418e4",
         "title": "Cocktail",
         "productIds": ["ABA00002-SS00000-CEH-2.6"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
         "title": "Everyday Wear",
         "productIds": ["SER15"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
         "title": "Everyday Wear",
         "productIds": ["SER16"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Everyday Wear",
         "productIds": ["AER00003-SS00000-CEH"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
         "title": "Anniversary",
         "productIds": ["Aarohi1"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
         "title": "Everyday Wear",
         "productIds": ["Moonlit1"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
         "title": "Everyday Wear",
         "productIds": ["UNE00017-1Y00000-CEH"],
         "description": "dummy description"
@@ -612,7 +612,7 @@
     ]
   },
   "17": {
-    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
     "sellerName": "Boho Banjara",
     "collections": [
       {
@@ -628,43 +628,43 @@
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FZayra%20(1).webp?alt=media&token=a3919c4e-15b5-4486-aed2-ef7d72c418e4",
         "title": "Everyday Wear",
         "productIds": ["TER20"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
         "title": "Everyday Wear",
         "productIds": ["TER21"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
         "title": "Everyday Wear",
         "productIds": ["TNK16"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Everyday Wear",
         "productIds": ["TNK17"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%202.webp?alt=media&token=8dded7d7-3586-45d2-b81b-9e415d744901",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FEveryday%20Elegance.webp?alt=media&token=1c294118-b554-41b0-a69a-e284b6957ba8",
         "title": "Everyday Wear",
         "productIds": ["TNK18"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%203.webp?alt=media&token=846f9647-9a8a-48fb-8568-5e3fb610ecee",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FLumora.webp?alt=media&token=1bc21c20-2bd6-4718-836d-42d80643c7b0",
         "title": "Cocktail",
         "productIds": ["TNK19"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%204.webp?alt=media&token=4f82cb08-91cd-4e2a-9b4b-9ecd22c5d526",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FMahotsav%20(1).webp?alt=media&token=13f3616e-98a8-4283-9599-cc24ea31512c",
         "title": "Everyday Wear",
         "productIds": ["TNK20"],
         "description": "dummy description"
@@ -672,7 +672,7 @@
     ]
   },
   "18": {
-    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+    "sellerBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
     "sellerName": "Rang Auraa",
     "collections": [
       {
@@ -688,25 +688,25 @@
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%207.webp?alt=media&token=b69117dd-5bdc-4a5e-8b9d-1b9a06ad8d9a",
+        "collectionBannerImgUrl": "",
         "title": "Cocktail",
         "productIds": ["UNE00003-2Y00000-CRA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%208.webp?alt=media&token=fcc085d2-d4ae-4f89-ae58-ddb7f77216cf",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRiva%201.webp?alt=media&token=07fbf8eb-a027-4fc9-aa1e-dbe31774c3fa",
         "title": "Anniversary",
         "productIds": ["UNE00008-2Y00000-CRA"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%209.webp?alt=media&token=22fc4508-67fe-4762-afc8-937bcba33e1c",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FRed%20Carpet%202.webp?alt=media&token=73d256d1-e7b9-4673-b488-194f76aad0aa",
         "title": "Cocktail",
         "productIds": ["JBA00005-YGND3PE-CRA-2.6"],
         "description": "dummy description"
       },
       {
-        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FArtboard%201.webp?alt=media&token=9df35246-e19d-4758-aceb-79bc28796b68",
+        "collectionBannerImgUrl": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Collections%2FDevika.webp?alt=media&token=59a21c37-304c-4434-980d-43eb8a0057aa",
         "title": "Anniversary",
         "productIds": ["GNK - Nk- 29"],
         "description": "dummy description"
@@ -714,3 +714,5 @@
     ]
   }
 }
+
+
