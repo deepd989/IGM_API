@@ -141,10 +141,10 @@ async function getAllResolvedProducts() {
     const localCache = readLocalCache();
     if (localCache && localCache.fetchedAt) {
         const age = Date.now() - localCache.fetchedAt;
-        // if (age < CACHE_DURATION_MS) {
-        //     console.log("📦 Returning data from local products.json (Cache hit)");
-        //     return localCache.data;
-        // }
+        if (age < CACHE_DURATION_MS) {
+            console.log("📦 Returning data from local products.json (Cache hit)");
+            return localCache.data;
+        }
     }
 
     console.log("🌐 Cache expired or missing. Fetching from API...");
