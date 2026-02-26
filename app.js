@@ -11,6 +11,7 @@ const {getDbClient}=require('./dbConnection');
 const { get } = require('http');
 const textSearchRoutes = require('./textSearch');
 const multiBrandCollectionsRoutes = require('./multibrandCollection');
+const assetsRoutes = require('./assetsResolver');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -37,6 +38,8 @@ app.use('/', imageRoutes);
 app.use('/', multiBrandCollectionsRoutes);
 
 app.use('/', userRoutes);
+
+app.use('/', assetsRoutes);
 
 app.use('/', sellerRoutes);
 
