@@ -1,7 +1,16 @@
 const SYSTEM_PROMPT = `
+🚨 PRIMARY INSTRUCTION: You MUST extract price information when users mention amounts like "above 100000", "under 50K", etc. This is your FIRST priority. 🚨
+
 You are a sophisticated AI jewelry shopping assistant. Your goal is to either:
 1) Answer jewelry-related questions, OR
 2) Collect structured information to build a product search query.
+
+⚠️ CRITICAL REQUIREMENT: When users mention ANY price, budget, or amount (like "above 100000", "under 50K", etc.), you MUST extract it into priceRange. This is mandatory even when mentioned alongside product details.
+
+PRICE EXTRACTION EXAMPLES (MEMORIZE THESE):
+- "ring above 100000" → productType="Ring" + priceRange={"min":100000,"max":null}
+- "necklace under 50000" → productType="Necklace" + priceRange={"min":null,"max":50000}
+- "earrings between 25000 and 75000" → productType="Earring" + priceRange={"min":25000,"max":75000}
 
 You are given the FULL conversation history between the user and the AI. 
 You must decide whether to reply conversationally or trigger a search.
@@ -21,24 +30,38 @@ IMPORTANT:
 - Use "name" when the user asks for a specific product by name.
 
 ---------------------------------- 
-PRICE / BUDGET EXTRACTION
+PRICE / BUDGET EXTRACTION - CRITICAL
 ----------------------------------
-- When the user mentions any budget, price, or amount, you MUST populate the "priceRange" object.
-- Values must be in absolute Indian Rupees (INR), NOT in thousands or lakhs.
-- Examples of price extraction:
+⚠️ MANDATORY: When the user mentions ANY price, budget, amount, or cost, you MUST extract it and populate "priceRange".
+
+CONVERSION RULES:
+- All values must be in absolute Indian Rupees (INR)
+- K/k = thousand (×1000)
+- L/l/lakh/lakhs = ×100000
+- cr/crore/crores = ×10000000
+
+EXTRACTION PATTERNS (EXAMPLE INPUTS → OUTPUT):
   • "under 50K" → { "min": null, "max": 50000 }
-  • "under 10000" → { "min": null, "max": 10000 }
+  • "below 25000" → { "min": null, "max": 25000 }
+  • "above 100000" → { "min": 100000, "max": null }
   • "above 1 lakh" → { "min": 100000, "max": null }
+  • "over 75K" → { "min": 75000, "max": null }
+  • "more than 50000" → { "min": 50000, "max": null }
   • "between 20K and 50K" → { "min": 20000, "max": 50000 }
+  • "₹30000 to ₹80000" → { "min": 30000, "max": 80000 }
   • "around 30 thousand" → { "min": 25000, "max": 35000 }
   • "budget is 15K" → { "min": 10000, "max": 20000 }
   • "not more than 25000" → { "min": null, "max": 25000 }
-  • "₹5000 to ₹10000" → { "min": 5000, "max": 10000 }
-- K = thousand (×1000), L or lakh = ×100000.
-- If the user says "under X", set max = X and min = null.
-- If the user says "above X" or "over X", set min = X and max = null.
-- If the user gives a rough amount like "around X", set min = X × 0.8 and max = X × 1.2.
-- Price counts as a filter toward the 3-filter threshold.
+  • "within 1 lakh" → { "min": null, "max": 100000 }
+  • "up to 2 lakhs" → { "min": null, "max": 200000 }
+
+RANGE LOGIC:
+- "under/below/less than/up to/within X" → { "min": null, "max": X }
+- "above/over/more than X" → { "min": X, "max": null }
+- "around/approximately X" → { "min": X × 0.8, "max": X × 1.2 }
+- "X to Y" or "between X and Y" → { "min": X, "max": Y }
+
+⚠️ CRITICAL: Even if price is mentioned with other product details (like "necklace above 100000"), you MUST extract the price range. Price counts as a filter toward the 3-filter threshold.
 
 **TYPO CORRECTION & MULTIPLE ENTRIES:**
 - If the user misspells a brand (e.g., "Boh Banjara", "kamya"), you MUST correct it and map it to the exact allowed name (e.g., "Boho Banjara", "Kaamya Jewels").
@@ -99,12 +122,16 @@ router.post('/textsearchAi', async (req, res) => {
         const { userMessage, previousBotMessages: previousMessages = [] } = req.body;
         console.log("userMessage:", userMessage, previousMessages);
 
+        // PRE-PROCESS: Extract price patterns before sending to Gemini
+        const pricePatterns = extractPriceFromMessage(userMessage);
+        console.log("Pre-extracted price patterns:", pricePatterns);
+
         const model = genAI.getGenerativeModel({
             model: "gemini-2.5-flash",
             generationConfig: {
                 responseMimeType: "application/json",
                 responseSchema: searchSchema, // Enforces exact enums and structure
-                temperature: 0.1 // Low temperature helps with strict formatting
+                temperature: 0.1 // Low temperature for consistent results
             }
         });
 
@@ -116,27 +143,78 @@ router.post('/textsearchAi', async (req, res) => {
             .join("\n");
 
         const prompt = `
-        ${SYSTEM_PROMPT}
-        
-        FULL CONVERSATION:
-        ${chatContext}
-        
-        User: ${userMessage}
-        
-        Remember:
-        - Apply the 3-filter rule strictly.
-        - Correct any brand misspellings to match the exact allowed names.
+Extract jewelry search filters from: "${userMessage}"
+
+FILTERS TO EXTRACT:
+- productType: Ring, Necklace, Earring, Bracelet, Pendant, Bangle, Anklet, Mangalsutra, Chain
+- whoFor: sibling, partner, father, mother, sister, brother, male, female  
+- metalType: Gold, Silver, Platinum, Rose Gold
+- occasion: Birthday, Anniversary, Wedding, Graduation, Diwali, Daily Wear, Party Wear
+- gemstone: Natural Diamond, Gemstone
+- brand: Roma Designs, Belrosa Atelier, AstraBelle, Zaiwarya, Virasat Jewels, Nakshatra Mandir, Ethnika House, Boho Banjara, Rang Auraa, Kaamya Jewels
+
+${pricePatterns ? `PRICE DETECTED: Use this priceRange: ${JSON.stringify(pricePatterns)}` : 'No price mentioned.'}
+
+If 3+ filters → isReply: false, otherwise → isReply: true
         `;
 
+        console.log("Explicit pattern matching for:", userMessage);
+        console.log("Full prompt length:", prompt.length);
+        console.log("Prompt preview:", prompt.substring(0, 500) + "...");
+
         const result = await model.generateContent(prompt);
-        const parsedResponse = JSON.parse(result.response.text());
+        const responseText = result.response.text();
+        console.log("Raw response from Gemini:", responseText);
         
-        console.log("response from gemini:", parsedResponse);
+        const parsedResponse = JSON.parse(responseText);
+        
+        // POST-PROCESS: Ensure price is included if we pre-extracted it
+        if (pricePatterns && parsedResponse.searchQuery) {
+            parsedResponse.searchQuery.priceRange = pricePatterns;
+            console.log("Force-added price range to response");
+        }
+        
+        console.log("Final response:", parsedResponse);
         res.status(200).json(parsedResponse);
     } catch (error) {
         console.error("Gemini Error:", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
+
+// Helper function to extract price patterns from text
+function extractPriceFromMessage(message) {
+    const lowerMessage = message.toLowerCase();
+    
+    // Pattern matching for price extraction
+    const aboveMatch = lowerMessage.match(/above\s+(\d+)/);
+    const underMatch = lowerMessage.match(/under\s+(\d+)/);
+    const belowMatch = lowerMessage.match(/below\s+(\d+)/);
+    const betweenMatch = lowerMessage.match(/between\s+(\d+)\s+and\s+(\d+)/);
+    
+    if (betweenMatch) {
+        return {
+            min: parseInt(betweenMatch[1]),
+            max: parseInt(betweenMatch[2])
+        };
+    }
+    
+    if (aboveMatch) {
+        return {
+            min: parseInt(aboveMatch[1]),
+            max: null
+        };
+    }
+    
+    if (underMatch || belowMatch) {
+        const amount = underMatch ? parseInt(underMatch[1]) : parseInt(belowMatch[1]);
+        return {
+            min: null,
+            max: amount
+        };
+    }
+    
+    return null;
+}
 
 module.exports = router;
