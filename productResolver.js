@@ -78,6 +78,13 @@ const resolvers = {
         }
         return cache.attributes[key][value] || value;
     },
+    async fetchLabelResolverStringToArray(key, value) {
+        if (!value) return value;
+        const values = Array.isArray(value) ? value : value.split(',').map(v => v.trim());
+        const resolvedValues = await Promise.all(values.map(val => resolvers.fetchLabelResolver(key, val)
+        ));
+        return resolvedValues.join(', ');
+    },
 
     cleanHTML: (key, value) => (typeof value === 'string' ? value.replace(/<\/?[^>]+(>|$)/g, "") : value)
 };
@@ -90,7 +97,8 @@ const resolverMap = {
     "stone_type": "fetchLabelResolver",
     "short_description": "cleanHTML",
     "long_description": "cleanHTML",
-    "default": "fetchLabelResolver"
+    "default": "fetchLabelResolver",
+    "occasion_tags": "fetchLabelResolverStringToArray",
 };
 
 async function processProduct(product) {
