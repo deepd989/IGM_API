@@ -1,5 +1,5 @@
 {
-  "fetchedAt": 1772102981838,
+  "fetchedAt": 1772103850687,
   "data": [
     {
       "updated": {
@@ -2405,7 +2405,7 @@
         "visibility": 4,
         "type_id": "simple",
         "created_at": "2026-02-13 16:45:18",
-        "updated_at": "2026-02-25 08:22:51",
+        "updated_at": "2026-02-26 10:59:09",
         "extension_attributes": {
           "website_ids": [
             1
@@ -2645,7 +2645,7 @@
           },
           {
             "attribute_code": "occasion_tags",
-            "value": "Anniversary"
+            "value": "Wedding"
           },
           {
             "attribute_code": "is_vto",
@@ -2740,7 +2740,7 @@
         "visibility": 4,
         "type_id": "simple",
         "created_at": "2026-02-13 16:54:33",
-        "updated_at": "2026-02-25 08:23:16",
+        "updated_at": "2026-02-26 10:59:09",
         "extension_attributes": {
           "website_ids": [
             1
@@ -3000,7 +3000,7 @@
           },
           {
             "attribute_code": "occasion_tags",
-            "value": "Anniversary"
+            "value": "Wedding"
           },
           {
             "attribute_code": "is_vto",
@@ -6003,7 +6003,7 @@
         "visibility": 4,
         "type_id": "simple",
         "created_at": "2026-02-23 09:37:33",
-        "updated_at": "2026-02-25 09:11:01",
+        "updated_at": "2026-02-26 10:59:09",
         "weight": 1.93,
         "extension_attributes": {
           "website_ids": [
@@ -6204,7 +6204,7 @@
           },
           {
             "attribute_code": "occasion_tags",
-            "value": "Anniversary"
+            "value": "Wedding"
           },
           {
             "attribute_code": "is_vto",
@@ -6299,7 +6299,7 @@
         "visibility": 4,
         "type_id": "simple",
         "created_at": "2026-02-23 09:44:41",
-        "updated_at": "2026-02-25 09:11:36",
+        "updated_at": "2026-02-26 10:59:09",
         "extension_attributes": {
           "website_ids": [
             1
@@ -6531,7 +6531,7 @@
           },
           {
             "attribute_code": "occasion_tags",
-            "value": "Anniversary, Wedding, Birthday, Dhanteras, Tritiya, Karwa Chauth"
+            "value": "Wedding"
           },
           {
             "attribute_code": "is_vto",
@@ -21301,7 +21301,7 @@
         "visibility": 4,
         "type_id": "simple",
         "created_at": "2026-02-24 11:23:59",
-        "updated_at": "2026-02-25 12:01:11",
+        "updated_at": "2026-02-26 11:03:44",
         "weight": 12.36,
         "extension_attributes": {
           "website_ids": [
@@ -21441,7 +21441,7 @@
           },
           {
             "attribute_code": "occasion_tags",
-            "value": "Anniversary, Wedding, Birthday, Dhanteras, Tritiya, Karwa Chauth, Daily Wear, Office Wear, Party Wear"
+            "value": "Anniversary, Birthday"
           },
           {
             "attribute_code": "is_vto",
@@ -21469,7 +21469,7 @@
           },
           {
             "attribute_code": "sub_cat",
-            "value": "Necklace"
+            "value": "9,12"
           },
           {
             "attribute_code": "category_ids",
@@ -21531,7 +21531,7 @@
         "visibility": 4,
         "type_id": "simple",
         "created_at": "2026-02-24 11:27:08",
-        "updated_at": "2026-02-26 10:33:51",
+        "updated_at": "2026-02-26 11:03:44",
         "weight": 21.36,
         "extension_attributes": {
           "website_ids": [
@@ -21711,7 +21711,7 @@
           },
           {
             "attribute_code": "sub_cat",
-            "value": "9"
+            "value": "9,12"
           },
           {
             "attribute_code": "category_ids",
@@ -25147,7 +25147,7 @@
         "visibility": 4,
         "type_id": "simple",
         "created_at": "2026-02-13 16:35:21",
-        "updated_at": "2026-02-25 10:00:46",
+        "updated_at": "2026-02-26 10:59:09",
         "extension_attributes": {
           "website_ids": [
             1
@@ -25387,7 +25387,7 @@
           },
           {
             "attribute_code": "occasion_tags",
-            "value": "Anniversary"
+            "value": "Wedding"
           },
           {
             "attribute_code": "is_vto",
@@ -30931,7 +30931,7 @@
         "visibility": 4,
         "type_id": "simple",
         "created_at": "2026-02-15 13:18:32",
-        "updated_at": "2026-02-25 08:20:39",
+        "updated_at": "2026-02-26 10:59:09",
         "extension_attributes": {
           "website_ids": [
             1
@@ -31155,7 +31155,7 @@
           },
           {
             "attribute_code": "occasion_tags",
-            "value": "Anniversary"
+            "value": "Wedding"
           },
           {
             "attribute_code": "is_vto",
@@ -38567,7 +38567,7 @@
         "visibility": 4,
         "type_id": "simple",
         "created_at": "2026-02-24 10:50:51",
-        "updated_at": "2026-02-25 10:26:51",
+        "updated_at": "2026-02-26 10:59:09",
         "weight": 18.25,
         "extension_attributes": {
           "website_ids": [
@@ -38784,7 +38784,7 @@
           },
           {
             "attribute_code": "occasion_tags",
-            "value": "Anniversary, Wedding, Party Wear"
+            "value": "Wedding"
           },
           {
             "attribute_code": "is_vto",
@@ -38894,7 +38894,7 @@
         "visibility": 4,
         "type_id": "simple",
         "created_at": "2026-02-24 10:58:25",
-        "updated_at": "2026-02-25 10:27:55",
+        "updated_at": "2026-02-26 10:59:09",
         "weight": 20.36,
         "extension_attributes": {
           "website_ids": [
@@ -39091,7 +39091,7 @@
           },
           {
             "attribute_code": "occasion_tags",
-            "value": "Anniversary, Wedding, Birthday, Dhanteras, Tritiya, Karwa Chauth, Daily Wear, Office Wear, Party Wear"
+            "value": "Wedding"
           },
           {
             "attribute_code": "is_vto",
@@ -39188,7 +39188,7 @@
         "visibility": 4,
         "type_id": "simple",
         "created_at": "2026-02-24 11:10:32",
-        "updated_at": "2026-02-25 10:28:17",
+        "updated_at": "2026-02-26 10:59:09",
         "weight": 19.23,
         "extension_attributes": {
           "website_ids": [
@@ -39381,7 +39381,7 @@
           },
           {
             "attribute_code": "occasion_tags",
-            "value": "Anniversary, Wedding, Birthday, Dhanteras, Tritiya, Karwa Chauth, Daily Wear, Office Wear, Party Wear"
+            "value": "Wedding"
           },
           {
             "attribute_code": "is_vto",
@@ -39478,7 +39478,7 @@
         "visibility": 4,
         "type_id": "simple",
         "created_at": "2026-02-24 11:16:47",
-        "updated_at": "2026-02-25 10:28:45",
+        "updated_at": "2026-02-26 10:59:09",
         "weight": 16.59,
         "extension_attributes": {
           "website_ids": [
@@ -39675,7 +39675,7 @@
           },
           {
             "attribute_code": "occasion_tags",
-            "value": "Anniversary, Wedding, Birthday, Dhanteras, Tritiya, Karwa Chauth, Daily Wear, Office Wear, Party Wear"
+            "value": "Wedding"
           },
           {
             "attribute_code": "is_vto",
