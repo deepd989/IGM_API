@@ -4,7 +4,7 @@ const { HEADERS, BASE_URL } = require('./config');
 const { getVideoUrlByName } = require('./ImmersiveVideoFetcher');
 
 const CACHE_FILE = path.join(__dirname, 'products.json');
-const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 Hours
+const CACHE_DURATION_MS = 30 * 60 * 1000; // 30 minutes
 
 const cache = {
     attributes: {},

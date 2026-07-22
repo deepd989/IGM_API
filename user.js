@@ -21,7 +21,7 @@ router.post('/registerUser', async (req, res) => {
       return res.status(409).json({ error: 'User with this userid already exists' });
     }
 
-    const doc = { userid, walletBalance:0, gifts: [] };
+    const doc = { userid, walletBalance:1000, gifts: [] };
     const result = await userCollection.insertOne(doc);
     const { _id,...data} = doc;
     return res.status(201).json({  ...data });
