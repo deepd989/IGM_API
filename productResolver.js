@@ -4,7 +4,6 @@ const { HEADERS, BASE_URL } = require('./config');
 const { getVideoUrlByName } = require('./ImmersiveVideoFetcher');
 
 const CACHE_FILE = path.join(__dirname, 'products.json');
-const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 1 day
 
 const cache = {
     attributes: {},
@@ -12,6 +11,18 @@ const cache = {
     sellers: null,
     products: {}
 };
+
+/**
+ * Wipes the in-process memo cache so the next resolve is a genuine refetch.
+ * Without this, a second resolve in the same process would short-circuit on
+ * cache.products / cache.sellers and re-emit the previous run's data.
+ */
+function clearMemoryCache() {
+    cache.attributes = {};
+    cache.categories = null;
+    cache.sellers = null;
+    cache.products = {};
+}
 
 /**
  * FILE I/O HELPERS
@@ -144,52 +155,63 @@ async function processProduct(product) {
 
 /**
  * MAIN ENTRY POINT
+ * Always serves from the local products.json cache — never hits the API.
+ * Use updateCacheFile() to refresh the cache.
  */
 async function getAllResolvedProducts() {
     const localCache = readLocalCache();
-    if (localCache && localCache.fetchedAt) {
-        const age = Date.now() - localCache.fetchedAt;
-        if (age < CACHE_DURATION_MS) {
-            console.log("📦 Returning data from local products.json (Cache hit)");
-            return localCache.data;
-        }
+    if (!localCache || !localCache.data) {
+        console.warn("⚠️ No local products.json cache found. Run updateCacheFile() to populate it.");
+        return [];
     }
 
-    console.log("🌐 Cache expired or missing. Fetching from API...");
-    const allProcessedProducts = [];
-
-    try {
-        if (!cache.sellers) {
-            const sellersRes = await fetch(`${BASE_URL}/V1/mpapi/sellers?searchCriteria=""`, { headers: HEADERS });
-            const sellersData = await sellersRes.json();
-            cache.sellers = sellersData.items || [];
-        }
-
-        for (const item of cache.sellers) {
-            const sId = item.seller_data.seller_id;
-            const pRes = await fetch(`${BASE_URL}/V1/mpapi/admin/sellers/${sId}/product`, { headers: HEADERS });
-            if (!pRes.ok) continue;
-
-            let products = await pRes.json();
-            products = Array.isArray(products) ? products : [products];
-
-            for (const prod of products) {
-                const updated = await processProduct(prod);
-                allProcessedProducts.push({ updated, sellerId: sId });
-            }
-        }
-
-        // 2. Save to Local File Cache
-        writeLocalCache(allProcessedProducts);
-        
-        console.log(`✅ Pipeline Complete. Processed ${allProcessedProducts.length} products.`);
-        return allProcessedProducts;
-
-    } catch (e) {
-        console.error("❌ Pipeline Error:", e);
-        // Fallback: return old cache if API fails, even if expired
-        return localCache ? localCache.data : [];
-    }
+    console.log("📦 Returning data from local products.json (Cache hit)");
+    return localCache.data;
 }
 
-module.exports = { getAllResolvedProducts, cache };
+/**
+ * Fetches sellers + their products from the API and resolves every attribute.
+ * Does not touch the cache file.
+ */
+async function resolveProducts() {
+    console.log("🌐 Fetching from API...");
+    clearMemoryCache();
+    const allProcessedProducts = [];
+
+    if (!cache.sellers) {
+        const sellersRes = await fetch(`${BASE_URL}/V1/mpapi/sellers?searchCriteria=""`, { headers: HEADERS });
+        const sellersData = await sellersRes.json();
+        cache.sellers = sellersData.items || [];
+    }
+
+    for (const item of cache.sellers) {
+        const sId = item.seller_data.seller_id;
+        const pRes = await fetch(`${BASE_URL}/V1/mpapi/admin/sellers/${sId}/product`, { headers: HEADERS });
+        if (!pRes.ok) continue;
+
+        let products = await pRes.json();
+        products = Array.isArray(products) ? products : [products];
+
+        for (const prod of products) {
+            const updated = await processProduct(prod);
+            allProcessedProducts.push({ updated, sellerId: sId });
+        }
+    }
+
+    console.log(`✅ Pipeline Complete. Processed ${allProcessedProducts.length} products.`);
+    return allProcessedProducts;
+}
+
+/**
+ * Refreshes products.json with a freshly resolved product list.
+ * Throws on failure so the caller can report it — the existing cache file is
+ * left untouched, since the write only happens after a successful resolve.
+ */
+async function updateCacheFile() {
+    const allProcessedProducts = await resolveProducts();
+    writeLocalCache(allProcessedProducts);
+    console.log(`💾 Cache file updated with ${allProcessedProducts.length} products.`);
+    return allProcessedProducts;
+}
+
+module.exports = { getAllResolvedProducts, resolveProducts, updateCacheFile };

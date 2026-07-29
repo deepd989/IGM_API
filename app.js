@@ -2,9 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const imageRoutes = require('./imageRoutes');
-const { getAllResolvedProducts } = require('./productResolver')
+const { getAllResolvedProducts, updateCacheFile } = require('./productResolver')
 const userRoutes = require('./user');
-const sellerRoutes = require('./sellerResolver');
+const { router: sellerRoutes, writeSellerDataToJson } = require('./sellerResolver');
 const reviewsRoutes = require('./reviewsResolver');
 const collectionsRoutes = require('./collections');
 const {getDbClient}=require('./dbConnection');
@@ -12,6 +12,7 @@ const { get } = require('http');
 const textSearchRoutes = require('./textSearch');
 const multiBrandCollectionsRoutes = require('./multibrandCollection');
 const assetsRoutes = require('./assetsResolver');
+const brandMicrositeRoutes = require('./brandMicrositeRoutes');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -49,6 +50,8 @@ app.use('/', collectionsRoutes);
 
 app.use('/', textSearchRoutes);
 
+app.use('/', brandMicrositeRoutes);
+
 app.get('/getAllProducts', async (req, res) => {
     try {
         const products = await getAllResolvedProducts();
@@ -58,6 +61,34 @@ app.get('/getAllProducts', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+// Refreshes both JSON caches: sellers first, then products.
+// Each stage is reported independently, so a partial failure stays visible
+// instead of collapsing into a single boolean.
+app.get('/refreshCache', async (req, res) => {
+    console.log("♻️ Cache refresh requested");
+    const result = { sellers: null, products: null, errors: [] };
+
+    try {
+        result.sellers = (await writeSellerDataToJson()).length;
+    } catch (error) {
+        console.error('Seller refresh failed:', error);
+        result.errors.push(`sellers: ${error.message}`);
+    }
+
+    try {
+        result.products = (await updateCacheFile()).length;
+    } catch (error) {
+        console.error('Product refresh failed:', error);
+        result.errors.push(`products: ${error.message}`);
+    }
+
+    const success = result.errors.length === 0;
+    return res.status(success ? 200 : 500).json({ success, ...result });
+});
+
+app.use(express.json());
+app.use('/api/brand-microsite', brandMicrositeRoutes);
 
 // app.get('/getProduct/:sku', async (req, res) => {
 //     try {
