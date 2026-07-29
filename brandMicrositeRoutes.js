@@ -71,14 +71,24 @@ const brandMicrositeSchema = z.object({
 const validateBrandMicrosite = (req, res, next) => {
     const result = brandMicrositeSchema.safeParse(req.body);
     if (!result.success) {
-        // Zod v4 exposes .issues (.errors was removed in v3 -> v4)
-        const errorMessages = result.error.issues.map(err => ({
+        // Zod v4 exposes .issues (.errors was removed in v3 -> v4).
+        // Guarded so an unexpected error shape returns 400 instead of throwing a 500.
+        const issues = Array.isArray(result.error?.issues) ? result.error.issues : [];
+
+        // Log the full error so a bad payload is always diagnosable. prettifyError
+        // itself needs a well-formed .issues, hence the fallback to raw JSON.
+        console.error('❌ Brand microsite validation failed:\n', issues.length
+            ? z.prettifyError(result.error)
+            : JSON.stringify(result.error));
+
+        const errorMessages = issues.map(err => ({
             field: err.path.join('.'),
             message: err.message
         }));
+
         return res.status(400).json({
             error: 'Validation Failed',
-            details: errorMessages
+            details: errorMessages.length ? errorMessages : String(result.error)
         });
     }
     req.body = result.data; // Enforce parsed and sanitized data
