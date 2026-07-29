@@ -15,48 +15,54 @@ const getCollection = async () => {
 // ZOD VALIDATION SCHEMA
 // ==========================================
 const brandReviewSchema = z.object({
-    name: z.string({ required_error: "Reviewer name is required" }),
-    dpUrl: z.string({ required_error: "dpUrl is required" }),
-    description: z.string({ required_error: "Review description is required" }),
-    stars: z.string({ required_error: "Stars is required" })
+    name: z.string({ error: "Reviewer name is required" }),
+    dpUrl: z.string({ error: "dpUrl is required" }),
+    description: z.string({ error: "Review description is required" }),
+    stars: z.string({ error: "Stars is required" })
 });
 
 const milestoneSchema = z.object({
-    year: z.string({ required_error: "Milestone year is required" }),
-    header: z.string({ required_error: "Milestone header is required" }),
-    description: z.string({ required_error: "Milestone description is required" })
+    year: z.string({ error: "Milestone year is required" }),
+    header: z.string({ error: "Milestone header is required" }),
+    description: z.string({ error: "Milestone description is required" })
 });
 
 const valueSchema = z.object({
-    iconTag: z.string({ required_error: "iconTag is required" }),
-    header: z.string({ required_error: "Value header is required" }),
-    description: z.string({ required_error: "Value description is required" })
+    iconTag: z.string({ error: "iconTag is required" }),
+    header: z.string({ error: "Value header is required" }),
+    description: z.string({ error: "Value description is required" })
+});
+
+const specialProductSchema = z.object({
+    productId: z.string({ error: "productId is required" }),
+    productImageUrl: z.string({ error: "productImageUrl is required" })
 });
 
 const brandMicrositeSchema = z.object({
-    brandId: z.string({ required_error: "brandId (seller ID) is required" }),
-    brandName: z.string({ required_error: "brandName is required" }),
-    specialProductIds: z.array(z.string(), { required_error: "specialProductIds must be an array of strings" }),
-    mapLocationLink: z.string({ required_error: "mapLocationLink is required" }),
+    brandId: z.string({ error: "brandId (seller ID) is required" }),
+    brandName: z.string({ error: "brandName is required" }),
+    brandMicrositeCoverPhotoUrl: z.string({ error: "brandMicrositeCoverPhotoUrl is required" }),
+    specialProducts: z.array(specialProductSchema, { error: "specialProducts must be an array of { productId, productImageUrl }" }),
+    mapLocationLink: z.string({ error: "mapLocationLink is required" }),
     brandInfoAttributes: z.object({
-        establishedDate: z.string({ required_error: "establishedDate is required" }),
-        numberOfStores: z.number({ required_error: "numberOfStores must be a number" }),
-        numberOfCustomers: z.number({ required_error: "numberOfCustomers must be a number" }),
-        rank: z.string({ required_error: "rank is required" })
+        establishedDate: z.string({ error: "establishedDate is required" }),
+        numberOfStores: z.number({ error: "numberOfStores must be a number" }),
+        numberOfCustomers: z.number({ error: "numberOfCustomers must be a number" }),
+        rank: z.string({ error: "rank is required" })
     }),
     brandDescription: z.object({
-        title: z.string({ required_error: "Brand description title is required" }),
-        description: z.string({ required_error: "Brand description is required" })
+        title: z.string({ error: "Brand description title is required" }),
+        description: z.string({ error: "Brand description is required" })
     }),
     colorCode: z.object({
-        primaryColor: z.string({ required_error: "primaryColor is required" }),
-        secondaryColor: z.string({ required_error: "secondaryColor is required" })
+        primaryColor: z.string({ error: "primaryColor is required" }),
+        secondaryColor: z.string({ error: "secondaryColor is required" })
     }),
     ourStory: z.object({
-        wallpaperUrl: z.string({ required_error: "wallpaperUrl is required" }),
+        wallpaperUrl: z.string({ error: "wallpaperUrl is required" }),
         milestones: z.array(milestoneSchema),
         values: z.array(valueSchema),
-        tryBeforeBuyImgUrl: z.string({ required_error: "tryBeforeBuyImgUrl is required" }),
+        tryBeforeBuyImgUrl: z.string({ error: "tryBeforeBuyImgUrl is required" }),
         brandReviews: z.array(brandReviewSchema)
     })
 });
@@ -65,7 +71,8 @@ const brandMicrositeSchema = z.object({
 const validateBrandMicrosite = (req, res, next) => {
     const result = brandMicrositeSchema.safeParse(req.body);
     if (!result.success) {
-        const errorMessages = result.error.errors.map(err => ({
+        // Zod v4 exposes .issues (.errors was removed in v3 -> v4)
+        const errorMessages = result.error.issues.map(err => ({
             field: err.path.join('.'),
             message: err.message
         }));
