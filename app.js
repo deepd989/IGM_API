@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const imageRoutes = require('./imageRoutes');
 const { getAllResolvedProducts, updateCacheFile } = require('./productResolver')
@@ -31,6 +32,11 @@ getDbClient().then(client => {
 
 // Health check (kept in main app)
 app.get('/health', (req, res) => res.send('Image Generation Service is running. v3'));
+
+// Admin UI (static). Mounted before the routers so /admin never falls through
+// to a route handler.
+app.use(express.static(path.join(__dirname, 'public')));
+app.get('/admin', (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin.html')));
 
 app.use(express.json());
 // Mount all image-related routes

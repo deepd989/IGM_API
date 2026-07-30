@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IGM Admin · Brand Microsite</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --panel-2: #1e222b;
+    --line: #2a2f3a;
+    --text: #e6e9ef;
+    --muted: #98a1b3;
+    --accent: #6ea8fe;
+    --ok: #3ddc97;
+    --err: #ff6b6b;
+    --warn: #ffb454;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  button { font: inherit; cursor: pointer; }
+  input, textarea, select {
+    font: inherit;
+    width: 100%;
+    padding: 8px 10px;
+    background: #12151b;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--text);
+  }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent); }
+  textarea { min-height: 70px; resize: vertical; }
+  label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+
+  /* ---------- Login ---------- */
+  #loginView {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .login-card {
+    width: 100%;
+    max-width: 360px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .login-card h1 { margin: 0 0 4px; font-size: 20px; }
+  .login-card p.sub { margin: 0 0 20px; color: var(--muted); font-size: 13px; }
+  .field { margin-bottom: 14px; }
+  .btn {
+    background: var(--accent);
+    color: #0b1020;
+    border: 0;
+    border-radius: 6px;
+    padding: 9px 16px;
+    font-weight: 600;
+  }
+  .btn:disabled { opacity: .55; cursor: not-allowed; }
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 7px 12px;
+  }
+  .btn-sm { padding: 4px 9px; font-size: 12px; }
+  .btn-block { width: 100%; }
+
+  .alert {
+    border-radius: 6px;
+    padding: 9px 12px;
+    font-size: 13px;
+    margin-bottom: 14px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .alert-err { background: rgba(255,107,107,.12); border: 1px solid rgba(255,107,107,.4); color: #ffb1b1; }
+  .alert-ok  { background: rgba(61,220,151,.12); border: 1px solid rgba(61,220,151,.4); color: #a5f0cf; }
+  [hidden] { display: none !important; }
+
+  /* ---------- Layout ---------- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--line);
+    background: var(--panel);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .topbar h1 { font-size: 15px; margin: 0; font-weight: 600; }
+  .spacer { flex: 1; }
+  .who { color: var(--muted); font-size: 12px; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 0;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: static !important; height: auto !important; }
+  }
+
+  .sidebar {
+    border-right: 1px solid var(--line);
+    background: var(--panel);
+    position: sticky;
+    top: 53px;
+    height: calc(100vh - 53px);
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-head { padding: 14px 14px 10px; border-bottom: 1px solid var(--line); }
+  .sidebar-head h2 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .brand-list { overflow: auto; padding: 8px; flex: 1; }
+  .brand-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 8px;
+    color: var(--text);
+  }
+  .brand-item:hover { background: var(--panel-2); }
+  .brand-item.active { background: rgba(110,168,254,.14); border-color: rgba(110,168,254,.45); }
+  .brand-item .logo {
+    width: 30px; height: 30px; border-radius: 6px; object-fit: cover;
+    background: var(--panel-2); flex: none;
+  }
+  .brand-item .nm { font-size: 13px; }
+  .brand-item .id { font-size: 11px; color: var(--muted); font-family: ui-monospace, Menlo, monospace; }
+
+  .content { padding: 20px; max-width: 900px; }
+  fieldset {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 0 0 18px;
+    background: var(--panel);
+  }
+  legend { padding: 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+
+  .row {
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: var(--panel-2);
+    position: relative;
+  }
+  .row .remove {
+    position: absolute; top: 8px; right: 8px;
+    background: transparent; border: 0; color: var(--muted); font-size: 16px; line-height: 1;
+  }
+  .row .remove:hover { color: var(--err); }
+  .empty-note { color: var(--muted); font-size: 12px; margin: 0 0 10px; }
+
+  .actions { display: flex; gap: 10px; align-items: center; padding-bottom: 40px; }
+
+  /* ---------- Tooltip ---------- */
+  .tooltip-wrap { position: relative; }
+  .tooltip {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 340px;
+    max-height: 320px;
+    overflow: auto;
+    background: #0b0d12;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.5);
+    z-index: 50;
+  }
+  .tooltip::before {
+    content: "";
+    position: absolute; top: -6px; right: 18px;
+    width: 10px; height: 10px;
+    background: #0b0d12;
+    border-left: 1px solid var(--line);
+    border-top: 1px solid var(--line);
+    transform: rotate(45deg);
+  }
+  .tooltip.ok { border-color: rgba(61,220,151,.5); }
+  .tooltip.err { border-color: rgba(255,107,107,.5); }
+  .tooltip h4 { margin: 0 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  .tooltip pre {
+    margin: 0;
+    font: 12px/1.5 ui-monospace, Menlo, Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--text);
+  }
+  .tooltip .close { position: absolute; top: 6px; right: 8px; background: none; border: 0; color: var(--muted); }
+  .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+  .status-dot.ok { background: var(--ok); }
+  .status-dot.err { background: var(--err); }
+  .hint { color: var(--muted); font-size: 11px; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<!-- ============ LOGIN ============ -->
+<div id="loginView">
+  <form class="login-card" id="loginForm" autocomplete="off">
+    <h1>IGM Admin</h1>
+    <p class="sub">Sign in to manage brand microsites.</p>
+    <div class="alert alert-err" id="loginError" hidden></div>
+    <div class="field">
+      <label for="loginId">ID</label>
+      <input id="loginId" name="loginId" autocomplete="off" required>
+    </div>
+    <div class="field">
+      <label for="loginPass">Password</label>
+      <input id="loginPass" name="loginPass" type="password" autocomplete="off" required>
+    </div>
+    <button class="btn btn-block" type="submit">Log in</button>
+  </form>
+</div>
+
+<!-- ============ APP ============ -->
+<div id="appView" hidden>
+  <div class="topbar">
+    <h1>Brand Microsite Admin</h1>
+    <span class="spacer"></span>
+    <span class="who" id="whoami"></span>
+    <div class="tooltip-wrap">
+      <button class="btn-ghost" id="refreshBtn" type="button">refreshData</button>
+      <div class="tooltip" id="refreshTooltip" hidden>
+        <button class="close" id="tooltipClose" type="button" aria-label="Close">×</button>
+        <h4 id="tooltipTitle">/refreshCache</h4>
+        <pre id="tooltipBody"></pre>
+      </div>
+    </div>
+    <button class="btn-ghost" id="logoutBtn" type="button">Log out</button>
+  </div>
+
+  <div class="layout">
+    <!-- LEFT PANEL: brands -->
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <h2>Brands <span id="brandCount" class="who"></span></h2>
+        <input id="brandSearch" placeholder="Search id or name…" autocomplete="off">
+      </div>
+      <div class="brand-list" id="brandList"></div>
+    </aside>
+
+    <!-- RIGHT: form -->
+    <main class="content">
+      <div class="alert alert-err" id="formError" hidden></div>
+      <div class="alert alert-ok" id="formSuccess" hidden></div>
+
+      <form id="micrositeForm">
+        <fieldset>
+          <legend>Brand</legend>
+          <div class="grid2">
+            <div>
+              <label for="brandId">brandId (seller id) *</label>
+              <input id="brandId" required>
+              <div class="hint">Pick a brand from the left panel to auto-fill.</div>
+            </div>
+            <div>
+              <label for="brandName">brandName *</label>
+              <input id="brandName" required>
+            </div>
+          </div>
+          <div class="field" style="margin-top:12px">
+            <label for="brandMicrositeCoverPhotoUrl">brandMicrositeCoverPhotoUrl *</label>
+            <input id="brandMicrositeCoverPhotoUrl" required placeholder="https://…">
+          </div>
+          <div class="field">
+            <label for="mapLocationLink">mapLocationLink *</label>
+            <input id="mapLocationLink" required placeholder="https://maps.google.com/…">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>brandInfoAttributes</legend>
+          <div class="grid2">
+            <div>
+              <label for="establishedDate">establishedDate *</label>
+              <input id="establishedDate" required placeholder="1998">
+            </div>
+            <div>
+              <label for="rank">rank *</label>
+              <input id="rank" required placeholder="#1 in Bridal">
+            </div>
+            <div>
+              <label for="numberOfStores">numberOfStores * (number)</label>
+              <input id="numberOfStores" type="number" required value="0">
+            </div>
+            <div>
+              <label for="numberOfCustomers">numberOfCustomers * (number)</label>
+              <input id="numberOfCustomers" type="number" required value="0">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>brandDescription</legend>
+          <div class="field">
+            <label for="bdTitle">title *</label>
+            <input id="bdTitle" required>
+          </div>
+          <div class="field">
+            <label for="bdDescription">description *</label>
+            <textarea id="bdDescription" required></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>colorCode</legend>
+          <div class="grid2">
+            <div>
+              <label for="primaryColor">primaryColor *</label>
+              <input id="primaryColor" required placeholder="#0F172A">
+            </div>
+            <div>
+              <label for="secondaryColor">secondaryColor *</label>
+              <input id="secondaryColor" required placeholder="#C9A227">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>specialProducts</legend>
+          <p class="empty-note">Each entry needs a productId and a productImageUrl.</p>
+          <div id="specialProducts"></div>
+          <button class="btn-ghost btn-sm" type="button" data-add="specialProducts">+ Add product</button>
+        </fieldset>
+
+        <fieldset>
+          <legend>ourStory</legend>
+          <div class="grid2">
+            <div>
+              <label for="wallpaperUrl">wallpaperUrl *</label>
+              <input id="wallpaperUrl" required placeholder="https://…">
+            </div>
+            <div>
+              <label for="tryBeforeBuyImgUrl">tryBeforeBuyImgUrl *</label>
+              <input id="tryBeforeBuyImgUrl" required placeholder="https://…">
+            </div>
+          </div>
+
+          <h3 style="font-size:13px;color:var(--muted);margin:18px 0 8px">milestones</h3>
+          <div id="milestones"></div>
+          <button class="btn-ghost btn-sm" type="button" data-add="milestones">+ Add milestone</button>
+
+          <h3 style="font-size:13px;color:var(--muted);margin:18px 0 8px">values</h3>
+          <div id="values"></div>
+          <button class="btn-ghost btn-sm" type="button" data-add="values">+ Add value</button>
+
+          <h3 style="font-size:13px;color:var(--muted);margin:18px 0 8px">brandReviews</h3>
+          <div id="brandReviews"></div>
+          <button class="btn-ghost btn-sm" type="button" data-add="brandReviews">+ Add review</button>
+        </fieldset>
+
+        <div class="actions">
+          <button class="btn" type="submit" id="submitBtn">Post brand microsite</button>
+          <button class="btn-ghost" type="button" id="resetBtn">Reset form</button>
+          <span class="who" id="submitStatus"></span>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var ADMIN_ID = 'igmAdmin10';
+  var ADMIN_PASS = 'pass10';
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  // ---------- Login ----------
+  $('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var id = $('loginId').value.trim();
+    var pass = $('loginPass').value;
+    var err = $('loginError');
+
+    if (id !== ADMIN_ID) {
+      err.textContent = 'Access denied — the ID is wrong.';
+      err.hidden = false;
+      return;
+    }
+    if (pass !== ADMIN_PASS) {
+      err.textContent = 'Access denied — the password is wrong.';
+      err.hidden = false;
+      $('loginPass').value = '';
+      return;
+    }
+
+    err.hidden = true;
+    $('loginView').hidden = true;
+    $('appView').hidden = false;
+    $('whoami').textContent = 'signed in as ' + id;
+    loadBrands();
+  });
+
+  $('logoutBtn').addEventListener('click', function () {
+    $('appView').hidden = true;
+    $('loginView').hidden = false;
+    $('loginPass').value = '';
+    $('loginId').value = '';
+    hideTooltip();
+  });
+
+  // ---------- Brands (left panel) ----------
+  var allBrands = [];
+
+  function loadBrands() {
+    var list = $('brandList');
+    list.innerHTML = '<p class="empty-note" style="padding:8px">Loading brands…</p>';
+
+    fetch('/getSellers')
+      .then(function (res) {
+        return res.json().then(function (body) {
+          if (!res.ok) throw new Error(body.error || body.details || ('HTTP ' + res.status));
+          return body;
+        });
+      })
+      .then(function (data) {
+        allBrands = Array.isArray(data) ? data : [];
+        renderBrands('');
+      })
+      .catch(function (e) {
+        list.innerHTML = '';
+        var p = document.createElement('p');
+        p.className = 'alert alert-err';
+        p.textContent = 'Could not load brands: ' + e.message;
+        list.appendChild(p);
+      });
+  }
+
+  function renderBrands(filter) {
+    var list = $('brandList');
+    var q = filter.toLowerCase();
+    var shown = allBrands.filter(function (b) {
+      return !q ||
+        String(b.brandid || '').toLowerCase().indexOf(q) !== -1 ||
+        String(b.brandName || '').toLowerCase().indexOf(q) !== -1;
+    });
+
+    $('brandCount').textContent = '(' + shown.length + ')';
+    list.innerHTML = '';
+
+    if (!shown.length) {
+      var p = document.createElement('p');
+      p.className = 'empty-note';
+      p.style.padding = '8px';
+      p.textContent = allBrands.length ? 'No brand matches that search.' : 'No brands found. Try refreshData.';
+      list.appendChild(p);
+      return;
+    }
+
+    shown.forEach(function (b) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'brand-item';
+
+      if (b.logoPic) {
+        var img = document.createElement('img');
+        img.className = 'logo';
+        img.src = b.logoPic;
+        img.alt = '';
+        img.onerror = function () { img.style.visibility = 'hidden'; };
+        btn.appendChild(img);
+      } else {
+        var ph = document.createElement('span');
+        ph.className = 'logo';
+        btn.appendChild(ph);
+      }
+
+      var box = document.createElement('span');
+      var nm = document.createElement('span');
+      nm.className = 'nm';
+      nm.textContent = b.brandName || '(unnamed)';
+      var id = document.createElement('span');
+      id.className = 'id';
+      id.textContent = 'id: ' + b.brandid;
+      box.appendChild(nm);
+      box.appendChild(document.createElement('br'));
+      box.appendChild(id);
+      btn.appendChild(box);
+
+      btn.addEventListener('click', function () {
+        Array.prototype.forEach.call(list.querySelectorAll('.brand-item'), function (el) {
+          el.classList.remove('active');
+        });
+        btn.classList.add('active');
+        $('brandId').value = String(b.brandid);
+        $('brandName').value = b.brandName || '';
+      });
+
+      list.appendChild(btn);
+    });
+  }
+
+  $('brandSearch').addEventListener('input', function (e) { renderBrands(e.target.value); });
+
+  // ---------- Repeatable rows ----------
+  var ROW_SPECS = {
+    specialProducts: [
+      { key: 'productId', label: 'productId' },
+      { key: 'productImageUrl', label: 'productImageUrl', placeholder: 'https://…' }
+    ],
+    milestones: [
+      { key: 'year', label: 'year', placeholder: '2014' },
+      { key: 'header', label: 'header' },
+      { key: 'description', label: 'description', type: 'textarea' }
+    ],
+    values: [
+      { key: 'iconTag', label: 'iconTag', placeholder: 'e.g. brand.value.craft' },
+      { key: 'header', label: 'header' },
+      { key: 'description', label: 'description', type: 'textarea' }
+    ],
+    brandReviews: [
+      { key: 'name', label: 'name' },
+      { key: 'dpUrl', label: 'dpUrl', placeholder: 'https://…' },
+      { key: 'stars', label: 'stars (string)', placeholder: '4.5' },
+      { key: 'description', label: 'description', type: 'textarea' }
+    ]
+  };
+
+  function addRow(section) {
+    var container = $(section);
+    var row = document.createElement('div');
+    row.className = 'row';
+
+    var remove = document.createElement('button');
+    remove.type = 'button';
+    remove.className = 'remove';
+    remove.textContent = '×';
+    remove.title = 'Remove';
+    remove.addEventListener('click', function () { row.remove(); });
+    row.appendChild(remove);
+
+    var grid = document.createElement('div');
+    grid.className = 'grid2';
+
+    ROW_SPECS[section].forEach(function (f) {
+      var wrap = document.createElement('div');
+      var lab = document.createElement('label');
+      lab.textContent = f.label;
+      var input = document.createElement(f.type === 'textarea' ? 'textarea' : 'input');
+      input.setAttribute('data-key', f.key);
+      if (f.placeholder) input.placeholder = f.placeholder;
+      wrap.appendChild(lab);
+      wrap.appendChild(input);
+      grid.appendChild(wrap);
+    });
+
+    row.appendChild(grid);
+    container.appendChild(row);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-add]'), function (btn) {
+    btn.addEventListener('click', function () { addRow(btn.getAttribute('data-add')); });
+  });
+
+  function collectRows(section) {
+    return Array.prototype.map.call($(section).querySelectorAll('.row'), function (row) {
+      var obj = {};
+      Array.prototype.forEach.call(row.querySelectorAll('[data-key]'), function (input) {
+        obj[input.getAttribute('data-key')] = input.value.trim();
+      });
+      return obj;
+    }).filter(function (obj) {
+      // Drop rows the user left completely blank instead of failing validation on them.
+      return Object.keys(obj).some(function (k) { return obj[k] !== ''; });
+    });
+  }
+
+  // Start with one row in each repeatable section so the shape is obvious.
+  ['specialProducts', 'milestones', 'values', 'brandReviews'].forEach(addRow);
+
+  // ---------- Submit ----------
+  function buildPayload() {
+    return {
+      brandId: $('brandId').value.trim(),
+      brandName: $('brandName').value.trim(),
+      brandMicrositeCoverPhotoUrl: $('brandMicrositeCoverPhotoUrl').value.trim(),
+      specialProducts: collectRows('specialProducts'),
+      mapLocationLink: $('mapLocationLink').value.trim(),
+      brandInfoAttributes: {
+        establishedDate: $('establishedDate').value.trim(),
+        numberOfStores: Number($('numberOfStores').value),
+        numberOfCustomers: Number($('numberOfCustomers').value),
+        rank: $('rank').value.trim()
+      },
+      brandDescription: {
+        title: $('bdTitle').value.trim(),
+        description: $('bdDescription').value.trim()
+      },
+      colorCode: {
+        primaryColor: $('primaryColor').value.trim(),
+        secondaryColor: $('secondaryColor').value.trim()
+      },
+      ourStory: {
+        wallpaperUrl: $('wallpaperUrl').value.trim(),
+        milestones: collectRows('milestones'),
+        values: collectRows('values'),
+        tryBeforeBuyImgUrl: $('tryBeforeBuyImgUrl').value.trim(),
+        brandReviews: collectRows('brandReviews')
+      }
+    };
+  }
+
+  // Turns whatever the API returned into readable text — the microsite routes
+  // answer with { error, details } where details may be a validation array.
+  function formatApiError(status, body) {
+    if (!body || typeof body !== 'object') return 'HTTP ' + status + ': ' + String(body);
+
+    var head = body.error || body.message || ('HTTP ' + status);
+    var detail = body.details;
+
+    if (Array.isArray(detail)) {
+      return head + '\n' + detail.map(function (d) {
+        return '  • ' + (d.field ? d.field + ': ' : '') + d.message;
+      }).join('\n');
+    }
+    if (detail) return head + '\n  ' + (typeof detail === 'string' ? detail : JSON.stringify(detail));
+    return head;
+  }
+
+  $('micrositeForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var errBox = $('formError');
+    var okBox = $('formSuccess');
+    var btn = $('submitBtn');
+    errBox.hidden = true;
+    okBox.hidden = true;
+    btn.disabled = true;
+    $('submitStatus').textContent = 'Posting…';
+
+    fetch('/brand-microsite', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(buildPayload())
+    })
+      .then(function (res) {
+        return res.text().then(function (text) {
+          var body;
+          try { body = text ? JSON.parse(text) : {}; } catch (_) { body = text; }
+          return { ok: res.ok, status: res.status, body: body };
+        });
+      })
+      .then(function (r) {
+        if (!r.ok) {
+          errBox.textContent = formatApiError(r.status, r.body);
+          errBox.hidden = false;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        okBox.textContent = (r.body && r.body.message ? r.body.message : 'Brand microsite created.') +
+          ' (brandId: ' + ((r.body && r.body.data && r.body.data.brandId) || $('brandId').value) + ')';
+        okBox.hidden = false;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(function (e) {
+        errBox.textContent = 'Request failed: ' + e.message;
+        errBox.hidden = false;
+      })
+      .finally(function () {
+        btn.disabled = false;
+        $('submitStatus').textContent = '';
+      });
+  });
+
+  $('resetBtn').addEventListener('click', function () {
+    $('micrositeForm').reset();
+    ['specialProducts', 'milestones', 'values', 'brandReviews'].forEach(function (s) {
+      $(s).innerHTML = '';
+      addRow(s);
+    });
+    $('formError').hidden = true;
+    $('formSuccess').hidden = true;
+  });
+
+  // ---------- refreshData -> /refreshCache, response in a tooltip ----------
+  var tooltip = $('refreshTooltip');
+
+  function showTooltip(state, title, text) {
+    tooltip.className = 'tooltip ' + state;
+    $('tooltipTitle').innerHTML = '<span class="status-dot ' + state + '"></span>' + title;
+    $('tooltipBody').textContent = text;
+    tooltip.hidden = false;
+  }
+  function hideTooltip() { tooltip.hidden = true; }
+
+  $('tooltipClose').addEventListener('click', hideTooltip);
+
+  document.addEventListener('click', function (e) {
+    if (tooltip.hidden) return;
+    if (tooltip.contains(e.target) || e.target === $('refreshBtn')) return;
+    hideTooltip();
+  });
+
+  $('refreshBtn').addEventListener('click', function () {
+    var btn = $('refreshBtn');
+    btn.disabled = true;
+    var original = btn.textContent;
+    btn.textContent = 'refreshing…';
+    showTooltip('', '/refreshCache', 'Refreshing caches…');
+
+    fetch('/refreshCache')
+      .then(function (res) {
+        return res.text().then(function (text) {
+          var body;
+          try { body = text ? JSON.parse(text) : {}; } catch (_) { body = text; }
+          return { ok: res.ok, status: res.status, body: body };
+        });
+      })
+      .then(function (r) {
+        var pretty = typeof r.body === 'string' ? r.body : JSON.stringify(r.body, null, 2);
+        showTooltip(r.ok ? 'ok' : 'err', '/refreshCache · ' + r.status, pretty);
+        // Sellers may have changed — repopulate the left panel from the fresh cache.
+        if (r.ok) loadBrands();
+      })
+      .catch(function (e) {
+        showTooltip('err', '/refreshCache · failed', e.message);
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.textContent = original;
+      });
+  });
+})();
+</script>
+</body>
+</html>
