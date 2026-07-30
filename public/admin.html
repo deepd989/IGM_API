@@ -127,11 +127,20 @@
   .sidebar-head { padding: 14px 14px 10px; border-bottom: 1px solid var(--line); }
   .sidebar-head h2 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
   .brand-list { overflow: auto; padding: 8px; flex: 1; }
+  /* Row wraps the tile + its kebab. The tile stays a <button>, so the kebab
+     has to be a sibling rather than nested inside it. */
+  .brand-row {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+  }
+  .brand-row:hover { background: var(--panel-2); }
   .brand-item {
     display: flex;
     gap: 10px;
     align-items: center;
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     text-align: left;
     background: transparent;
     border: 1px solid transparent;
@@ -139,7 +148,6 @@
     padding: 8px;
     color: var(--text);
   }
-  .brand-item:hover { background: var(--panel-2); }
   .brand-item.active { background: rgba(110,168,254,.14); border-color: rgba(110,168,254,.45); }
   .brand-item .logo {
     width: 30px; height: 30px; border-radius: 6px; object-fit: cover;
@@ -147,6 +155,37 @@
   }
   .brand-item .nm { font-size: 13px; }
   .brand-item .id { font-size: 11px; color: var(--muted); font-family: ui-monospace, Menlo, monospace; }
+
+  .kebab {
+    flex: none;
+    width: 26px;
+    height: 26px;
+    margin-right: 6px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .kebab:hover { background: var(--panel); border-color: var(--line); color: var(--text); }
+  .kebab:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  /* Marks brands that already have a saved microsite */
+  .brand-item .saved { color: var(--ok); font-size: 11px; }
+
+  .mode-badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 99px;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    margin-left: 8px;
+  }
+  .mode-badge.editing { border-color: rgba(255,180,84,.5); color: var(--warn); }
 
   .content { padding: 20px; max-width: 900px; }
   fieldset {
@@ -380,11 +419,13 @@
         <div class="actions">
           <button class="btn" type="submit" id="submitBtn">Post brand microsite</button>
           <button class="btn-ghost" type="button" id="resetBtn">Reset form</button>
+          <span class="mode-badge" id="modeBadge">new</span>
           <span class="who" id="submitStatus"></span>
         </div>
       </form>
     </main>
   </div>
+
 </div>
 
 <script>
@@ -479,9 +520,13 @@
     }
 
     shown.forEach(function (b) {
+      var row = document.createElement('div');
+      row.className = 'brand-row';
+
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'brand-item';
+      btn.setAttribute('data-brandid', String(b.brandid));
 
       if (b.logoPic) {
         var img = document.createElement('img');
@@ -515,13 +560,177 @@
         btn.classList.add('active');
         $('brandId').value = String(b.brandid);
         $('brandName').value = b.brandName || '';
+        // Selecting a tile only sets identity — it does not load a microsite,
+        // so drop any edit mode left over from another brand.
+        setMode(null);
       });
 
-      list.appendChild(btn);
+      var kebab = document.createElement('button');
+      kebab.type = 'button';
+      kebab.className = 'kebab';
+      kebab.textContent = '⋮';
+      kebab.title = 'Load microsite data into the form';
+      kebab.setAttribute('aria-label', 'Load microsite data for ' + (b.brandName || b.brandid));
+      kebab.addEventListener('click', function (e) {
+        e.stopPropagation();
+        Array.prototype.forEach.call(list.querySelectorAll('.brand-item'), function (el) {
+          el.classList.remove('active');
+        });
+        btn.classList.add('active');
+        loadMicrositeIntoForm(b);
+      });
+
+      row.appendChild(btn);
+      row.appendChild(kebab);
+      list.appendChild(row);
     });
+
+    markSaved();
   }
 
   $('brandSearch').addEventListener('input', function (e) { renderBrands(e.target.value); });
+
+  // ---------- Microsite data -> form (⋮ on a brand tile) ----------
+  // Locally cached microsite docs, keyed by brandId. Kept in sync on submit so
+  // an edit does not need a refetch.
+  var micrositeCache = {};
+  // Which brandId the form is currently editing, or null when creating.
+  var editingBrandId = null;
+
+  function setMode(brandId) {
+    editingBrandId = brandId;
+    var badge = $('modeBadge');
+    if (brandId) {
+      badge.textContent = 'editing ' + brandId;
+      badge.className = 'mode-badge editing';
+      $('submitBtn').textContent = 'Update brand microsite';
+    } else {
+      badge.textContent = 'new';
+      badge.className = 'mode-badge';
+      $('submitBtn').textContent = 'Post brand microsite';
+    }
+  }
+
+  function setVal(id, v) { $(id).value = v === undefined || v === null ? '' : String(v); }
+
+  // Rebuilds a repeatable section from an array of objects.
+  function fillRows(section, items) {
+    var container = $(section);
+    container.innerHTML = '';
+    if (!Array.isArray(items) || !items.length) { addRow(section); return; }
+    items.forEach(function (item) {
+      addRow(section);
+      var row = container.lastElementChild;
+      Array.prototype.forEach.call(row.querySelectorAll('[data-key]'), function (input) {
+        var k = input.getAttribute('data-key');
+        input.value = item && item[k] !== undefined && item[k] !== null ? String(item[k]) : '';
+      });
+    });
+  }
+
+  function fillForm(d) {
+    var info = d.brandInfoAttributes || {};
+    var desc = d.brandDescription || {};
+    var color = d.colorCode || {};
+    var story = d.ourStory || {};
+
+    setVal('brandId', d.brandId);
+    setVal('brandName', d.brandName);
+    setVal('brandMicrositeCoverPhotoUrl', d.brandMicrositeCoverPhotoUrl);
+    setVal('mapLocationLink', d.mapLocationLink);
+
+    setVal('establishedDate', info.establishedDate);
+    setVal('rank', info.rank);
+    setVal('numberOfStores', info.numberOfStores !== undefined ? info.numberOfStores : 0);
+    setVal('numberOfCustomers', info.numberOfCustomers !== undefined ? info.numberOfCustomers : 0);
+
+    setVal('bdTitle', desc.title);
+    setVal('bdDescription', desc.description);
+
+    setVal('primaryColor', color.primaryColor);
+    setVal('secondaryColor', color.secondaryColor);
+
+    setVal('wallpaperUrl', story.wallpaperUrl);
+    setVal('tryBeforeBuyImgUrl', story.tryBeforeBuyImgUrl);
+
+    fillRows('specialProducts', d.specialProducts);
+    fillRows('milestones', story.milestones);
+    fillRows('values', story.values);
+    fillRows('brandReviews', story.brandReviews);
+  }
+
+  // Clears everything except the brand identity, for a brand with no microsite yet.
+  function blankForm(brand) {
+    $('micrositeForm').reset();
+    ['specialProducts', 'milestones', 'values', 'brandReviews'].forEach(function (s) {
+      $(s).innerHTML = '';
+      addRow(s);
+    });
+    setVal('brandId', brand.brandid);
+    setVal('brandName', brand.brandName || '');
+  }
+
+  function loadMicrositeIntoForm(brand) {
+    var errBox = $('formError');
+    var okBox = $('formSuccess');
+    errBox.hidden = true;
+    okBox.hidden = true;
+    $('submitStatus').textContent = 'Loading microsite…';
+
+    fetch('/brand-microsite/' + encodeURIComponent(brand.brandid))
+      .then(function (res) {
+        return res.text().then(function (text) {
+          var body;
+          try { body = text ? JSON.parse(text) : {}; } catch (_) { body = text; }
+          return { ok: res.ok, status: res.status, body: body };
+        });
+      })
+      .then(function (r) {
+        if (r.status === 404) {
+          delete micrositeCache[String(brand.brandid)];
+          blankForm(brand);
+          setMode(null);
+          okBox.textContent = 'No microsite saved for ' + (brand.brandName || brand.brandid) +
+            ' yet — the form is ready to create one.';
+          okBox.hidden = false;
+          return;
+        }
+        if (!r.ok) {
+          errBox.textContent = formatApiError(r.status, r.body);
+          errBox.hidden = false;
+          return;
+        }
+        micrositeCache[String(brand.brandid)] = r.body;
+        fillForm(r.body);
+        setMode(String(brand.brandid));
+        markSaved();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(function (e) {
+        errBox.textContent = 'Request failed: ' + e.message;
+        errBox.hidden = false;
+      })
+      .finally(function () {
+        $('submitStatus').textContent = '';
+      });
+  }
+
+  // Flags tiles whose brandId is in the local cache.
+  function markSaved() {
+    Array.prototype.forEach.call($('brandList').querySelectorAll('.brand-item'), function (el) {
+      var id = el.getAttribute('data-brandid');
+      var tag = el.querySelector('.saved');
+      var has = Object.prototype.hasOwnProperty.call(micrositeCache, id);
+      if (has && !tag) {
+        var s = document.createElement('span');
+        s.className = 'saved';
+        s.textContent = ' ✓ saved';
+        el.querySelector('.id').appendChild(s);
+      } else if (!has && tag) {
+        tag.remove();
+      }
+    });
+  }
 
   // ---------- Repeatable rows ----------
   var ROW_SPECS = {
@@ -657,12 +866,18 @@
     errBox.hidden = true;
     okBox.hidden = true;
     btn.disabled = true;
-    $('submitStatus').textContent = 'Posting…';
 
-    fetch('/brand-microsite', {
-      method: 'POST',
+    var payload = buildPayload();
+    // Editing only counts while the form still holds the brand we loaded.
+    var isEdit = !!editingBrandId && editingBrandId === payload.brandId;
+    var url = isEdit ? '/brand-microsite/' + encodeURIComponent(editingBrandId) : '/brand-microsite';
+
+    $('submitStatus').textContent = isEdit ? 'Updating…' : 'Posting…';
+
+    fetch(url, {
+      method: isEdit ? 'PUT' : 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(buildPayload())
+      body: JSON.stringify(payload)
     })
       .then(function (res) {
         return res.text().then(function (text) {
@@ -678,8 +893,15 @@
           window.scrollTo({ top: 0, behavior: 'smooth' });
           return;
         }
-        okBox.textContent = (r.body && r.body.message ? r.body.message : 'Brand microsite created.') +
-          ' (brandId: ' + ((r.body && r.body.data && r.body.data.brandId) || $('brandId').value) + ')';
+        // Update the locally held copy instead of refetching.
+        var saved = (r.body && r.body.data) || payload;
+        micrositeCache[payload.brandId] = saved;
+        setMode(payload.brandId); // a further submit now updates rather than creates
+        markSaved();
+
+        okBox.textContent = (r.body && r.body.message ? r.body.message :
+          (isEdit ? 'Brand microsite updated.' : 'Brand microsite created.')) +
+          ' (brandId: ' + (saved.brandId || payload.brandId) + ')';
         okBox.hidden = false;
         window.scrollTo({ top: 0, behavior: 'smooth' });
       })
@@ -699,6 +921,7 @@
       $(s).innerHTML = '';
       addRow(s);
     });
+    setMode(null);
     $('formError').hidden = true;
     $('formSuccess').hidden = true;
   });
