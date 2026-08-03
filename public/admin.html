@@ -257,6 +257,83 @@
   .status-dot.ok { background: var(--ok); }
   .status-dot.err { background: var(--err); }
   .hint { color: var(--muted); font-size: 11px; margin-top: 4px; }
+  .hint a { color: var(--accent); }
+
+  /* ---------- Page tabs ---------- */
+  .tabs { display: flex; gap: 6px; }
+  .tab {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: var(--muted);
+  }
+  .tab:hover { background: var(--panel-2); color: var(--text); }
+  .tab.active { background: rgba(110,168,254,.14); border-color: rgba(110,168,254,.45); color: var(--text); }
+
+  /* ---------- Assets page ---------- */
+  .asset-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 7px 8px;
+    color: var(--text);
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12px;
+    word-break: break-all;
+  }
+  .asset-item:hover { background: var(--panel-2); }
+  .asset-item.active { background: rgba(110,168,254,.14); border-color: rgba(110,168,254,.45); }
+
+  .value-line {
+    padding: 8px 10px;
+    background: #12151b;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    word-break: break-all;
+    min-height: 35px;
+  }
+  .value-line.muted { color: var(--muted); }
+  .value-line a { color: var(--accent); }
+
+  .asset-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--panel-2);
+    border: 1px dashed var(--line);
+  }
+  /* The frame is held at the manifest's declared aspectRatio and the image is
+     contained inside it, so a mismatch between the two is visible as padding. */
+  .asset-frame {
+    --ar: auto;
+    aspect-ratio: var(--ar);
+    width: 100%;
+    max-width: 520px;
+    max-height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .asset-frame img { width: 100%; height: 100%; object-fit: contain; border-radius: 6px; }
+  .ratio-pill {
+    display: inline-block;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 99px;
+    border: 1px solid var(--line);
+    background: var(--panel-2);
+    color: var(--text);
+  }
 </style>
 </head>
 <body>
@@ -282,11 +359,15 @@
 <!-- ============ APP ============ -->
 <div id="appView" hidden>
   <div class="topbar">
-    <h1>Brand Microsite Admin</h1>
+    <h1>IGM Admin</h1>
+    <nav class="tabs">
+      <button class="tab active" type="button" data-page="micrositePage">Brand Microsite</button>
+      <button class="tab" type="button" data-page="assetsPage">Assets</button>
+    </nav>
     <span class="spacer"></span>
     <span class="who" id="whoami"></span>
     <div class="tooltip-wrap">
-      <button class="btn-ghost" id="refreshBtn" type="button">refreshData</button>
+      <button class="btn-ghost" id="refreshBtn" type="button">refreshProductsData</button>
       <div class="tooltip" id="refreshTooltip" hidden>
         <button class="close" id="tooltipClose" type="button" aria-label="Close">×</button>
         <h4 id="tooltipTitle">/refreshCache</h4>
@@ -296,7 +377,8 @@
     <button class="btn-ghost" id="logoutBtn" type="button">Log out</button>
   </div>
 
-  <div class="layout">
+  <!-- ============ PAGE: brand microsite ============ -->
+  <div class="layout" id="micrositePage">
     <!-- LEFT PANEL: brands -->
     <aside class="sidebar">
       <div class="sidebar-head">
@@ -426,6 +508,67 @@
     </main>
   </div>
 
+  <!-- ============ PAGE: assets ============ -->
+  <div class="layout" id="assetsPage" hidden>
+    <!-- LEFT PANEL: asset keys -->
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <h2>Assets <span id="assetCount" class="who"></span></h2>
+        <input id="assetSearch" placeholder="Search asset key…" autocomplete="off">
+      </div>
+      <div class="brand-list" id="assetList"></div>
+    </aside>
+
+    <!-- RIGHT: selected asset -->
+    <main class="content">
+      <div class="alert alert-err" id="assetError" hidden></div>
+      <p class="empty-note" id="assetPlaceholder">Pick an asset from the left panel to see its details.</p>
+
+      <div class="alert alert-ok" id="assetSuccess" hidden></div>
+
+      <div id="assetDetail" hidden>
+        <fieldset>
+          <legend>Asset</legend>
+          <div class="grid2">
+            <div>
+              <label>name</label>
+              <div class="value-line" id="assetName"></div>
+            </div>
+            <div>
+              <label>aspectRatio</label>
+              <div class="value-line" id="assetAspectRatio"></div>
+            </div>
+          </div>
+          <div class="field" style="margin-top:12px">
+            <label for="assetDescriptionInput">description</label>
+            <textarea id="assetDescriptionInput"></textarea>
+          </div>
+          <div class="field">
+            <label for="assetUrlInput">url</label>
+            <input id="assetUrlInput" placeholder="https://…">
+            <div class="hint">
+              <a id="assetUrlLink" href="#" target="_blank" rel="noopener noreferrer">open current url ↗</a>
+            </div>
+          </div>
+          <div class="actions" style="padding-bottom:0">
+            <button class="btn" type="button" id="assetSaveBtn">Save</button>
+            <span class="who" id="assetSaveStatus"></span>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Image <span class="ratio-pill" id="assetPreviewRatio"></span></legend>
+          <div class="asset-preview">
+            <div class="asset-frame" id="assetFrame">
+              <img id="assetImage" alt="" hidden>
+            </div>
+            <p class="empty-note" id="assetImageNote" style="margin:0">Loading image…</p>
+          </div>
+        </fieldset>
+      </div>
+    </main>
+  </div>
+
 </div>
 
 <script>
@@ -469,6 +612,12 @@
     $('loginPass').value = '';
     $('loginId').value = '';
     hideTooltip();
+    // Next sign-in starts on the microsite page again.
+    Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (t, i) {
+      t.classList.toggle('active', i === 0);
+    });
+    $('micrositePage').hidden = false;
+    $('assetsPage').hidden = true;
   });
 
   // ---------- Brands (left panel) ----------
@@ -924,6 +1073,209 @@
     setMode(null);
     $('formError').hidden = true;
     $('formSuccess').hidden = true;
+  });
+
+  // ---------- Page tabs ----------
+  Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (tab) {
+    tab.addEventListener('click', function () {
+      var page = tab.getAttribute('data-page');
+      Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (t) {
+        t.classList.toggle('active', t === tab);
+      });
+      $('micrositePage').hidden = page !== 'micrositePage';
+      $('assetsPage').hidden = page !== 'assetsPage';
+      if (page === 'assetsPage') loadAssets();
+    });
+  });
+
+  // ---------- Assets ----------
+  var allAssets = [];
+  var assetsLoaded = false;
+  var currentAsset = null;
+
+  function loadAssets() {
+    if (assetsLoaded) return;
+    assetsLoaded = true;
+
+    var list = $('assetList');
+    list.innerHTML = '<p class="empty-note" style="padding:8px">Loading assets…</p>';
+
+    fetch('/assets')
+      .then(function (res) {
+        return res.text().then(function (text) {
+          var body;
+          try { body = text ? JSON.parse(text) : []; } catch (_) { body = text; }
+          if (!res.ok) throw new Error(formatApiError(res.status, body));
+          return body;
+        });
+      })
+      .then(function (data) {
+        allAssets = Array.isArray(data) ? data : [];
+        renderAssets('');
+      })
+      .catch(function (e) {
+        assetsLoaded = false; // let the next tab switch retry
+        list.innerHTML = '';
+        $('assetError').textContent = 'Could not load assets: ' + e.message;
+        $('assetError').hidden = false;
+      });
+  }
+
+  function renderAssets(filter) {
+    var list = $('assetList');
+    var q = filter.toLowerCase();
+    var shown = allAssets.filter(function (a) {
+      return !q || String(a.key || '').toLowerCase().indexOf(q) !== -1;
+    });
+
+    $('assetCount').textContent = '(' + shown.length + ')';
+    list.innerHTML = '';
+
+    if (!shown.length) {
+      var p = document.createElement('p');
+      p.className = 'empty-note';
+      p.style.padding = '8px';
+      p.textContent = allAssets.length ? 'No asset matches that search.' : 'No assets in the manifest.';
+      list.appendChild(p);
+      return;
+    }
+
+    shown.forEach(function (a) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'asset-item';
+      btn.textContent = a.key;
+      btn.addEventListener('click', function () {
+        Array.prototype.forEach.call(list.querySelectorAll('.asset-item'), function (el) {
+          el.classList.remove('active');
+        });
+        btn.classList.add('active');
+        showAsset(a);
+      });
+      list.appendChild(btn);
+    });
+  }
+
+  function showAsset(asset) {
+    currentAsset = asset;
+    $('assetError').hidden = true;
+    $('assetSuccess').hidden = true;
+    $('assetPlaceholder').hidden = true;
+    $('assetDetail').hidden = false;
+
+    $('assetName').textContent = asset.key;
+    $('assetAspectRatio').textContent = asset.aspectRatio || '(not set)';
+    $('assetPreviewRatio').textContent = asset.aspectRatio || '—';
+    $('assetDescriptionInput').value = asset.description || '';
+    $('assetUrlInput').value = asset.url || '';
+
+    renderAssetImage(asset);
+  }
+
+  // "4:3" -> a CSS aspect-ratio the preview frame can hold. Anything the
+  // manifest can't be read as W:H falls back to sizing on the image itself.
+  function toCssRatio(aspectRatio) {
+    var parts = String(aspectRatio || '').split(':');
+    var w = parseFloat(parts[0]);
+    var h = parseFloat(parts[1]);
+    return (parts.length === 2 && w > 0 && h > 0) ? (w + ' / ' + h) : 'auto';
+  }
+
+  function renderAssetImage(asset) {
+    var img = $('assetImage');
+    var note = $('assetImageNote');
+    var frame = $('assetFrame');
+
+    frame.style.setProperty('--ar', toCssRatio(asset.aspectRatio));
+    frame.hidden = true;
+    img.hidden = true;
+    note.hidden = false;
+
+    if (!asset.url) {
+      note.textContent = 'No url set for this asset.';
+      return;
+    }
+
+    note.textContent = 'Loading image…';
+    img.onload = function () { img.hidden = false; frame.hidden = false; note.hidden = true; };
+    img.onerror = function () {
+      img.hidden = true;
+      frame.hidden = true;
+      note.hidden = false;
+      note.textContent = 'Image could not be loaded from that URL.';
+    };
+    img.alt = asset.key;
+    img.src = asset.url;
+
+    var link = $('assetUrlLink');
+    link.href = asset.url;
+  }
+
+  $('assetSearch').addEventListener('input', function (e) { renderAssets(e.target.value); });
+
+  $('assetSaveBtn').addEventListener('click', function () {
+    if (!currentAsset) return;
+
+    var btn = $('assetSaveBtn');
+    var errBox = $('assetError');
+    var okBox = $('assetSuccess');
+    errBox.hidden = true;
+    okBox.hidden = true;
+    btn.disabled = true;
+    $('assetSaveStatus').textContent = 'Saving…';
+
+    var payload = {
+      url: $('assetUrlInput').value.trim(),
+      description: $('assetDescriptionInput').value.trim()
+    };
+
+    fetch('/assets/' + encodeURIComponent(currentAsset.key), {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) {
+        return res.text().then(function (text) {
+          var body;
+          try { body = text ? JSON.parse(text) : {}; } catch (_) { body = text; }
+          return { ok: res.ok, status: res.status, body: body };
+        });
+      })
+      .then(function (r) {
+        if (!r.ok) {
+          errBox.textContent = formatApiError(r.status, r.body);
+          errBox.hidden = false;
+          return;
+        }
+
+        // Trust the saved entry the API echoes back, so the panel shows what
+        // actually landed in assetManifest.json.
+        var saved = (r.body && r.body.data) || {
+          key: currentAsset.key,
+          url: payload.url,
+          description: payload.description,
+          aspectRatio: currentAsset.aspectRatio
+        };
+
+        var idx = allAssets.findIndex(function (a) { return a.key === saved.key; });
+        if (idx !== -1) allAssets[idx] = saved;
+        currentAsset = saved;
+
+        $('assetDescriptionInput').value = saved.description || '';
+        $('assetUrlInput').value = saved.url || '';
+        renderAssetImage(saved);
+
+        okBox.textContent = (r.body && r.body.message) || ('Asset ' + saved.key + ' updated');
+        okBox.hidden = false;
+      })
+      .catch(function (e) {
+        errBox.textContent = 'Request failed: ' + e.message;
+        errBox.hidden = false;
+      })
+      .finally(function () {
+        btn.disabled = false;
+        $('assetSaveStatus').textContent = '';
+      });
   });
 
   // ---------- refreshData -> /refreshCache, response in a tooltip ----------
