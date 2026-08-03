@@ -535,8 +535,9 @@
               <div class="value-line" id="assetName"></div>
             </div>
             <div>
-              <label>aspectRatio</label>
+              <label>aspectRatio (Width x Height)</label>
               <div class="value-line" id="assetAspectRatio"></div>
+              <div class="hint">width ÷ height — the preview frame below is held at this ratio.</div>
             </div>
           </div>
           <div class="field" style="margin-top:12px">
@@ -1172,13 +1173,21 @@
     renderAssetImage(asset);
   }
 
-  // "4:3" -> a CSS aspect-ratio the preview frame can hold. Anything the
-  // manifest can't be read as W:H falls back to sizing on the image itself.
+  // The manifest stores aspectRatio as a width/height number (1.72, 0.75, 3).
+  // The legacy "W:H" form is still accepted so an un-migrated entry renders;
+  // anything else falls back to sizing on the image itself.
   function toCssRatio(aspectRatio) {
+    if (typeof aspectRatio === 'number') return aspectRatio > 0 ? String(aspectRatio) : 'auto';
+
     var parts = String(aspectRatio || '').split(':');
-    var w = parseFloat(parts[0]);
-    var h = parseFloat(parts[1]);
-    return (parts.length === 2 && w > 0 && h > 0) ? (w + ' / ' + h) : 'auto';
+    if (parts.length === 2) {
+      var w = parseFloat(parts[0]);
+      var h = parseFloat(parts[1]);
+      return (w > 0 && h > 0) ? (w + ' / ' + h) : 'auto';
+    }
+
+    var n = parseFloat(aspectRatio);
+    return n > 0 ? String(n) : 'auto';
   }
 
   function renderAssetImage(asset) {

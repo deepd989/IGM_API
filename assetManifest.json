@@ -1,827 +1,827 @@
 {
   "bespoke.category.bangle": {
-    "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Bespoke%20Banners%2Fcategories_Artistian%20Neckalce.webp?alt=media&token=70497e37-d2a8-4ba1-a61e-da46c7b56fd0",
-    "description": "Artisan Bangles banner — edited from the admin panel",
-    "aspectRatio": "4:3"
+    "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Bespoke%20Banners%2Fcategories_Artistian%20Bangels.webp?alt=media&token=ef0a6cc6-6461-4cbc-b1b4-3d5de603c764",
+    "description": "Artisan Bangles Bespoke Category Banner",
+    "aspectRatio": 3
   },
   "bespoke.category.bracelet": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Bespoke%20Banners%2Fcategories_Artistian%20Bracelets.webp?alt=media&token=c1e9186d-d990-4fca-b680-8a2576d5f2b9",
     "description": "Artisan Bracelets Bespoke Category Banner",
-    "aspectRatio": "4:3"
+    "aspectRatio": 3
   },
   "bespoke.category.mangalsutra": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Bespoke%20Banners%2Fcategories_Artistian%20Mangalshutra.webp?alt=media&token=5f75ef1d-06af-4128-a42f-5b0b4464fc12",
     "description": "Artisan Mangalsutra Bespoke Category Banner",
-    "aspectRatio": "4:3"
+    "aspectRatio": 3
   },
   "bespoke.category.necklace": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Bespoke%20Banners%2Fcategories_Artistian%20Neckalce.webp?alt=media&token=70497e37-d2a8-4ba1-a61e-da46c7b56fd0",
     "description": "Artisan Necklace Bespoke Category Banner",
-    "aspectRatio": "4:3"
+    "aspectRatio": 3
   },
   "bespoke.category.ring": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Bespoke%20Banners%2Fcategories_Artistian%20Rings.webp?alt=media&token=551980e1-5ec1-471c-8095-a3905e6461bb",
     "description": "Artisan Rings Bespoke Category Banner",
-    "aspectRatio": "4:3"
+    "aspectRatio": 3
   },
   "bespoke.hero.primary": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Bespoke%20Banners%2FExplore%20Bespoke%2Fbespoke-01.webp?alt=media&token=5cb0fb49-268e-4953-acc5-92abb0db0249",
     "description": "Primary Bespoke Hero Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1
   },
   "bespoke.hero.secondary": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Bespoke%20Banners%2FExplore%20Bespoke%2Fbespoke-02.webp?alt=media&token=9e40b901-d9eb-491c-ac15-5e419466639b",
     "description": "Secondary Bespoke Hero Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 2.4
   },
   "category.banner.bangle": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Category%20Horizontal%20Banners%2FBangles%2FCategories_Bangles.webp?alt=media&token=01d765a4-5386-4ba9-a6a2-395ef5ac62fc",
     "description": "Bangles Category Horizontal Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 2
   },
   "category.banner.bangle.withText": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Category%20Horizontal%20Banners%2FBangles%2FCategory_Bangels_Text.webp?alt=media&token=d5401dad-faed-4c80-a833-919238055d75",
     "description": "Bangles Category Horizontal Banner with Text",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1
   },
   "category.banner.bracelet": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Category%20Horizontal%20Banners%2FBracelets%2FCategories_Bracelets.webp?alt=media&token=e562d3cf-bdfd-42f4-9f25-6e4f2e923f51",
     "description": "Bracelets Category Horizontal Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 2
   },
   "category.banner.bracelet.withText": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Category%20Horizontal%20Banners%2FBracelets%2FCategory_Bracelets_text.webp?alt=media&token=5e5b914d-e746-4bf8-8a6a-f5b84d2d4b52",
     "description": "Bracelets Category Horizontal Banner with Text",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1
   },
   "category.banner.earring": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Category%20Horizontal%20Banners%2FEarrings%2FCategories_Earrings.webp?alt=media&token=03c91ec1-33d1-438b-a3f0-28fd1d57cb0d",
     "description": "Earrings Category Horizontal Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 2
   },
   "category.banner.earring.withText": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Category%20Horizontal%20Banners%2FEarrings%2FCategory_Earrings_text.webp?alt=media&token=411c118e-eef5-4b17-9374-7a5cf3693b1f",
     "description": "Earrings Category Horizontal Banner with Text",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1
   },
   "category.banner.necklace": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Category%20Horizontal%20Banners%2FNecklace%2FCategories_Necklace.webp?alt=media&token=ad8ba455-b557-400d-b1e6-eff9488655c4",
     "description": "Necklace Category Horizontal Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 2
   },
   "category.banner.necklace.withText": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Category%20Horizontal%20Banners%2FNecklace%2FCategory_Necklace_text.webp?alt=media&token=1d02d70d-2793-441c-accf-bca5b72477e7",
     "description": "Necklace Category Horizontal Banner with Text",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1
   },
   "category.banner.ring": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Category%20Horizontal%20Banners%2FRings%2FCategories_Rings.webp?alt=media&token=75c5bbc1-8e79-4381-abea-e54ded4a129c",
     "description": "Rings Category Horizontal Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 2
   },
   "category.banner.ring.withText": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Category%20Horizontal%20Banners%2FRings%2FCategory_Rings_text.webp?alt=media&token=8555d1a9-d749-46d8-acb4-f05b7a5bc487",
     "description": "Rings Category Horizontal Banner with Text",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1
   },
   "exploreAi.magicSearchBanner": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Pop%20Up%20Try%20On%20Buttons%2Fmagic%20search-11.webp?alt=media&token=87f0543b-2c86-456d-a1b5-ddb2127e15ca",
     "description": "Magic Search AI Feature Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 2
   },
   "gifting.addon.deluxeGiftBox": {
     "url": "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=200",
     "description": "Deluxe Gift Box Addon Preview",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "gifting.addon.premiumGiftWrap": {
     "url": "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=200",
     "description": "Premium Gift Wrap Addon Preview",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "gifting.addon.recordMessage": {
     "url": "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=200",
     "description": "Record Personal Message Addon Preview",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "gifting.addon.writeNote": {
     "url": "https://images.unsplash.com/photo-1579751626657-72bc17010498?q=80&w=200",
     "description": "Handwritten Gift Note Addon Preview",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "gifting.banner": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Gifting%20Banner%2FGifting_banner-05.webp?alt=media&token=5b1e9a31-d5c7-47ee-bf47-8abcca8b5475",
     "description": "Jewelry Gifting Section Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.3
   },
   "gifting.wrap.fairyTales": {
     "url": "https://images.unsplash.com/photo-1545042746-934b1724afb3?q=80&w=200",
     "description": "Fairy Tales Theme Gift Wrapping Paper",
-    "aspectRatio": "1:1"
+    "aspectRatio": 0.75
   },
   "gifting.wrap.polkaDot": {
     "url": "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=200",
     "description": "Polka Dot Theme Gift Wrapping Paper",
-    "aspectRatio": "1:1"
+    "aspectRatio": 0.75
   },
   "gifting.wrap.warmHug": {
     "url": "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=200",
     "description": "Warm Hug Theme Gift Wrapping Paper",
-    "aspectRatio": "1:1"
+    "aspectRatio": 0.75
   },
   "home.categoryTab.icon.bangle": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Icons%2FHomepage%2FCategory-01.png?alt=media&token=5d8465ef-9c5c-4dc1-bdd9-df692b769403",
     "description": "Homepage Bangle Category Icon",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "home.categoryTab.icon.bracelet": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Icons%2FHomepage%2FCategory-02.png?alt=media&token=4dae78eb-5fa6-4b30-9091-56bebbf8e2f2",
     "description": "Homepage Bracelet Category Icon",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "home.featureButton.becomeModel": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Feature%20Buttons%2FBecome_Model_4.webp?alt=media&token=5e3fddfc-e39b-4aac-bf2d-c328a80d6fb1",
     "description": "Become a Model Feature CTA Button",
-    "aspectRatio": "16:9"
+    "aspectRatio": 3
   },
   "home.featureButton.swipeAndShop": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Feature%20Buttons%2FSwipe%26Shop_5.webp?alt=media&token=c0ca8e88-3abe-4c21-96b2-5054dd6e4b50",
     "description": "Swipe & Shop Feature CTA Button",
-    "aspectRatio": "16:9"
+    "aspectRatio": 3
   },
   "luxury.brandTile.fallbackCover.brand": {
     "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop",
     "description": "Luxury Brand Tile Fallback Cover",
-    "aspectRatio": "4:3"
+    "aspectRatio": 0.5
   },
   "luxury.brandTile.fallbackCover.collections": {
     "url": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop",
     "description": "Luxury Collections Tile Fallback Cover",
-    "aspectRatio": "4:3"
+    "aspectRatio": 1
   },
   "luxury.brandTile.fallbackCover.newIn": {
     "url": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop",
     "description": "Luxury New In Tile Fallback Cover",
-    "aspectRatio": "4:3"
+    "aspectRatio": 1
   },
   "luxury.elanziaAllRights.backdrop": {
     "url": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=crop",
     "description": "Elanzia Luxury Section Backdrop",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1
   },
   "luxury.elanziaSearch.background": {
     "url": "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=1000&auto=format&fit=crop",
     "description": "Elanzia Search Header Background",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1
   },
   "luxury.genderTile.kids": {
     "url": "https://images.unsplash.com/photo-1519457431-44ccd64a579b?q=80&w=600&auto=format&fit=crop",
     "description": "Kids Category Luxury Tile Cover",
-    "aspectRatio": "3:4"
+    "aspectRatio": 1
   },
   "luxury.genderTile.men": {
     "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop",
     "description": "Men Category Luxury Tile Cover",
-    "aspectRatio": "3:4"
+    "aspectRatio": 1
   },
   "luxury.genderTile.unisex": {
     "url": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=600&auto=format&fit=crop",
     "description": "Unisex Category Luxury Tile Cover",
-    "aspectRatio": "3:4"
+    "aspectRatio": 1
   },
   "luxury.genderTile.women": {
     "url": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=600&auto=format&fit=crop",
     "description": "Women Category Luxury Tile Cover",
-    "aspectRatio": "3:4"
+    "aspectRatio": 1
   },
   "luxury.glossyCard.slide1.brandLogo": {
     "url": "https://via.placeholder.com/100/3A2D28/FFFFFF?text=tbz",
     "description": "Glossy Card Slide 1 Brand Logo",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "luxury.glossyCard.slide1.image": {
     "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop",
     "description": "Glossy Showcase Card Slide 1 Image",
-    "aspectRatio": "4:3"
+    "aspectRatio": 1
   },
   "luxury.glossyCard.slide2.brandLogo": {
     "url": "https://via.placeholder.com/100/3A2D28/FFFFFF?text=tbz",
     "description": "Glossy Card Slide 2 Brand Logo",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "luxury.glossyCard.slide2.image": {
     "url": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1000&auto=format&fit=crop",
     "description": "Glossy Showcase Card Slide 2 Image",
-    "aspectRatio": "4:3"
+    "aspectRatio": 1
   },
   "luxury.glossyCard.slide3.brandLogo": {
     "url": "https://via.placeholder.com/100/3A2D28/FFFFFF?text=tbz",
     "description": "Glossy Card Slide 3 Brand Logo",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "luxury.glossyCard.slide3.image": {
     "url": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=1000&auto=format&fit=crop",
     "description": "Glossy Showcase Card Slide 3 Image",
-    "aspectRatio": "4:3"
+    "aspectRatio": 1
   },
   "luxury.multibrandCollection.fallbackBackdrop": {
     "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop",
     "description": "Multibrand Collection Fallback Backdrop",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.5
   },
   "luxury.newProducts.banner1": {
     "url": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1200&auto=format&fit=crop",
     "description": "Luxury New Products Feature Banner 1",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.72
   },
   "luxury.newProducts.banner2": {
     "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1200&auto=format&fit=crop",
     "description": "Luxury New Products Feature Banner 2",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.72
   },
   "luxury.newProducts.banner3": {
     "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1200&auto=format&fit=crop",
     "description": "Luxury New Products Feature Banner 3",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.72
   },
   "luxury.outfitType.dailyWear": {
     "url": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=800&auto=format&fit=crop",
     "description": "Daily Wear Outfit Jewelry Styling Tile",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.75
   },
   "luxury.outfitType.festiveWear": {
     "url": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop",
     "description": "Festive Wear Outfit Jewelry Styling Tile",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.75
   },
   "luxury.outfitType.officeWear": {
     "url": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=800&auto=format&fit=crop",
     "description": "Office Wear Outfit Jewelry Styling Tile",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.75
   },
   "luxury.outfitType.partyWear": {
     "url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop",
     "description": "Party Wear Outfit Jewelry Styling Tile",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.75
   },
   "luxury.outfitType.weddingWear": {
     "url": "https://images.unsplash.com/photo-1583391733956-6c78276477e2?q=80&w=800&auto=format&fit=crop",
     "description": "Wedding Wear Outfit Jewelry Styling Tile",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.75
   },
   "luxury.tryOn.background": {
     "url": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop",
     "description": "Virtual Try-On Stage Background",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1
   },
   "luxury.tryOn.modelPhoto": {
     "url": "https://media.istockphoto.com/id/1427466087/photo/woman-beauty-with-smooth-skin-make-up-and-golden-jewelry-beautiful-girl-with-perfect-lips-and.webp?s=612x612&w=is&k=20&c=6I9cNoTC1NmqwfyJnwQt8-HtBlnmtcuDs2LU9EZy64w=",
     "description": "Virtual Try-On Model Preset Photo",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.48
   },
   "luxury.tryOn.userPhoto": {
     "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
     "description": "Virtual Try-On Sample User Photo",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.48
   },
   "mock.product.dailyWearRing.image1": {
     "url": "https://images.unsplash.com/photo-1626784215021-2e39ccf971cd?q=80&w=400",
     "description": "Daily Wear Gold Ring Product Shot",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.emeraldRing.image1": {
     "url": "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=400",
     "description": "Emerald Gemstone Ring Product Shot",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.platinumBand.image1": {
     "url": "https://images.unsplash.com/photo-1589674781759-c21c37956a44?q=80&w=400",
     "description": "Classic Platinum Band Product Shot",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod001GoldNecklace.image1": {
     "url": "https://example.com/images/necklace-001-1.jpg",
     "description": "Gold Necklace Mock Product Angle 1",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod001GoldNecklace.image2": {
     "url": "https://example.com/images/necklace-001-2.jpg",
     "description": "Gold Necklace Mock Product Angle 2",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod002DiamondStuds.image1": {
     "url": "https://example.com/images/earrings-002-1.jpg",
     "description": "Diamond Stud Earrings Mock Product Angle 1",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod002DiamondStuds.image2": {
     "url": "https://example.com/images/earrings-002-2.jpg",
     "description": "Diamond Stud Earrings Mock Product Angle 2",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod003CharmBracelet.image1": {
     "url": "https://example.com/images/bracelet-003-1.jpg",
     "description": "Charm Bracelet Mock Product Angle 1",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod004RubyRing.image1": {
     "url": "https://example.com/images/ring-004-1.jpg",
     "description": "Ruby Statement Ring Mock Product Angle 1",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod004RubyRing.image2": {
     "url": "https://example.com/images/ring-004-2.jpg",
     "description": "Ruby Statement Ring Mock Product Angle 2",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod005RubyEarring.image1": {
     "url": "https://example.com/images/ring-004-1.jpg",
     "description": "Ruby Earrings Mock Product Angle 1",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod005RubyEarring.image2": {
     "url": "https://example.com/images/ring-004-2.jpg",
     "description": "Ruby Earrings Mock Product Angle 2",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod006DiamondNecklaceGift.image1": {
     "url": "https://example.com/images/earrings-002-1.jpg",
     "description": "Diamond Gift Necklace Mock Product Angle 1",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod006DiamondNecklaceGift.image2": {
     "url": "https://example.com/images/earrings-002-2.jpg",
     "description": "Diamond Gift Necklace Mock Product Angle 2",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod007GoldNecklace.image1": {
     "url": "https://example.com/images/earrings-002-1.jpg",
     "description": "Crafted Gold Necklace Mock Product Angle 1",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.prod007GoldNecklace.image2": {
     "url": "https://example.com/images/earrings-002-2.jpg",
     "description": "Crafted Gold Necklace Mock Product Angle 2",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.roseGoldRing.image1": {
     "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=400",
     "description": "Rose Gold Ring Product Shot",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.silverBand.image1": {
     "url": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=400",
     "description": "Minimalist Silver Band Product Shot",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.product.solitaireShine.image1": {
     "url": "https://images.unsplash.com/photo-1605100804763-eb2fc645a382?q=80&w=400",
     "description": "Solitaire Diamond Ring Product Shot",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.necklace.all": {
     "url": "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?q=80&w=200",
     "description": "All Necklaces Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.necklace.chains": {
     "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200",
     "description": "Necklace Chains Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.necklace.chokers": {
     "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=200",
     "description": "Choker Necklaces Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.necklace.pendants": {
     "url": "https://images.unsplash.com/photo-1602751584552-8ba42d52e90e?q=80&w=200",
     "description": "Pendant Necklaces Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.ring.all": {
     "url": "https://images.unsplash.com/photo-1605100804763-eb2fc645a382?q=80&w=200",
     "description": "All Rings Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.ring.bands": {
     "url": "https://images.unsplash.com/photo-1626784215021-2e39ccf971cd?q=80&w=200",
     "description": "Ring Bands Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.ring.casual": {
     "url": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=200",
     "description": "Casual Rings Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.ring.engagement": {
     "url": "https://images.unsplash.com/photo-1573408301185-9146fe635da0?q=80&w=200",
     "description": "Engagement Rings Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.ring.promise": {
     "url": "https://images.unsplash.com/photo-1605100804763-eb2fc645a382?q=80&w=200",
     "description": "Promise Rings Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.ring.signet": {
     "url": "https://images.unsplash.com/photo-1589674781759-c21c37956a44?q=80&w=200",
     "description": "Signet Rings Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.ring.stackable": {
     "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200",
     "description": "Stackable Rings Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.ring.stone": {
     "url": "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=200",
     "description": "Gemstone Rings Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "mock.subcategory.ring.wedding": {
     "url": "https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=200",
     "description": "Wedding Rings Subcategory Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "occasion.anniversary": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Shop%20by%20Occassions%2Focasssion%20banner_Anniversary%20with%20text.webp?alt=media&token=4040cf38-94d8-4054-a5dd-ee8cfc1fdb17",
     "description": "Anniversary Occasion Shopping Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 3
   },
   "occasion.birthday": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Shop%20by%20Occassions%2FOccasion%20_Birthday%20with%20text.webp?alt=media&token=896dc501-4df7-4366-b829-b16f3a43972b",
     "description": "Birthday Occasion Shopping Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 3
   },
   "occasion.engagement": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Shop%20by%20Occassions%2Focasssion%20banner_Engagement%20with%20text.webp?alt=media&token=5466465d-eb33-4733-a668-d0afade15567",
     "description": "Engagement Occasion Shopping Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 3
   },
   "occasion.wedding": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Shop%20by%20Occassions%2FOccasion%20_Wedding%20with%20text.webp?alt=media&token=70ca4103-9084-4fe1-bcb2-0d048e3a5152",
     "description": "Wedding Occasion Shopping Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 3
   },
   "payment.icon.amex": {
     "url": "https://drive.google.com/uc?export=view&id=1Jbrdq-W5JhrqDMlfMj-qqDU20Ybxaudi",
     "description": "American Express Payment Method Icon",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1.4
   },
   "payment.icon.gPay": {
     "url": "https://drive.google.com/uc?export=view&id=1dos8DTWR05FAc0nPeVIlNmvIlhy2UowR",
     "description": "Google Pay Payment Method Icon",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1.4
   },
   "payment.icon.mastercard": {
     "url": "https://drive.google.com/uc?export=view&id=1z0ugQX0ewzKCXubMooUS_eGEe4Ug41v2",
     "description": "Mastercard Payment Method Icon",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1.4
   },
   "payment.icon.paytm": {
     "url": "https://drive.google.com/uc?export=view&id=1jCi1WkNc6ck_wA8Kd0gI_Q2tVB_i2JG2",
     "description": "Paytm Payment Method Icon",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1.4
   },
   "payment.icon.phonePe": {
     "url": "https://drive.google.com/uc?export=view&id=1sTBoePSN7S_U_PE3s1Ehely4MjOQnI7M",
     "description": "PhonePe Payment Method Icon",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1.4
   },
   "placeholder.product": {
     "url": "https://via.placeholder.com/300x300?text=No+Image",
     "description": "Default Product Fallback Placeholder Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "placeholder.regionCard": {
     "url": "https://via.placeholder.com/500",
     "description": "Default Region Card Fallback Placeholder Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1.3
   },
   "profile.avatarFallback": {
     "url": "https://drive.google.com/uc?export=download&id=19-d6USaW7yMEDIqEEPWx-lfilvBiNBCF",
     "description": "User Profile Avatar Fallback Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "profile.flag.india": {
     "url": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/255px-Flag_of_India.svg.png",
     "description": "National Flag of India Icon",
-    "aspectRatio": "3:2"
+    "aspectRatio": 1.5
   },
   "profile.recentOrder.image1": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FRings%2FRing_Eternity.webp?alt=media&token=195729b9-5863-440c-b8cd-762318f7de62",
     "description": "Recent Order - Eternity Ring Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "profile.recentOrder.image2": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FRings%2FRing_anniversary.webp?alt=media&token=9cad0037-bb91-4334-a586-d5290f309bdb",
     "description": "Recent Order - Anniversary Ring Thumbnail",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "region.banner.assam": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/State%20Banners%2FAssam.webp?alt=media&token=585608eb-b703-4f04-9183-117cbdc179a5",
     "description": "Assam Regional Jewelry Collection Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.3
   },
   "region.banner.gujarat": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/State%20Banners%2FGujarat.webp?alt=media&token=0c187c11-3240-4630-9dac-efa1c314b1f0",
     "description": "Gujarat Regional Jewelry Collection Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.3
   },
   "region.banner.kerala": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/State%20Banners%2FKerala.webp?alt=media&token=12bef91c-3f2b-4263-9797-ac9570a8e738",
     "description": "Kerala Regional Jewelry Collection Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.3
   },
   "region.banner.odisha": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/State%20Banners%2FOdisha.webp?alt=media&token=264f073e-0ca8-4c8e-b316-755a58af3a70",
     "description": "Odisha Regional Jewelry Collection Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.3
   },
   "region.banner.punjab": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/State%20Banners%2FPunjab.webp?alt=media&token=e68e7ad9-d7bf-4318-a4e7-5876867ebb78",
     "description": "Punjab Regional Jewelry Collection Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.3
   },
   "region.banner.rajasthan": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/State%20Banners%2FRajasthan.webp?alt=media&token=52ed7845-1514-47bb-80af-648441526c57",
     "description": "Rajasthan Regional Jewelry Collection Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.3
   },
   "region.banner.tamilNadu": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/State%20Banners%2FTamil%20Nadu.webp?alt=media&token=4e789072-3553-4552-9e3c-541f0d2b7e9f",
     "description": "Tamil Nadu Regional Jewelry Collection Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.3
   },
   "region.banner.telangana": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/State%20Banners%2FTelangana.webp?alt=media&token=fcdc5631-ce8c-47f7-9e66-17a1e7883ee5",
     "description": "Telangana Regional Jewelry Collection Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.3
   },
   "region.banner.westBengal": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/State%20Banners%2FWest%20Bengal.webp?alt=media&token=2a546938-3731-43a2-9b7a-bcbca11ca117",
     "description": "West Bengal Regional Jewelry Collection Banner",
-    "aspectRatio": "16:9"
+    "aspectRatio": 1.3
   },
   "region.portrait.assam": {
     "url": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=800&auto=format&fit=crop",
     "description": "Assam Traditional Attire Portrait",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.5
   },
   "region.portrait.gujarat": {
     "url": "https://images.unsplash.com/photo-1595535373192-fc8935bacd89?q=80&w=800&auto=format&fit=crop",
     "description": "Gujarat Traditional Attire Portrait",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.5
   },
   "region.portrait.kerala": {
     "url": "https://images.unsplash.com/photo-1602752250015-52934bc45613?q=80&w=800&auto=format&fit=crop",
     "description": "Kerala Traditional Attire Portrait",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.5
   },
   "region.portrait.odisha": {
     "url": "https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=800&auto=format&fit=crop",
     "description": "Odisha Traditional Attire Portrait",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.5
   },
   "region.portrait.punjab": {
     "url": "https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=800&auto=format&fit=crop",
     "description": "Punjab Traditional Attire Portrait",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.5
   },
   "region.portrait.rajasthan": {
     "url": "https://images.unsplash.com/photo-1583391733956-6c78276477e2?q=80&w=800&auto=format&fit=crop",
     "description": "Rajasthan Traditional Attire Portrait",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.5
   },
   "region.portrait.tamilNadu": {
     "url": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop",
     "description": "Tamil Nadu Traditional Attire Portrait",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.5
   },
   "region.portrait.telangana": {
     "url": "https://images.unsplash.com/photo-1600721391689-2564bb8055de?q=80&w=800&auto=format&fit=crop",
     "description": "Telangana Traditional Attire Portrait",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.5
   },
   "region.portrait.westBengal": {
     "url": "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?q=80&w=800&auto=format&fit=crop",
     "description": "West Bengal Traditional Attire Portrait",
-    "aspectRatio": "3:4"
+    "aspectRatio": 0.5
   },
   "region.product.assam": {
     "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop",
     "description": "Assam Regional Jewelry Highlight",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "region.product.gujarat": {
     "url": "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?q=80&w=800&auto=format&fit=crop",
     "description": "Gujarat Regional Jewelry Highlight",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "region.product.kerala": {
     "url": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=800&auto=format&fit=crop",
     "description": "Kerala Regional Jewelry Highlight",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "region.product.odisha": {
     "url": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop",
     "description": "Odisha Regional Jewelry Highlight",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "region.product.punjab": {
     "url": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop",
     "description": "Punjab Regional Jewelry Highlight",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "region.product.rajasthan": {
     "url": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop",
     "description": "Rajasthan Regional Jewelry Highlight",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "region.product.tamilNadu": {
     "url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop",
     "description": "Tamil Nadu Regional Jewelry Highlight",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "region.product.telangana": {
     "url": "https://images.unsplash.com/photo-1611085583191-a3b181a88401?q=80&w=800&auto=format&fit=crop",
     "description": "Telangana Regional Jewelry Highlight",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "region.product.westBengal": {
     "url": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop",
     "description": "West Bengal Regional Jewelry Highlight",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.bangle.all": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FBangles%2FBangles_Kangan%201.webp?alt=media&token=7a15aeef-7466-4259-8306-2073074f6dc5",
     "description": "All Bangles Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.bangle.churi": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FBangles%2FBangles_Churi%20final.webp?alt=media&token=bb4932e4-2f11-43e6-a095-2b01ed1f5da2",
     "description": "Churi Bangles Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.bangle.kangan": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FBangles%2FBangles_Kangan%201.webp?alt=media&token=7a15aeef-7466-4259-8306-2073074f6dc5",
     "description": "Kangan Bangles Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.bangle.pacheli": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FBangles%2FBangles_pacheli%20Final.webp?alt=media&token=90f355c7-4aaa-4ff0-b750-6cddcb7a8ef5",
     "description": "Pacheli Bangles Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.bracelet.all": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FBracelets%2Fbracelets_kada%203.webp?alt=media&token=06a8f8e2-25d1-4e78-92b5-8117fb1aff97",
     "description": "All Bracelets Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.bracelet.cuff": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FBracelets%2Fbracelets_cuff.webp?alt=media&token=b1260d88-170d-4562-ad5b-8c7a15fdfa54",
     "description": "Cuff Bracelets Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.bracelet.kada": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FBracelets%2Fbracelets_kada%203.webp?alt=media&token=06a8f8e2-25d1-4e78-92b5-8117fb1aff97",
     "description": "Kada Bracelets Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.bracelet.slider": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FBracelets%2Fbracelets_slider%203.webp?alt=media&token=bdb84ef0-19eb-4866-92c0-d95f9b66db1d",
     "description": "Slider Bracelets Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.bracelet.tennis": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FBracelets%2Fbracelets_tennis%201.webp?alt=media&token=6b8e23aa-92b2-4bff-b124-ba47dadcc708",
     "description": "Tennis Bracelets Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.earring.all": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FEarrings%2FEarring_Jhumka1.webp?alt=media&token=72fbb7d6-ffc8-4de1-8a8a-c9cc9b349152",
     "description": "All Earrings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.earring.chandbali": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FEarrings%2FEarring_Chandbali.webp?alt=media&token=3987845a-551a-4c12-98cd-a1b26ac2513f",
     "description": "Chandbali Earrings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.earring.chandelier": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FEarrings%2FEarrings_chandelier.webp?alt=media&token=da3c9fb5-45f0-4e61-8821-9cd078f992c7",
     "description": "Chandelier Earrings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.earring.cuffs": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FEarrings%2Fearring_Cuff.webp?alt=media&token=a6c2cdb6-8e1a-4488-9470-33834acf26a8",
     "description": "Ear Cuffs Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.earring.drops": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FEarrings%2FEarring_Drops3.webp?alt=media&token=905e864f-4eb1-4bc5-a68b-494ffb4c746a",
     "description": "Drop Earrings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.earring.jhumka": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FEarrings%2FEarring_Jhumka1.webp?alt=media&token=72fbb7d6-ffc8-4de1-8a8a-c9cc9b349152",
     "description": "Jhumka Earrings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.earring.studs": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FEarrings%2FEarring_Studs1.webp?alt=media&token=68b8a592-0a09-430a-a297-e43c559758e2",
     "description": "Stud Earrings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.necklace.all": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FNecklace%2FNecklace_Religious.webp?alt=media&token=470b92fc-5ee7-4fe3-9902-3583ff6f533d",
     "description": "All Necklaces Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.necklace.antique": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FNecklace%2FNeckalace_Antique_religious%20copy%203.webp?alt=media&token=4b8872b8-f7f8-493f-b3e9-2833856c1595",
     "description": "Antique Necklaces Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.necklace.choker": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FNecklace%2FNecklace_choker.webp?alt=media&token=d3498606-54e0-46fc-a3eb-a643a754ce9b",
     "description": "Choker Necklaces Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.necklace.gemstone": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FNecklace%2FNeckalace_gemstone.webp?alt=media&token=e8bd0db1-3c90-4dea-b776-4d8cc10bd480",
     "description": "Gemstone Necklaces Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.necklace.lariat": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FNecklace%2FNecklace_lariat.webp?alt=media&token=118c700f-0746-4370-86df-5974d4c27907",
     "description": "Lariat Necklaces Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.necklace.raniHaar": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FNecklace%2FNecklace_rani%20haar.webp?alt=media&token=b45d16b9-3ecf-479a-8d19-0076fd9fcddd",
     "description": "Rani Haar Necklaces Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.necklace.religious": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FNecklace%2FNecklace_Religious.webp?alt=media&token=470b92fc-5ee7-4fe3-9902-3583ff6f533d",
     "description": "Religious Necklaces Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.ring.all": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FRings%2FRing_religious1.webp?alt=media&token=6737a299-e713-42cb-9494-686aec24beda",
     "description": "All Rings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.ring.anniversary": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FRings%2FRing_anniversary.webp?alt=media&token=9cad0037-bb91-4334-a586-d5290f309bdb",
     "description": "Anniversary Rings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.ring.bands": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FRings%2FRing_band1.webp?alt=media&token=1676602b-9970-4faa-8b26-c4cdda0ac9bd",
     "description": "Ring Bands Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.ring.eternity": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FRings%2FRing_Eternity.webp?alt=media&token=195729b9-5863-440c-b8cd-762318f7de62",
     "description": "Eternity Rings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.ring.navratna": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FRings%2FRing_navratna2.webp?alt=media&token=f9c9debf-7a54-4599-90cf-f06d7f3bad48",
     "description": "Navratna Rings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.ring.religious": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FRings%2FRing_religious1.webp?alt=media&token=6737a299-e713-42cb-9494-686aec24beda",
     "description": "Religious Rings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.ring.solitaire": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FRings%2FRing_solitaire.jpg?alt=media&token=aba2d16c-418e-4dc0-9e05-411bdc62b0ea",
     "description": "Solitaire Rings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "subcategory.ring.wedding": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Sub-Category%20Images%2FRings%2FRing_anniversary.webp?alt=media&token=9cad0037-bb91-4334-a586-d5290f309bdb",
     "description": "Wedding Rings Subcategory Image",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "trustBadge.globalJewelleryStandards": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Icons%2FTrust%20Badges%2FICONS%20_Global%20Jewellery%20Standards.svg?alt=media&token=4990b5f0-3124-4c7e-b7c8-1d811f501dfc",
     "description": "Global Jewellery Standards Trust Badge Icon",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "trustBadge.infiniteDesigns": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Icons%2FTrust%20Badges%2FICONS%20_Infinite%20Designs.svg?alt=media&token=27cf866d-d590-4d26-8d56-d1aeedbb89ac",
     "description": "Infinite Designs Trust Badge Icon",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   },
   "trustBadge.insuredDelivery": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Icons%2FTrust%20Badges%2FICONS%20_Insured%20Delivery.svg?alt=media&token=3858495a-afe4-4c1c-b4b5-9c24eb59fd3a",
     "description": "Insured Delivery Trust Badge Icon",
-    "aspectRatio": "1:1"
+    "aspectRatio": 1
   }
 }
