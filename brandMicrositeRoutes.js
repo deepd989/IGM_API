@@ -1,14 +1,31 @@
 const express = require('express');
 const router = express.Router();
 const { z } = require('zod');
-const { getDbClient } = require('./dbConnection');
+const { getCollection } = require('./dbConnection');
 const { getAllResolvedSellers } = require('./sellerResolver');
 
 // Database Helper
 const COLLECTION_NAME = 'brand_microsites';
-const getCollection = async () => {
-    const client = await getDbClient();
-    return client.db().collection(COLLECTION_NAME);
+
+let indexPromise;
+
+// Explicitly the MONGO_DB_NAME database. This used to be client.db() with no
+// argument, and since the connection string carries no database in its path the
+// driver silently resolved it to "test" — see migrateBrandMicrosites.js for the
+// cutover that moved the documents written there.
+const getBrandCollection = async () => {
+    const collection = await getCollection(COLLECTION_NAME);
+
+    // Built once per process. A failure is not cached, so the next call retries
+    // instead of leaving POST /brand-microsite racing without its unique guard.
+    if (!indexPromise) {
+        indexPromise = collection
+            .createIndex({ brandId: 1 }, { unique: true })
+            .catch(error => { indexPromise = undefined; throw error; });
+    }
+    await indexPromise;
+
+    return collection;
 };
 
 // ==========================================
@@ -119,7 +136,7 @@ const validateSellerExists = (req, res, next) => {
 // 1. GET ALL Brand Microsites
 router.get('/brand-microsite', async (req, res) => {
     try {
-        const collection = await getCollection();
+        const collection = await getBrandCollection();
         const brands = await collection.find({}).toArray();
         return res.status(200).json(brands);
     } catch (error) {
@@ -132,7 +149,7 @@ router.get('/brand-microsite', async (req, res) => {
 router.get('/brand-microsite/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const collection = await getCollection();
+        const collection = await getBrandCollection();
         const brand = await collection.findOne({ brandId: id });
 
         if (!brand) {
@@ -149,7 +166,7 @@ router.get('/brand-microsite/:id', async (req, res) => {
 // 3. POST - Create new Brand Microsite
 router.post('/brand-microsite', validateBrandMicrosite, validateSellerExists, async (req, res) => {
     try {
-        const collection = await getCollection();
+        const collection = await getBrandCollection();
         const { brandId } = req.body;
 
         // Check if brandId already exists
@@ -167,6 +184,12 @@ router.post('/brand-microsite', validateBrandMicrosite, validateSellerExists, as
         await collection.insertOne(newBrandData);
         return res.status(201).json({ message: 'Brand microsite created successfully', data: newBrandData });
     } catch (error) {
+        // The unique index on brandId catches the request that loses the race
+        // between the findOne above and this insert; it deserves the same 409.
+        if (error?.code === 11000) {
+            return res.status(409).json({ error: `Brand microsite with brandId '${req.body.brandId}' already exists.` });
+        }
+
         console.error('Error creating brand microsite:', error);
         return res.status(500).json({ error: 'Failed to create brand microsite', details: error.message });
     }
@@ -176,7 +199,7 @@ router.post('/brand-microsite', validateBrandMicrosite, validateSellerExists, as
 router.put('/brand-microsite/:id', validateBrandMicrosite, validateSellerExists, async (req, res) => {
     try {
         const { id } = req.params;
-        const collection = await getCollection();
+        const collection = await getBrandCollection();
 
         // Check if path param id matches payload brandId
         if (req.body.brandId !== id) {

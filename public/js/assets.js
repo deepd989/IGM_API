@@ -1,4 +1,4 @@
-// The Assets page: assetManifest.json entries listed on the left, with the
+// The Assets page: stored asset entries listed on the left, with the
 // url/description of the selected one editable on the right.
 import { $ } from './dom.js';
 import { request, sendJson, formatApiError } from './api.js';
@@ -42,7 +42,7 @@ function renderAssets(filter) {
     var p = document.createElement('p');
     p.className = 'empty-note';
     p.style.padding = '8px';
-    p.textContent = allAssets.length ? 'No asset matches that search.' : 'No assets in the manifest.';
+    p.textContent = allAssets.length ? 'No asset matches that search.' : 'No assets stored yet.';
     list.appendChild(p);
     return;
   }
@@ -80,7 +80,7 @@ function showAsset(asset) {
 }
 
 // Shown as a ratio against a height of 1 rather than the bare width/height
-// number the manifest stores: 3 -> "3:1", 1 -> "1:1", 0.75 -> "0.75:1".
+// number that is stored: 3 -> "3:1", 1 -> "1:1", 0.75 -> "0.75:1".
 function formatRatio(aspectRatio, fallback) {
   if (aspectRatio === undefined || aspectRatio === null || aspectRatio === '') return fallback;
   // An un-migrated "W:H" entry is already a ratio — leave it as it is.
@@ -167,7 +167,7 @@ function onSave() {
       }
 
       // Trust the saved entry the API echoes back, so the panel shows what
-      // actually landed in assetManifest.json.
+      // actually landed in the database.
       var saved = (r.body && r.body.data) || {
         key: currentAsset.key,
         url: payload.url,

@@ -1,6 +1,6 @@
-// The Collections page: collectionOutputData.json is keyed by sellerId, so the
-// left panel lists seller groups and the right panel edits one group — its
-// banner, its seller name, and one card per collection.
+// The Collections page: /getCollections is keyed by sellerId, so the left panel
+// lists seller groups and the right panel edits one group — its banner, its
+// seller name, and one card per collection.
 import { $ } from './dom.js';
 import { request, sendJson, formatApiError } from './api.js';
 import { ensureBrands, getBrands } from './brands.js';
@@ -123,7 +123,7 @@ function renderCollectionList() {
     p.style.padding = '8px';
     p.textContent = Object.keys(collectionsData).length
       ? 'Nothing matches that search.'
-      : 'collectionOutputData.json holds no collections yet.';
+      : 'No seller has collections yet.';
     list.appendChild(p);
     return;
   }
@@ -313,7 +313,7 @@ function addChip(chips, sku) {
 }
 
 // Flags a SKU that products.json does not know about — it is still saved,
-// since collectionOutputData.json already holds SKUs the cache has never seen.
+// since the stored collections already hold SKUs the cache has never seen.
 function paintChip(chip) {
   var sku = chip.getAttribute('data-sku');
   var known = Object.prototype.hasOwnProperty.call(skuIndex, sku) ? skuIndex[sku] : null;
@@ -713,7 +713,7 @@ function onSave() {
       }
 
       // Re-render from what the API stored, so the mirrored banners and the
-      // de-duplicated SKUs on screen are what is actually on disk.
+      // de-duplicated SKUs on screen are what is actually in the database.
       collectionsData[sellerId] = (r.body && r.body.data) || payload;
       showGroup(sellerId);
 

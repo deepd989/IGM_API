@@ -1,26 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs').promises;
-const path = require('path');
 const { z } = require('zod');
 const { getAllResolvedProducts } = require('./productResolver');
-
-// Path to your local JSON storage
-const OUTPUT_FILE = path.join(__dirname, 'collectionOutputData.json');
-
-async function readCollectionFile() {
-    const fileContent = await fs.readFile(OUTPUT_FILE, 'utf8');
-    return JSON.parse(fileContent);
-}
-
-// Written via a temp file + rename so a crash mid-write can never leave a
-// truncated collectionOutputData.json behind.
-async function writeCollectionFile(data) {
-    const tmpPath = `${OUTPUT_FILE}.tmp`;
-    await fs.writeFile(tmpPath, JSON.stringify(data, null, 2));
-    await fs.rename(tmpPath, OUTPUT_FILE);
-}
-
+const {
+    getAllGroupsBySellerId,
+    groupExists,
+    replaceGroup,
+    createGroup,
+    upsertGroups
+} = require('./collectionStore');
 
 router.get('/getCollections', async (req, res) => {
     try {
@@ -31,22 +19,22 @@ router.get('/getCollections', async (req, res) => {
         if (useLiveCollectionData) {
             // 2. Fetch fresh data from the resolver
             const data = await getAllResolvedProducts();
-            
+
             // Map items to include the sellerId alongside the product attributes
-            const products = data.map(item => ({ 
-                ...item.updated, 
-                sellerId: item.sellerId 
+            const products = data.map(item => ({
+                ...item.updated,
+                sellerId: item.sellerId
             }));
 
             const collectionsBySeller = {};
 
             products.forEach(product => {
                 const attributes = product.custom_attributes || [];
-                
+
                 // Extract collection ID and Seller Name from attributes
                 const rawCollectionId = attributes.find(attr => attr.attribute_code === 'collection_id')?.value || "";
                 const sellerId = product.sellerId;
-                
+
                 // Note: Ensure 'seller_id' is the correct attribute_code for the Name string
                 const sellerName = attributes.find(attr => attr.attribute_code === 'seller_id')?.value || "dummy_seller_name";
 
@@ -86,20 +74,17 @@ router.get('/getCollections', async (req, res) => {
                 }
             });
 
-            // 6. Write the structured object to the JSON file
-            await fs.writeFile(OUTPUT_FILE, JSON.stringify(collectionsBySeller, null, 2));
-            
+            // 6. Push the rebuilt groups into MongoDB. Upserted rather than
+            // replaced, so a seller the resolver returns nothing for keeps the
+            // group the admin portal curated.
+            await upsertGroups(collectionsBySeller);
+
             responseData = collectionsBySeller;
 
         } else {
-            // 7. If not live, read the existing JSON file
-            try {
-                responseData = await readCollectionFile();
-            } catch (fileError) {
-                return res.status(404).json({ 
-                    error: 'Local data file not found and USE_LIVE_COLLECTION_DATA is false.' 
-                });
-            }
+            // 7. Otherwise serve what is stored — an empty object simply means
+            // no seller has collections yet.
+            responseData = await getAllGroupsBySellerId();
         }
 
         // 8. Final Response
@@ -107,9 +92,9 @@ router.get('/getCollections', async (req, res) => {
 
     } catch (error) {
         console.error("Error processing collections:", error);
-        res.status(500).json({ 
-            error: 'Failed to process collections', 
-            details: error.message 
+        res.status(500).json({
+            error: 'Failed to process collections',
+            details: error.message
         });
     }
 });
@@ -195,21 +180,19 @@ router.put('/collections/:sellerId', async (req, res) => {
     if (!result.success) return validationError(res, result.error, `seller '${sellerId}'`);
 
     try {
-        const allCollections = await readCollectionFile();
+        // Null means the seller has no group yet — POST /collections creates
+        // one; this route only ever replaces an existing group.
+        const group = await replaceGroup(sellerId, toStoredGroup(result.data));
 
-        if (!Object.prototype.hasOwnProperty.call(allCollections, sellerId)) {
+        if (!group) {
             return res.status(404).json({ error: `No collections found for seller '${sellerId}'` });
         }
-
-        const group = toStoredGroup(result.data);
-        allCollections[sellerId] = group;
-        await writeCollectionFile(allCollections);
 
         console.log(`📚 Collections for seller '${sellerId}' updated (${group.collections.length} collections)`);
         return res.status(200).json({ message: `Collections for seller '${sellerId}' updated`, data: group });
     } catch (error) {
         console.error(`Failed to update collections for seller '${sellerId}':`, error);
-        return res.status(500).json({ error: 'Failed to update collectionOutputData.json', details: error.message });
+        return res.status(500).json({ error: 'Failed to update collections', details: error.message });
     }
 });
 
@@ -220,23 +203,27 @@ router.post('/collections', async (req, res) => {
     const { sellerId } = result.data;
 
     try {
-        const allCollections = await readCollectionFile();
-
-        if (Object.prototype.hasOwnProperty.call(allCollections, sellerId)) {
+        // Checked up front for the clearer message; createGroup returns null if
+        // a concurrent request wins the insert, so the 409 still holds.
+        if (await groupExists(sellerId)) {
             return res.status(409).json({
                 error: `Seller '${sellerId}' already has collections — update them instead.`
             });
         }
 
-        const group = toStoredGroup(result.data);
-        allCollections[sellerId] = group;
-        await writeCollectionFile(allCollections);
+        const group = await createGroup(sellerId, toStoredGroup(result.data));
+
+        if (!group) {
+            return res.status(409).json({
+                error: `Seller '${sellerId}' already has collections — update them instead.`
+            });
+        }
 
         console.log(`📚 Collections created for seller '${sellerId}' (${group.collections.length} collections)`);
         return res.status(201).json({ message: `Collections created for seller '${sellerId}'`, sellerId, data: group });
     } catch (error) {
         console.error(`Failed to create collections for seller '${sellerId}':`, error);
-        return res.status(500).json({ error: 'Failed to update collectionOutputData.json', details: error.message });
+        return res.status(500).json({ error: 'Failed to create collections', details: error.message });
     }
 });
 

@@ -1,28 +1,21 @@
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
 const { z } = require('zod');
+const { listAssets, getAsset, updateAsset } = require('./assetStore');
 const router = express.Router();
 
-const MANIFEST_PATH = path.join(__dirname, 'assetManifest.json');
-const assetManifest = require('./assetManifest.json');
-
 // Served when a key is missing so <img src> never breaks. Not read from the
-// manifest on purpose: placeholder.product still points at via.placeholder.com,
+// store on purpose: placeholder.product still points at via.placeholder.com,
 // which is dead.
 const FALLBACK_ASSET_URL = "https://http.cat/404";
 
-const toAsset = (key) => ({
-    key,
-    url: assetManifest[key].url,
-    description: assetManifest[key].description,
-    aspectRatio: assetManifest[key].aspectRatio
-});
-
-// Whole manifest, for the admin Assets page. The JSON file sits outside the
-// static dir, so it needs an explicit route.
-router.get('/assets', (req, res) => {
-    res.status(200).json(Object.keys(assetManifest).map(toAsset));
+// Whole manifest, for the admin Assets page.
+router.get('/assets', async (req, res) => {
+    try {
+        res.status(200).json(await listAssets());
+    } catch (error) {
+        console.error('Failed to load assets:', error);
+        res.status(500).json({ error: 'Failed to load assets', details: error.message });
+    }
 });
 
 // Only url and description are editable from the admin page; aspectRatio is
@@ -32,20 +25,8 @@ const assetUpdateSchema = z.object({
     description: z.string({ error: "description is required" }).trim()
 });
 
-// Written via a temp file + rename so a crash mid-write can never leave a
-// truncated manifest behind — this file is require()d at boot.
-function persistManifest() {
-    const tmpPath = `${MANIFEST_PATH}.tmp`;
-    fs.writeFileSync(tmpPath, JSON.stringify(assetManifest, null, 2));
-    fs.renameSync(tmpPath, MANIFEST_PATH);
-}
-
-router.put('/assets/:key', (req, res) => {
+router.put('/assets/:key', async (req, res) => {
     const { key } = req.params;
-
-    if (!Object.prototype.hasOwnProperty.call(assetManifest, key)) {
-        return res.status(404).json({ error: `Asset key '${key}' not found in manifest` });
-    }
 
     const result = assetUpdateSchema.safeParse(req.body);
     if (!result.success) {
@@ -62,31 +43,36 @@ router.put('/assets/:key', (req, res) => {
         });
     }
 
-    // Mutating the require()d object in place means every module already
-    // holding this reference picks the change up without a restart.
-    const previous = { ...assetManifest[key] };
-    assetManifest[key] = { ...previous, url: result.data.url, description: result.data.description };
-
     try {
-        persistManifest();
-    } catch (error) {
-        assetManifest[key] = previous; // keep memory in step with what is on disk
-        console.error(`Failed to write assetManifest.json for key '${key}':`, error);
-        return res.status(500).json({ error: 'Failed to update assetManifest.json', details: error.message });
-    }
+        // Null means no such key: the update touches nothing rather than
+        // creating an asset the manifest never defined.
+        const asset = await updateAsset(key, result.data);
+        if (!asset) {
+            return res.status(404).json({ error: `Asset key '${key}' not found` });
+        }
 
-    console.log(`🖼️ Asset '${key}' updated`);
-    return res.status(200).json({ message: `Asset '${key}' updated`, data: toAsset(key) });
+        console.log(`🖼️ Asset '${key}' updated`);
+        return res.status(200).json({ message: `Asset '${key}' updated`, data: asset });
+    } catch (error) {
+        console.error(`Failed to update asset '${key}':`, error);
+        return res.status(500).json({ error: 'Failed to update asset', details: error.message });
+    }
 });
 
-router.get('/getAsset/:key', (req, res) => {
+router.get('/getAsset/:key', async (req, res) => {
     const key = req.params.key;
-    const asset = Object.prototype.hasOwnProperty.call(assetManifest, key)
-        ? assetManifest[key]
-        : null;
+
+    let asset = null;
+    try {
+        asset = await getAsset(key);
+    } catch (error) {
+        // A lookup failure still redirects: this route sits behind <img src>,
+        // where a 500 renders as a broken image on every page using it.
+        console.error(`Failed to look up asset '${key}':`, error);
+    }
 
     if (!asset || !asset.url) {
-        console.warn(`Asset key not found in manifest: ${key}`);
+        console.warn(`Asset key not found: ${key}`);
         res.set('X-Asset-Fallback', 'true');
         return res.redirect(302, FALLBACK_ASSET_URL);
     }

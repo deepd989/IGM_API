@@ -1,7 +1,7 @@
 const { MongoClient } = require("mongodb");
 
 const uri = process.env.MONGO_DB_URI;
-const dbName = process.env.MONGO_DB_NAME 
+const dbName = process.env.MONGO_DB_NAME
 if (!uri || !dbName) {
   throw new Error("Please define the MONGO_DB_URI environment variable");
 }
@@ -37,15 +37,25 @@ async function getDbClient() {
 }
 
 /**
- * Get a specific database by name. Defaults to "test".
+ * Get a database by name. Defaults to MONGO_DB_NAME — the connection string
+ * carries no default database, so client.db() with no argument would land on
+ * "test" instead.
  */
-async function getDb(dbName = "test") {
+async function getDb(name = dbName) {
   const cli = await getDbClient();
-  return cli.db(dbName);
+  return cli.db(name);
 }
 
 /**
- * Gracefully close the connection (optional).
+ * Get a collection from the MONGO_DB_NAME database.
+ */
+async function getCollection(collectionName) {
+  const database = await getDb();
+  return database.collection(collectionName);
+}
+
+/**
+ * Gracefully close the connection (used by one-off scripts so node can exit).
  */
 async function closeDb() {
   if (client) {
@@ -56,15 +66,16 @@ async function closeDb() {
 }
 
 async function getUserCollection() {
-    const dbClient = await getDbClient();
-const database = dbClient.db(dbName);
-const userCollection = database.collection('users');
-return userCollection;}
+  return getCollection('users');
+}
 
 
 
 
 module.exports = {
 getDbClient,
+getDb,
+getCollection,
+closeDb,
 getUserCollection ,
 };

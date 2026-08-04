@@ -14,6 +14,7 @@ const textSearchRoutes = require('./textSearch');
 const multiBrandCollectionsRoutes = require('./multibrandCollection');
 const assetsRoutes = require('./assetsResolver');
 const brandMicrositeRoutes = require('./brandMicrositeRoutes');
+const { seedFromJson } = require('./seedFromJson');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -25,6 +26,14 @@ app.use(express.urlencoded({ extended: true }));
 
 getDbClient().then(client => {
     console.log('Connected to MongoDB');
+
+    // Assets and seller collections live in MongoDB. This only fills an empty
+    // collection from the committed JSON snapshots, so a deploy can never roll
+    // an admin edit back — see seedFromJson.js. A failure here is logged rather
+    // than fatal: the rest of the service does not depend on it.
+    return seedFromJson().catch(err => {
+        console.error('Failed to seed assets/collections from JSON', err);
+    });
 }).catch(err => {
     console.error('Failed to connect to MongoDB', err);
     process.exit(1); // Exit if DB connection fails
