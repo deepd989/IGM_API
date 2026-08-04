@@ -780,18 +780,23 @@
     "aspectRatio": 1
   },
   "luxury.glossyCard.slide1.video": {
-    "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Luxury%20Glossy%20Card%2Fslide1.mp4?alt=media&token=0e7f3c5b-6d8a-4f9e-9c3b-1f8e5b6c7d8e",
+    "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Lux%20Assets%2FLuxury%20Gloss%20Cards%2FKAM-NK%2001.mp4?alt=media&token=33b51e02-ca5a-4e46-a71d-3b2f1a45f6b8",
     "description": "home page Glossy Card Slide 1 Video",
     "aspectRatio": "unknown"
   },
   "luxury.glossyCard.slide2.video": {
-    "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Luxury%20Glossy%20Card%2Fslide1.mp4?alt=media&token=0e7f3c5b-6d8a-4f9e-9c3b-1f8e5b6c7d8e",
+    "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Lux%20Assets%2FLuxury%20Gloss%20Cards%2FDNK-104.mp4?alt=media&token=ba3f4f75-0366-4e8e-8e36-a93f015f3ac6",
     "description": "home page Glossy Card Slide 2 Video",
-    "aspectRatio":"unknown"
+    "aspectRatio": "unknown"
   },
   "luxury.glossyCard.slide3.video": {
-    "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Luxury%20Glossy%20Card%2Fslide1.mp4?alt=media&token=0e7f3c5b-6d8a-4f9e-9c3b-1f8e5b6c7d8e",
+    "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Lux%20Assets%2FLuxury%20Gloss%20Cards%2FTNK22.mp4?alt=media&token=2d35febd-37e0-4584-a941-e1f6e73df02a",
     "description": "home page Glossy Card Slide 3 Video",
+    "aspectRatio": "unknown"
+  },
+  "luxury.glossyCard.slide4.video": {
+    "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Lux%20Assets%2FLuxury%20Gloss%20Cards%2FGNK-01389.mp4?alt=media&token=c9cfbaf0-e25e-4dfd-9df4-b8f1e7f1015d",
+    "description": "home page Glossy Card Slide 4 Video",
     "aspectRatio": "unknown"
   },
   "luxury.bestSellers.video1": {
@@ -827,14 +832,14 @@
   "luxury.bestSellers.video7": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Luxury%20Best%20Sellers%2Fbest%20sellers%20video1.mp4?alt=media&token=0e7f3c5b-6d8a-4f9e-9c3b-1f8e5b6c7d8e",
     "description": "Luxury Best Sellers Video 6",
-    "aspectRatio":0.562
+    "aspectRatio": 0.562
   },
   "luxury.bestSellers.video8": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Luxury%20Best%20Sellers%2Fbest%20sellers%20video1.mp4?alt=media&token=0e7f3c5b-6d8a-4f9e-9c3b-1f8e5b6c7d8e",
     "description": "Luxury Best Sellers Video 6",
     "aspectRatio": 0.562
   },
-  "luxury.swipeAndShop.video":{
+  "luxury.swipeAndShop.video": {
     "url": "https://firebasestorage.googleapis.com/v0/b/igmjewellery.firebasestorage.app/o/Luxury%20Swipe%20and%20Shop%2Fswipe%20and%20shop.mp4?alt=media&token=0e7f3c5b-6d8a-4f9e-9c3b-1f8e5b6c7d8e",
     "description": "Luxury Swipe and Shop Video",
     "aspectRatio": 0.562
