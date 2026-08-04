@@ -57,6 +57,17 @@ const callGeminiImageGenerator = async (promptParts) => {
     return response.candidates[0].content.parts.find(p => p.inlineData);
 };
 
+// Stored files are named `dp_<userId>.png` (profile picture) or
+// `<productId>_<userId>.png` (generated image), so the owner is always the
+// segment after the last underscore. Matching on that parsed segment instead of
+// building a path out of the request keeps traversal-style input harmless.
+const listUserImages = (userId) => fs.readdirSync(IMAGE_DIR).filter(name => {
+    if (!name.endsWith('.png')) return false;
+    const base = name.slice(0, -4);
+    const sep = base.lastIndexOf('_');
+    return sep !== -1 && base.slice(sep + 1) === userId;
+});
+
 const fetchImageFromUrl = async (url) => {
     const response = await axios.get(url, { responseType: 'arraybuffer', headers: { 'User-Agent': 'Mozilla/5.0' } });
     return { inlineData: { data: Buffer.from(response.data).toString('base64'), mimeType: response.headers['content-type'] || 'image/jpeg' } };
@@ -108,6 +119,34 @@ router.get('/getImage/:id', (req, res) => {
     if (!fs.existsSync(filePath)) return res.status(404).json({ error: "Image not found." });
     res.set('Content-Type', 'image/png');
     res.send(fs.readFileSync(filePath));
+});
+
+// Removes every image belonging to the user: the profile picture and all
+// generated ones. Deleting a user with no images is a no-op 200, so retries
+// stay safe.
+router.delete('/deleteUserImages/:userId', (req, res) => {
+    try {
+        const { userId } = req.params;
+        if (!userId.trim()) return res.status(400).json({ error: "userId is required." });
+
+        const deleted = [];
+        const failed = [];
+
+        listUserImages(userId).forEach(name => {
+            try {
+                fs.unlinkSync(path.join(IMAGE_DIR, name));
+                deleted.push(name);
+            } catch (error) {
+                failed.push({ file: name, error: error.message });
+            }
+        });
+
+        if (failed.length) {
+            return res.status(500).json({ error: "Some images could not be deleted.", deleted, failed });
+        }
+
+        res.status(200).json({ message: `Deleted ${deleted.length} image(s) for user ${userId}.`, deletedCount: deleted.length, deleted });
+    } catch (error) { res.status(500).json({ error: error.message }); }
 });
 
 module.exports = router;
