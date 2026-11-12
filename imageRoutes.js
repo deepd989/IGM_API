@@ -69,7 +69,20 @@ const listUserImages = (userId) => fs.readdirSync(IMAGE_DIR).filter(name => {
 });
 
 const fetchImageFromUrl = async (url) => {
-    const response = await axios.get(url, { responseType: 'arraybuffer', headers: { 'User-Agent': 'Mozilla/5.0' } });
+    let response;
+    try {
+        response = await axios.get(url, { responseType: 'arraybuffer', headers: { 'User-Agent': 'Mozilla/5.0' } });
+    } catch (error) {
+        // Temporary diagnostics: show who refused the download (origin vs. a WAF/CDN in front of it).
+        const upstream = { url, status: error.response?.status, code: error.code, message: error.message };
+        if (error.response) {
+            upstream.headers = error.response.headers;
+            upstream.body = Buffer.from(error.response.data || '').toString('utf8').slice(0, 1000);
+        }
+        console.error('[fetchImageFromUrl] download failed:', JSON.stringify(upstream));
+        error.upstream = upstream;
+        throw error;
+    }
     return { inlineData: { data: Buffer.from(response.data).toString('base64'), mimeType: response.headers['content-type'] || 'image/jpeg' } };
 };
 
@@ -111,7 +124,7 @@ router.post('/generateImageByUrl', upload.none(), async (req, res) => {
         fs.writeFileSync(filePath, imgBuffer);
         res.set('Content-Type', imagePart.inlineData.mimeType);
         res.send(imgBuffer);
-    } catch (error) { res.status(500).json({ error: error.message }); }
+    } catch (error) { res.status(500).json({ error: error.message, ...(error.upstream && { upstream: error.upstream }) }); }
 });
 
 router.get('/getImage/:id', (req, res) => {
